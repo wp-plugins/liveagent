@@ -3,7 +3,7 @@ Contributors: jurajsim
 Tags: live chat, chat, online support, support, mails, mail handler, qualityunit
 Requires at least: 3.0.0
 Tested up to: 3.1
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 
 This plugin integrates Live Agent software into any Wordpress installation.
 
@@ -33,7 +33,7 @@ For more info check out [this page](href='http://www.qualityunit.com/liveagent/ 
 == Changelog ==
 
 = 1.0.1 =
-* Add wizard to set up your free Live Agent account
+* Bugfixes on plugin startup
 
 == Upgrade Notice ==
 

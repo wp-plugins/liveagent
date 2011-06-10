@@ -3,7 +3,7 @@
  *   @copyright Copyright (c) 2011 Quality Unit s.r.o.
  *   @author Juraj Simon
  *   @package WpLiveAgentPlugin
- *   @version 1.0.0
+ *   @version 1.0.1
  *
  *   Licensed under GPL2
  */
@@ -39,7 +39,7 @@ class liveagent_Form_Settings_ButtonsTableRow extends liveagent_Form_Base {
 
 	protected function addCheckbox($name, $templateName = null, $additionalCode = '') {
 		$value = $this->getOption(liveagent_Settings::BUTTONS_CONFIGURATION_SETTING_NAME);
-		if (array_key_exists($this->buttonId, $value) && $value[$this->buttonId] == 'true') {
+		if (is_array($value) && array_key_exists($this->buttonId, $value) && $value[$this->buttonId] == 'true') {
 			$checked = 'checked';
 		} else {
 			$checked = '';

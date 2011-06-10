@@ -4,7 +4,7 @@
  Plugin URI: http://www.qualityunit.com/liveagent
  Description: Plugin that enable integration with Live Agent
  Author: QualityUnit
- Version: 1.0.0
+ Version: 1.0.1
  Author URI: http://www.qualityunit.com
  License: GPL2
  */
@@ -77,6 +77,11 @@ if (!class_exists('liveagent')) {
 			add_filter ('wp_head', array($this, 'initHeader'), 99);
 			add_filter ('admin_head', array($this, 'initHeader'), 99);
 			add_filter ('wp_footer', array($this, 'initFooter'), 99);
+			try {
+				$this->settings->getOwnerSessionId();
+			} catch (liveagent_Exception_ConnectProblem $e) {
+				return;
+			}
 			add_filter ('sidebars_widgets', array($this, 'insertActiveWidgets'), 99);
 			$this->initWidgets();
 		}
@@ -93,10 +98,6 @@ if (!class_exists('liveagent')) {
 				}
 			}
 			return false;
-		}
-
-		private function deactivateWidget($id, $widgets) {
-			
 		}
 
 		public function insertActiveWidgets($widgets) {

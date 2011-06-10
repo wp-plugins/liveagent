@@ -85,7 +85,7 @@ class liveagent_Settings {
 		}
 		return $data;
 	}
-
+	
 	public function getLiveAgentUrl() {
 		return get_option(self::LA_URL_SETTING_NAME);
 	}
@@ -100,6 +100,9 @@ class liveagent_Settings {
 	
 	public function buttonIsEnabled($buttonId) {
 		$value = get_option(liveagent_Settings::BUTTONS_CONFIGURATION_SETTING_NAME);
+		if ($value == '' || $value === null) {
+			return false;
+		}
 		if (array_key_exists($buttonId, $value) && $value[$buttonId] == 'true') {
 			return true;	
 		}
