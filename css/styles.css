@@ -1,0 +1,73 @@
+/*
+ Plugin Name: Live Agent
+ Plugin URI: http://www.qualityunit.com/liveagent
+ Description: Plugin that enable integration with Live Agent
+ Author: QualityUnit
+ Version: 1.0.0
+ Author URI: http://www.qualityunit.com
+ License: GPL2
+ */
+div.liveagentInfo {
+	background-color: #D0E4F5;
+	border-color: #52AAF2;
+}
+
+div.laSignup {
+	display: block;
+}
+
+.buttonTableRow {
+	display: inline;
+	clear: both;
+	float: left;
+	position: relative;
+}
+
+.laButtonPreview { /*position: absolute;*/
+	
+}
+
+.laButtonsTableCell {
+	position: relative;
+	float: left;
+	overflow: auto;
+	width: 250px;
+	height: 100px;
+	border-bottom-color: #000000;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	vertical-align: middle;
+	text-align: center;
+}
+
+.laButtonsTableHeader {
+	position: relative;
+	float: left;
+	overflow: auto;
+	width: 250px;
+	border-bottom-color: #000000;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+}
+
+.laButtonsTableHeaderType {
+	text-align: center;
+}
+
+.laButtonsTableHeaderEnabled {
+	text-align: center;
+}
+
+.laButtonsTable {
+	position: relative;
+	clear: both;
+}
+
+.laButtonsTableSubmit {
+	clear: both;
+	float: left;
+}
+
+.laButtonsTableCellType {
+	height:20px;	
+}
