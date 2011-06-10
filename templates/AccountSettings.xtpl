@@ -1,0 +1,38 @@
+<!-- BEGIN: main -->
+<div class="wrap">
+	<h2>Live Agent - Account options</h2>
+	<!-- BEGIN: login_check_ok -->
+		{connection-ok}
+	<!-- END: login_check_ok -->
+	<div class='laSignup'>	
+	{controls.la-signup-button}
+	</div>
+    <form method="post" action="options.php">
+    	{controls.form-settings}            
+    	<table class="form-table">
+        	<tr valign="top">
+        		<th scope="row" valign="middle">Live Agent URL</th>
+        		<td>{controls.la-url}</td>        
+        	</tr>
+	        <tr>
+	            <td colspan="2">Example: http://www.yoursite.com/api/</td>
+	        </tr>                
+    	</table>
+        <table class="form-table">
+        	<tr valign="top">
+        		<th scope="row" valign="middle">Owner Name</th>
+        		<td>{controls.la-owner-email}</td>        
+        	</tr>               
+    	</table>
+        <table class="form-table">
+        	<tr valign="top">
+        		<th scope="row" valign="middle">Owner Password</th>
+        		<td>{controls.la-owner-password}</td>        
+        	</tr>               
+    	</table>    	
+        <p class="submit">
+    		{controls.submit}					
+    	</p>
+    </form>
+</div>
+<!-- END: main -->
