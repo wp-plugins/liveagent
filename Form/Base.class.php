@@ -108,12 +108,26 @@ abstract class liveagent_Form_Base extends liveagent_Base {
 		return $select;
 	}
 
-	protected function addPassword($name, $size = 20) {
-		$this->form->add('password', $name, '', array('size' => $size, 'value' => $this->getOption($name)));
+	protected function addPassword($name, $size = 20, $class = null) {
+		$options = array('size' => $size, 'value' => $this->getOption($name));
+		if ($size !== null) {
+			$options['size'] = $size;
+		}
+		if ($class !== null) {
+			$options['class'] = $class;
+		}
+		$this->form->add('password', $name, '', $options);
 	}
 
-	protected function addTextBox($name, $size = 20) {
-		$this->form->add('text', $name, '', array('size' => $size, 'value' => $this->getOption($name)));
+	protected function addTextBox($name, $size = 20, $class = null) {
+		$options = array('value' => $this->getOption($name));
+		if ($class !== null) {
+			$options['class'] = $class;
+		}
+		if ($size !== null) {
+			$options['size'] = $size;
+		}
+		$this->form->add('text', $name, '', $options);
 	}
 
 	public function render($toVar = false) {
