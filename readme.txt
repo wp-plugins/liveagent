@@ -1,25 +1,48 @@
 === Live Agent ===
 Contributors: jurajsim
-Tags: live chat, chat, online support, support, mails, mail handler, qualityunit
+Tags: live chat, live agent, help desk, help desk software, live chat software, live agent software, chat, online support, support, mails, mail handler, qualityunit
 Requires at least: 3.0.0
 Tested up to: 3.1
 Stable tag: 1.0.2
 
-This plugin integrates Live Agent software into any Wordpress installation.
+Wordpress LiveAgent plugin integrates well known help desk and live chat software into any Wordpress installation. No HTML knowledge is required, simply add "start chat" button by few simple clicks and be live within 5 minutes. 
 
 == Description ==
 
-This plugin integrates Live Agent software into any Wordpress installation. You can find more info about the software [here](href='http://www.qualityunit.com/liveagent/ "Live Agent software")
+Wordpress-LiveAgent plugin integrates full featured help desk and live chat software [Live Agent](href='http://www.qualityunit.com/liveagent/#wordpress "Live Agent software") into any Wordpress installation.
+
+Liveagent connects your visitors with your support team in real time and will solve following problems for you:
+
+1. Online Chat 
+- Your customers can connect with you in real time using live chat button on your website
+- You can convert your visitors into customers much faster as before (studies shows average 20% increase of sales with live chat on website)
+
+2. Help Desk 
+- Your customers can reach you by emails (you can scan unlimited number of mail accounts and sort emails into multiple departments)
+- You can answer emails in same way as if it would be chat - customer will get immediate answers
+
+3. Offline Messages
+- In case your support is not online, your customer can leave you offline message, which will be later asnwered by email
+
+It doesn't matter, if your customer will contact you by email or chat, LiveAgent can handle all types of support channels into one hybrid communication.
+You can keep full history of conversations with your customers, you have full overview about the past of customer on one page.
+ 
+You can find more info about Live Agent [here](href='http://www.qualityunit.com/liveagent/#wordpress "Live Agent software")
 
 Supported features:
 
-*	Integrates wordpress fith Live Agnet free hosted accounts
-*   Automatic inclusion of live chat buttons in your pages
+*	Integrates wordpress with live chat and help desk sfotware (Live Agent)
+* Automatic inclusion of live chat buttons in your pages, no HTML knowledge required
 
 == Installation ==
+No HTML knowledge is required and integration will take you less than 5 minutes.
 
-1. Create directory liveagent in '/wp-content/plugins/'
-1. Unzip `liveagent.zip` to the `/wp-content/plugins/liveagent` directory
+1. Unzip `liveagent.zip` to the directory `/wp-content/plugins/liveagent`
+2. Activate Live Agent plugin
+3. Create Free trial account or install Live Agent on your own server
+4. Set account user credentials in menu "Live Agent"
+5. Go to menu Live Agent -> Buttons. Choose button you like to have online on your website and click Save.
+6. Go to live agent admin panel and start answering chats and emails of your visitors. 
 
 == Frequently Asked Questions ==
 
@@ -30,7 +53,8 @@ For more info check out [this page](href='http://www.qualityunit.com/liveagent/ 
 
 == Screenshots ==
 
-No Screenshots
+1. Example of conversation detail in LiveAgent
+2. Example of Visitor's chat window
 
 == Changelog ==
 
