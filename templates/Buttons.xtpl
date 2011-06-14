@@ -1,0 +1,38 @@
+<!-- BEGIN: main -->
+<div class="wrap">
+	<h2>Live Agent - Buttons</h2>
+	<!-- BEGIN: login_check_ok -->
+		{connection-ok}
+	<!-- END: login_check_ok -->
+	<!-- BEGIN: login_check_failed -->
+		<div class="error"><p>{connection-error}</p></div>
+		</div>
+	<!-- END: login_check_failed -->
+	<div class='laSignup'>	
+	{controls.la-signup-button}
+	</div>
+    <form method="post" action="options.php">
+    	{controls.form-settings}
+    	<div class='laButtonsTable'>   
+    		<div class="buttonTableRow">
+				<div class='laButtonsTableHeader'>
+					{controls.onlinepreview-header}	
+				</div>
+				<div class='laButtonsTableHeader'>
+					{controls.offlinepreview-header}
+				</div>
+				<div class='laButtonsTableHeader laButtonsTableHeaderType'>
+					{controls.type-header}
+				</div>
+				<div class='laButtonsTableHeader laButtonsTableHeaderEnabled'>
+					{controls.enabled-header}
+				</div>	
+			</div>         
+    		{controls.buttons-table}    		    
+    	</div>
+        <p class="submit laButtonsTableSubmit">
+    		{controls.submit}					
+    	</p>
+    </form>
+</div>
+<!-- END: main -->
