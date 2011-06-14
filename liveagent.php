@@ -4,7 +4,7 @@
  Plugin URI: http://www.qualityunit.com/liveagent
  Description: Plugin that enable integration with Live Agent
  Author: QualityUnit
- Version: 1.0.1
+ Version: 1.0.2
  Author URI: http://www.qualityunit.com
  License: GPL2
  */
@@ -52,22 +52,14 @@ if (!class_exists('liveagent')) {
 			return $this->getImgUrl() . 'menu-icon.png';
 		}
 
-		private function checkSettings() {
-			try {
-				$this->auth = new liveagent_Auth();
-				$this->auth->ping();
-				$this->settings->getOwnerSessionId();
-			} catch (liveagent_Exception_ConnectProblem $e) {
-				$this->showConnectionError();
-			}
-		}
 
 		private function initPlugin() {
+			$this->auth = new liveagent_Auth();
 			add_action('admin_init', array($this->settings, 'initSettings'));
-			$this->checkSettings();
-
 			add_action('admin_menu', array($this, 'addPrimaryConfigMenu'));
-
+			if (!$this->settings->settingsDefinedForConnection()) {
+				return;
+			}
 			if (function_exists('wp_enqueue_script')) {
 				wp_enqueue_script('liveagent-main', $this->getJsUrl() . 'main.js', array(), '1.0');
 			} else {
@@ -136,7 +128,13 @@ if (!class_exists('liveagent')) {
 
 		public function initFooter() {
 			if(!is_feed()) {
-				echo $this->buttonHelper->getIntegrationCodeForEnabledFloatButtons();
+				try {
+					echo $this->buttonHelper->getIntegrationCodeForEnabledFloatButtons();
+				} catch (liveagent_Exception_ConnectProblem $e) {
+					$this->showConnectionError();
+				} catch (La_Exception $e) {
+					$this->_log(__(sprintf('Unable to insert button in footer %s', $e->getMessage()), LIVEAGENT_PLUGIN_NAME));
+				}
 			}
 		}
 

@@ -51,8 +51,8 @@ class liveagent_Settings {
 		$settings = get_option($code);
 		if (is_string($settings)) {
 			$settings = unserialize($settings);
-		}		
-		if ($settings == '' || $settings == null) {			
+		}
+		if ($settings == '' || $settings == null) {
 			throw new liveagent_Exception_SettingNotValid(__(sprintf('Setting %s not defined yet.', $code)));
 		}
 		$validTo = $settings['time'] + self::CACHE_VALIDITY + 0;
@@ -74,9 +74,13 @@ class liveagent_Settings {
 		return $sessionid;
 	}
 
+	public function settingsDefinedForConnection() {
+		return strlen(trim($this->getLiveAgentUrl())) && strlen(trim($this->getOwnerEmail()));
+	}
+
 	public function getButtonsGridRecordset() {
 		try {
-			$data = unserialize($this->getCachedSetting(self::BUTTONS_DATA));			
+			$data = unserialize($this->getCachedSetting(self::BUTTONS_DATA));
 			return $data;
 		} catch (liveagent_Exception_SettingNotValid $e) {
 			$buttonsHelper = new liveagent_helper_Buttons();
@@ -85,7 +89,7 @@ class liveagent_Settings {
 		}
 		return $data;
 	}
-	
+
 	public function getLiveAgentUrl() {
 		return get_option(self::LA_URL_SETTING_NAME);
 	}
@@ -97,14 +101,14 @@ class liveagent_Settings {
 	public function getOwnerPassword() {
 		return get_option(self::LA_OWNER_PASSWORD_SETTING_NAME);
 	}
-	
+
 	public function buttonIsEnabled($buttonId) {
 		$value = get_option(liveagent_Settings::BUTTONS_CONFIGURATION_SETTING_NAME);
 		if ($value == '' || $value === null) {
 			return false;
 		}
 		if (array_key_exists($buttonId, $value) && $value[$buttonId] == 'true') {
-			return true;	
+			return true;
 		}
 		return false;
 	}

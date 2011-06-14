@@ -4,6 +4,10 @@
 	<!-- BEGIN: login_check_ok -->
 		{connection-ok}
 	<!-- END: login_check_ok -->
+	<!-- BEGIN: login_check_failed -->
+		<div class="error"><p>{connection-error}</p></div>
+		</div>
+	<!-- END: login_check_failed -->
 	<div class='laSignup'>	
 	{controls.la-signup-button}
 	</div>

@@ -43,7 +43,7 @@ if (!class_exists('liveagent_Base')) {
 		}
 
 		protected function showAdminError($error) {
-			add_action( 'admin_notices', eval("echo '<div class=\"error\"><p>".$error."</p></div>';"));
+			$this->_log($error);
 		}
 
 		protected function showConnectionError() {

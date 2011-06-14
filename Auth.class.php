@@ -17,7 +17,7 @@ if (!class_exists('liveagent_Auth')) {
 			try {
 				$request->sendNow();
 			} catch (Exception $e) {
-				$this->_log(__(sprintf('Unable to ping Live Agent remotelly: %s', $e->getMessage())));
+				$this->_log(__('Unable to ping Live Agent remotelly', LIVEAGENT_PLUGIN_NAME));
 				throw new liveagent_Exception_ConnectProblem();
 			}
 			$data = $request->getData();
@@ -38,7 +38,7 @@ if (!class_exists('liveagent_Auth')) {
 			try {
 				$request->sendNow();				
 			} catch (Exception $e) {								
-				$this->_log(__('Unable to login: ' . $e->getMessage()));
+				$this->_log(__('Unable to login.', LIVEAGENT_PLUGIN_NAME));
 				throw new liveagent_Exception_ConnectProblem();
 			}
 			try {

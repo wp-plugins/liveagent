@@ -35,10 +35,11 @@ class liveagent_Form_Settings_Account extends liveagent_Form_Base {
 	}
 
 	protected function initForm() {
-		try {
+		parent::initForm();
+		if ($this->connectionSucc) {
 			$this->parseBlock('login_check_ok', array('connection-ok' => __('Your WordPress installation is succesfully connected with Live Agent', LIVEAGENT_PLUGIN_NAME)));
-		} catch (Exception $e) {
-			$this->showConnectionError();
+		} else if (!$this->connectionSucc && $this->settings->settingsDefinedForConnection()) {
+			$this->onConnectionFailed();
 		}
 		$this->addTextBox(liveagent_Settings::LA_URL_SETTING_NAME, 100);
 		$this->addTextBox(liveagent_Settings::LA_OWNER_EMAIL_SETTING_NAME, 40);

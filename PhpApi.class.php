@@ -420,7 +420,6 @@ if (!class_exists('La_Rpc_MultiRequest', false)) {
       }
   
       protected function sendRequest($requestBody) {
-print_r($requestBody);      	
           $request = new La_Net_Http_Request();
           
           $request->setMethod('POST');

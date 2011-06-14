@@ -11,14 +11,19 @@
 class liveagent_Form_Settings_Buttons extends liveagent_Form_Base {
 	private $buttonHelper;
 	private $settings;
+	private $auth;
 
 	public function __construct(liveagent_Settings $settings) {
 		$this->buttonHelper = new liveagent_helper_Buttons();
 		$this->settings = $settings;
+		$this->auth = new liveagent_Auth();
 		parent::__construct(liveagent_Settings::BUTTONS_SETTINGS_PAGE_NAME, 'options.php');
 	}
 
 	protected function getTemplateFile() {
+		if (!$this->settings->settingsDefinedForConnection() || !$this->connectionSucc) {
+			return $this->getTemplatesPath() . 'ButtonsNoAccount.xtpl';
+		}
 		return $this->getTemplatesPath() . 'Buttons.xtpl';
 	}
 
@@ -27,11 +32,14 @@ class liveagent_Form_Settings_Buttons extends liveagent_Form_Base {
 	}
 
 	protected function initForm() {
-		$auth = new liveagent_Auth();
-		try {
+		parent::initForm();
+		if ($this->connectionSucc) {
 			$this->parseBlock('login_check_ok', array('connection-ok' => __('Your WordPress installation is succesfully connected with Live Agent', LIVEAGENT_PLUGIN_NAME)));
-		} catch (Exception $e) {
-			$this->showConnectionError();
+		} else if (!$this->connectionSucc && $this->settings->settingsDefinedForConnection()) {
+			$this->onConnectionFailed();
+			return;
+		} else {
+			return;
 		}
 		$loginToPanel = __('Login to Admin panel', LIVEAGENT_PLUGIN_NAME);
 		$this->addHtml('la-signup-button', '<a href="'.$this->settings->getLiveAgentUrl() . '/agent?S='.$this->settings->getOwnerSessionId().'" target="_blank">'.$loginToPanel.'</a>');
@@ -40,7 +48,7 @@ class liveagent_Form_Settings_Buttons extends liveagent_Form_Base {
 		$this->addHtml('offlinepreview-header', __('Offline preview', LIVEAGENT_PLUGIN_NAME));
 		$this->addHtml('type-header', __('Type', LIVEAGENT_PLUGIN_NAME));
 		$this->addHtml('enabled-header', __('Enabled', LIVEAGENT_PLUGIN_NAME));
-		
+
 		$content = '';
 		foreach($buttons as $row) {
 			$form = new liveagent_Form_Settings_ButtonsTableRow($row->get('id'), $this->buttonHelper->getTypeHumanReadable($row->get('contenttype')));
@@ -56,6 +64,9 @@ class liveagent_Form_Settings_Buttons extends liveagent_Form_Base {
 	}
 
 	private function renderFrames() {
+		if (!$this->connectionSucc) {
+			return;
+		}
 		$out = '<script type="text/javascript"><!--//--><![CDATA[//><!--' . "\n";
 		$buttons = $this->settings->getButtonsGridRecordset();
 		foreach ($buttons as $row) {
