@@ -41,16 +41,16 @@ class liveagent_Form_Settings_Account extends liveagent_Form_Base {
 		} else if (!$this->connectionSucc && $this->settings->settingsDefinedForConnection()) {
 			$this->onConnectionFailed();
 		}
-		$this->addTextBox(liveagent_Settings::LA_URL_SETTING_NAME, 100);
-		$this->addTextBox(liveagent_Settings::LA_OWNER_EMAIL_SETTING_NAME, 40);
-		$this->addPassword(liveagent_Settings::LA_OWNER_PASSWORD_SETTING_NAME, 20);
+		$this->addTextBox(liveagent_Settings::LA_URL_SETTING_NAME, null, 'nlInput text');
+		$this->addTextBox(liveagent_Settings::LA_OWNER_EMAIL_SETTING_NAME, null, 'nlInput text');
+		$this->addPassword(liveagent_Settings::LA_OWNER_PASSWORD_SETTING_NAME, null, 'nlInput text');
 		$loginToPanel = __('Login to Admin panel', LIVEAGENT_PLUGIN_NAME);
 		try {	
-			$this->addHtml('la-signup-button', '<a href="'.$this->settings->getLiveAgentUrl() . '/agent?S='.$this->settings->getOwnerSessionId().'" target="_blank">'.$loginToPanel.'</a>');
+			$this->addHtml('la-signup-button', '<a href="'.$this->settings->getLiveAgentUrl() . '/agent?S='.$this->settings->getOwnerSessionId().'" target="_blank" class="nlBigButton">'.$loginToPanel.'</a>');
 		} catch (liveagent_Exception_ConnectProblem $e) {
-			$this->addHtml('la-signup-button', '<a href="'.$this->settings->getLiveAgentUrl() . '/agent" target="_blank">'.$loginToPanel.'</a>');
+			$this->addHtml('la-signup-button', '<a href="'.$this->settings->getLiveAgentUrl() . '/agent" target="_blank" class="nlBigButton">'.$loginToPanel.'</a>');
 		}
-		$this->addSubmit();
+		$this->form->add('html', 'submit', __('Save Account Settings', LIVEAGENT_PLUGIN_NAME));
 	}
 }
 
