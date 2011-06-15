@@ -42,7 +42,11 @@ class liveagent_Form_Settings_Buttons extends liveagent_Form_Base {
 			return;
 		}
 		$loginToPanel = __('Login to Admin panel', LIVEAGENT_PLUGIN_NAME);
-		$this->addHtml('la-signup-button', '<a href="'.$this->settings->getLiveAgentUrl() . '/agent?S='.$this->settings->getOwnerSessionId().'" target="_blank">'.$loginToPanel.'</a>');
+		try {
+			$this->addHtml('la-signup-button', '<a href="'.$this->settings->getLiveAgentUrl() . '/agent?S='.$this->settings->getOwnerSessionId().'" target="_blank" class="nlBigButton">'.$loginToPanel.'</a>');
+		} catch (liveagent_Exception_ConnectProblem $e) {
+			$this->addHtml('la-signup-button', '<a href="'.$this->settings->getLiveAgentUrl() . '/agent" target="_blank" class="nlBigButton">'.$loginToPanel.'</a>');
+		}
 		$buttons = $this->settings->getButtonsGridRecordset();
 		$this->addHtml('onlinepreview-header', __('Online preview', LIVEAGENT_PLUGIN_NAME));
 		$this->addHtml('offlinepreview-header', __('Offline preview', LIVEAGENT_PLUGIN_NAME));
@@ -55,7 +59,7 @@ class liveagent_Form_Settings_Buttons extends liveagent_Form_Base {
 			$content .= $form->render();
 		}
 		$this->addHtml('buttons-table', $content);
-		$this->addSubmit();
+		$this->form->add('html', 'submit', __('Save', LIVEAGENT_PLUGIN_NAME));
 	}
 
 	public function render($toVar = false) {

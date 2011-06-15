@@ -30,12 +30,25 @@ class liveagent_Settings {
 	const BUTTONS_CONFIGURATION_SETTING_NAME = 'la-buttons-configuration';
 
 	public function initSettings() {
-		register_setting(self::GENERAL_SETTINGS_PAGE_NAME, self::LA_URL_SETTING_NAME);
+		register_setting(self::GENERAL_SETTINGS_PAGE_NAME, self::LA_URL_SETTING_NAME, array($this, 'sanitizeUrl'));
 		register_setting(self::GENERAL_SETTINGS_PAGE_NAME, self::LA_OWNER_EMAIL_SETTING_NAME);
 		register_setting(self::GENERAL_SETTINGS_PAGE_NAME, self::LA_OWNER_PASSWORD_SETTING_NAME);
 		register_setting(self::BUTTONS_SETTINGS_PAGE_NAME, self::BUTTONS_CONFIGURATION_SETTING_NAME);
 		register_setting(self::INTERNAL_SETTINGS, self::OWNER_SESSIONID);
 		register_setting(self::INTERNAL_SETTINGS, self::BUTTONS_DATA);
+	}
+
+	public function sanitizeUrl($url) {
+		$this->clearCache();
+		if (stripos($url, 'http://')!==false || stripos($url, 'https://')!==false) {
+			return $url;
+		}		
+		return 'http://' . $url;
+	}
+	
+	public function clearCache() {
+		update_option(self::OWNER_SESSIONID, '');
+		update_option(self::BUTTONS_DATA, '');
 	}
 
 	private function setCachedSetting($code, $value) {

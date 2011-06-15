@@ -1,6 +1,5 @@
 <!-- BEGIN: main -->
 <div class="wrap">
-	<h2>Live Agent - Buttons</h2>
 	<!-- BEGIN: login_check_failed -->
 		<div class="error"><p>{connection-error}</p></div>
 		</div>
