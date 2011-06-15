@@ -47,8 +47,8 @@ class liveagent_Settings {
 	}
 	
 	public function clearCache() {
-		update_setting(self::OWNER_SESSIONID, '');
-		update_setting(self::BUTTONS_DATA, '');
+		update_option(self::OWNER_SESSIONID, '');
+		update_option(self::BUTTONS_DATA, '');
 	}
 
 	private function setCachedSetting($code, $value) {

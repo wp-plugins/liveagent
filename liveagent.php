@@ -4,7 +4,7 @@
  Plugin URI: http://www.qualityunit.com/liveagent
  Description: Plugin that enable integration with Live Agent
  Author: QualityUnit
- Version: 1.0.6
+ Version: 1.0.7
  Author URI: http://www.qualityunit.com
  License: GPL2
  */
@@ -63,7 +63,7 @@ if (!class_exists('liveagent')) {
 				return;
 			}
 			if (function_exists('wp_enqueue_script')) {
-				wp_enqueue_script('liveagent-main', $this->getJsUrl() . 'main.js', array(), '1.0');
+				wp_enqueue_script('liveagent-main', $this->getJsUrl() . 'main.js', array(), '1.0.6');
 			} else {
 				$this->showAdminError(__('Live Agent plugin error: Unable to load required javascript files! Wordpress function wp_enqueue_script is missing.', LIVEAGENT_PLUGIN_NAME));
 				return;
