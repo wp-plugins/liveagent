@@ -27,6 +27,17 @@
     	{controls.form-settings}
 		<div class="nlStepBoxContent">
 			<div class="nlStepBoxLeft">
+            	<div class="nlFormField">
+                	<div class="nlFormFieldLabel">
+                    	Account Url
+                    </div>
+                	<div class="nlFormFieldInput">
+                    	{controls.la-url}
+                    </div>
+                    <div class="nlFormFieldDesc">
+                    	include 'http://' or 'https://'
+                    </div>
+                </div>
 	           	<div class="nlFormField">
                 	<div class="nlFormFieldLabel">
                     	Email
@@ -41,14 +52,6 @@
                     </div>
                 	<div class="nlFormFieldInput">
                     	{controls.la-owner-password}
-                    </div>
-                </div>
-            	<div class="nlFormField">
-                	<div class="nlFormFieldLabel">
-                    	Account Domain
-                    </div>
-                	<div class="nlFormFieldInput">
-                    	{controls.la-url}
                     </div>
                 </div>
                 <input type="hidden" value="submit">                

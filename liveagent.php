@@ -4,7 +4,7 @@
  Plugin URI: http://www.qualityunit.com/liveagent
  Description: Plugin that enable integration with Live Agent
  Author: QualityUnit
- Version: 1.0.5
+ Version: 1.0.6
  Author URI: http://www.qualityunit.com
  License: GPL2
  */
