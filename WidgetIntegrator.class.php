@@ -24,7 +24,12 @@ class liveagent_WidgetIntegrator extends liveagent_Base {
 	}
 
 	public function initWidgets() {
+		try {
 		$buttons = $this->settings->getButtonsGridRecordset();
+		} catch (Exception $e) {
+			$this->_log(__('Unable to register widgets', LIVEAGENT_PLUGIN_NAME));
+			return;
+		}
 		foreach ($buttons as $button) {
 			if ($button->get('contenttype') != 'F') {
 				$id = $button->get('id');

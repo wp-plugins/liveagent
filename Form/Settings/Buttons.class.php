@@ -44,10 +44,10 @@ class liveagent_Form_Settings_Buttons extends liveagent_Form_Base {
 		$loginToPanel = __('Login to Admin panel', LIVEAGENT_PLUGIN_NAME);
 		try {
 			$this->addHtml('la-signup-button', '<a href="'.$this->settings->getLiveAgentUrl() . '/agent?S='.$this->settings->getOwnerSessionId().'" target="_blank" class="nlBigButton">'.$loginToPanel.'</a>');
+			$buttons = $this->settings->getButtonsGridRecordset();
 		} catch (liveagent_Exception_ConnectProblem $e) {
 			$this->addHtml('la-signup-button', '<a href="'.$this->settings->getLiveAgentUrl() . '/agent" target="_blank" class="nlBigButton">'.$loginToPanel.'</a>');
 		}
-		$buttons = $this->settings->getButtonsGridRecordset();
 		$this->addHtml('onlinepreview-header', __('Online preview', LIVEAGENT_PLUGIN_NAME));
 		$this->addHtml('offlinepreview-header', __('Offline preview', LIVEAGENT_PLUGIN_NAME));
 		$this->addHtml('type-header', __('Type', LIVEAGENT_PLUGIN_NAME));
