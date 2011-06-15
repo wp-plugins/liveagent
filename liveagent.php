@@ -4,12 +4,14 @@
  Plugin URI: http://www.qualityunit.com/liveagent
  Description: Plugin that enable integration with Live Agent
  Author: QualityUnit
- Version: 1.0.2
+ Version: 1.0.8
  Author URI: http://www.qualityunit.com
  License: GPL2
  */
 
 define('LIVEAGENT_PLUGIN_NAME', 'liveagent');
+define('LIVEAGENT_PLUGIN_VERSION', '1.0.8');
+
 
 $loadErrorMessage = null;
 
@@ -56,18 +58,18 @@ if (!class_exists('liveagent')) {
 		private function initPlugin() {
 			$this->auth = new liveagent_Auth();
 			add_action('admin_init', array($this->settings, 'initSettings'));
-			add_action('admin_menu', array($this, 'addPrimaryConfigMenu'));
+			add_action('admin_menu', array($this, 'addPrimaryConfigMenu'));			
+			add_filter ('wp_head', array($this, 'initHeader'), 99);
+			add_filter ('admin_head', array($this, 'initHeader'), 99);
 			if (!$this->settings->settingsDefinedForConnection()) {
 				return;
 			}
 			if (function_exists('wp_enqueue_script')) {
-				wp_enqueue_script('liveagent-main', $this->getJsUrl() . 'main.js', array(), '1.0');
+				wp_enqueue_script('liveagent-main', $this->getJsUrl() . 'main.js', array(), LIVEAGENT_PLUGIN_VERSION);
 			} else {
 				$this->showAdminError(__('Live Agent plugin error: Unable to load required javascript files! Wordpress function wp_enqueue_script is missing.', LIVEAGENT_PLUGIN_NAME));
 				return;
 			}
-			add_filter ('wp_head', array($this, 'initHeader'), 99);
-			add_filter ('admin_head', array($this, 'initHeader'), 99);
 			add_filter ('wp_footer', array($this, 'initFooter'), 99);
 			try {
 				$this->settings->getOwnerSessionId();
@@ -119,9 +121,13 @@ if (!class_exists('liveagent')) {
 			}
 		}
 
-		public function initHeader($content) {
+		public function initHeader($content) {			
 			if(!is_feed()) {
-				echo '<link type="text/css" rel="stylesheet" href="' . $this->getCssUrl() . 'styles.css' . '" \>' . "\n" . $content;
+				echo '<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,italicbold" rel="stylesheet" type="text/css" />' . "\n";
+				echo '<link type="text/css" rel="stylesheet" href="' . $this->getCssUrl() . 'styles.css?ver=' . LIVEAGENT_PLUGIN_VERSION . '" \>' . "\n" . $content;
+				if (!$this->settings->settingsDefinedForConnection()) {
+					return;
+				}
 				echo '<script type="text/javascript" id="la_x2s6df8d" src="'.$this->getRemoteTrackJsUrl().'"></script>';
 			}
 		}
