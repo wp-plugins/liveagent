@@ -51,6 +51,7 @@ if (!class_exists('liveagent_Loader')) {
 			$this->loadClass('liveagent_Auth');
 			$this->loadClass('liveagent_Exception_SettingNotValid');
 			$this->loadClass('liveagent_Exception_ConnectProblem');
+			$this->loadClass('liveagent_WidgetIntegrator');
 		}
 
 		private function loadClass($className) {

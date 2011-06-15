@@ -36,7 +36,12 @@ class liveagent_helper_Buttons extends liveagent_Base {
 		$request = new La_Rpc_Request('La_Button_ButtonTable', 'getRows');
 		$request->setUrl($this->getRemoteApiUrl() . '?S=' . $this->settings->getOwnerSessionId());
 
-		$request->sendNow();
+		try {
+			$request->sendNow();
+		} catch (Exception $e) {
+			$this->_log(__('Unable to obtain button codes'));
+			return array();
+		}
 		$grid = new La_Data_Grid();
 		$grid->loadFromObject($request->getStdResponse());
 		return $grid->getRecordset();
@@ -48,6 +53,7 @@ class liveagent_helper_Buttons extends liveagent_Base {
 				return $row->get($code);
 			}
 		}
+		return '';
 	}
 
 	public function getType($buttonId) {
