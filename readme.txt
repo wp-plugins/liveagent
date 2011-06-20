@@ -3,7 +3,7 @@ Contributors: jurajsim
 Tags: live chat, live agent, help desk, help desk software, live chat software, live agent software, chat, online support, support, mails, mail handler, qualityunit
 Requires at least: 3.0.0
 Tested up to: 3.1.3
-Stable tag: 1.1.1
+Stable tag: 1.1.2
 
 Wordpress LiveAgent plugin integrates well known help desk and live chat software into any Wordpress installation. No HTML knowledge is required, simply add "start chat" button by few simple clicks and be live within 5 minutes. 
 
@@ -59,6 +59,9 @@ For more info check out [this page](href='http://www.qualityunit.com/liveagent/ 
 4. Buttons settings screen in Wordpress
 
 == Changelog ==
+
+= 1.1.2 =
+* fix: Fatal error: Class 'La_Lang' not found in C:\wamp\www\wordpress\wp-content\plugins\liveagent\PhpApi.class.php on line 65
 
 = 1.1.1 =
 * minor bugfixes
