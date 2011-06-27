@@ -37,8 +37,11 @@ if (!class_exists('liveagent_Auth')) {
 
 			try {
 				$request->sendNow();				
-			} catch (Exception $e) {								
+			} catch (Exception $e) {
 				$this->_log(__('Unable to login.', LIVEAGENT_PLUGIN_NAME));
+			    if ($this->isDebugMode()) {
+			        $this->_log($e->getMessage());
+			    }								
 				throw new liveagent_Exception_ConnectProblem();
 			}
 			try {

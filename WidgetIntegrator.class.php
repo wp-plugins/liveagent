@@ -21,15 +21,19 @@ class liveagent_WidgetIntegrator extends liveagent_Base {
 	public function __construct(liveagent_Settings $settings, liveagent_helper_Buttons $buttonHelper) {
 		$this->settings = $settings;
 		$this->buttonHelper = $buttonHelper;
+		if ($this->settings->settingsDefinedForConnection() && !$this->buttonHelper->isSomeButtonEnabled()) {
+		  add_action( 'admin_notices', array($this, 'showNoButtonsEnabledError'));
+		}
 	}
+	
+	public function showNoButtonsEnabledError() {
+	    echo('<div class="error"><p>' . __('No buttons enabled on your page. Enable one of them in your Live Agnet/Buttons configuration.') . '</p></div>');
+	}
+	
+	
 
 	public function initWidgets() {
-		try {
 		$buttons = $this->settings->getButtonsGridRecordset();
-		} catch (Exception $e) {
-			$this->_log(__('Unable to register widgets', LIVEAGENT_PLUGIN_NAME));
-			return;
-		}
 		foreach ($buttons as $button) {
 			if ($button->get('contenttype') != 'F') {
 				$id = $button->get('id');
@@ -42,6 +46,12 @@ class liveagent_WidgetIntegrator extends liveagent_Base {
 			}
 		}
 		$this->insertActiveWidgets();
+		add_action('wp_dashboard_setup', array($this, 'insertDashboardWidgets'));
+	}
+
+	public function insertDashboardWidgets() {
+	    $widget = new liveagent_widget_Visits();
+		wp_add_dashboard_widget(liveagent_widget_Visits::WIDGET_PREFIX, __('Page visitors', LIVEAGENT_PLUGIN_NAME), array($widget, 'showWidget'));
 	}
 
 	private function getFirstSidebar() {

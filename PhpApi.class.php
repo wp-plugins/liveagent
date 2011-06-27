@@ -36,7 +36,7 @@ if (!class_exists('La_Lang', false)) {
         public static function _($message, $args = null, $langCode = '') {
             if (!is_array($args)) {
                 $args = func_get_args();
-            }
+            }            
             return self::_replaceArgs($message, $args);
         }
 
@@ -48,7 +48,7 @@ if (!class_exists('La_Lang', false)) {
         }
 
         public static function _runtime($message) {
-            return '##' . $message . '##';
+            return $message;
         }
 
         public static function _localizeRuntime($message, $langCode = '') {
@@ -64,14 +64,6 @@ if (!class_exists('La_Lang', false)) {
 
 if (!class_exists('La_Object', false)) {
     class La_Object {
-
-        /**
-         * @return La_DbEngine_Database
-         */
-        protected function createDatabase() {
-            return La_DbEngine_Database::getDatabase();
-        }
-
         /**
          * Translate input message into selected language.
          * If translation will not be found, return same message.
@@ -104,7 +96,7 @@ if (!class_exists('La_Object', false)) {
          */
         public function _sys($message) {
             $args = func_get_args();
-            return sprint_f($message, $args);
+            return La_Lang::_sys($message, $args);
         }
     }
 
@@ -1428,19 +1420,10 @@ if (!class_exists('La_Data_RecordSet', false)) {
         public function clear() {
             $this->init();
         }
-
+        
         public function load(La_SqlBuilder_SelectBuilder $select) {
-            $this->init();
-
-            foreach ($select->select->getColumns() as $column) {
-                $this->_header->add($column->getAlias());
-            }
-            $statement = $this->createDatabase()->execute($select->toString());
-            while($rowArray = $statement->fetchRow()) {
-                $this->add($rowArray);
-            }
         }
-
+        
         /**
          *
          * @return ArrayIterator

@@ -97,7 +97,7 @@ class liveagent_Settings {
 			return $data;
 		} catch (liveagent_Exception_SettingNotValid $e) {
 			$buttonsHelper = new liveagent_helper_Buttons();
-			$data = $buttonsHelper->getButtonsGridData();
+			$data = $buttonsHelper->getData();
 			$this->setCachedSetting(self::BUTTONS_DATA, serialize($data));
 		}
 		return $data;
