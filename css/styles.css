@@ -93,6 +93,23 @@ div.laSignup {
  margin:0;
 }
 
+.VisitsTableHeader {
+	font-weight: bold;
+}
+
+.VisitorCell{
+}
+
+.VisitorLocation {
+	float: left;
+    clear: both;
+    font-weight: bold;
+}
+
+.VisitorFirstTime, .VisitorLastTime, .VisitorName, .VisitorRefUrl, .VisitorUrl {
+	float: left;
+    clear: both;
+}
 
 /* NEW CLASSES */
 
