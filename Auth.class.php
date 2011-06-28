@@ -26,7 +26,10 @@ if (!class_exists('liveagent_Auth')) {
 			}
 		}
 
-		public function LoginAndGetSessionId() {
+		/**
+		 * @return La_Rpc_Data
+		 */
+		public function LoginAndGetLoginData() {
 			$settings = new liveagent_Settings();
 			
 			$request = new La_Rpc_DataRequest("Gpf_Api_AuthService", "authenticate");
@@ -36,19 +39,15 @@ if (!class_exists('liveagent_Auth')) {
 			$request->setUrl($this->getRemoteApiUrl());
 
 			try {
-				$request->sendNow();				
+				$request->sendNow();
 			} catch (Exception $e) {
 				$this->_log(__('Unable to login.', LIVEAGENT_PLUGIN_NAME));
 			    if ($this->isDebugMode()) {
 			        $this->_log($e->getMessage());
-			    }								
+			    }
 				throw new liveagent_Exception_ConnectProblem();
 			}
-			try {
-				return $request->getData()->getValue('session');
-			} catch (La_Data_RecordSetNoRowException $e) {				
-				throw new liveagent_Exception_ConnectProblem();
-			}
+		    return $request->getData();
 		}
 	}
 }

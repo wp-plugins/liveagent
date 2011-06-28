@@ -31,7 +31,7 @@ abstract class liveagent_Form_Base extends liveagent_Base {
 		return __('No account selected. Enter your existing account credetials, or create new free trial <a href="http://www.qualityunit.com/liveagent/pricing/hosted/#wordpress" target="_blank">free trial</a>. (No credit card required)', LIVEAGENT_PLUGIN_NAME);
 	}
 	
-	protected function onNoAccount() {		 
+	protected function onNoAccount() {
 		$this->parseBlock('login_check_failed', array('connection-error' => $this->getNoAccountMessage()));
 	}
 
@@ -58,7 +58,7 @@ abstract class liveagent_Form_Base extends liveagent_Base {
 	protected function initForm() {
 		$settings = new liveagent_Settings();
 		$auth = new liveagent_Auth();
-		if (!strlen(trim($settings->getLiveAgentUrl())) || !strlen(trim($settings->getOwnerEmail()))) {						
+		if (!strlen(trim($settings->getLiveAgentUrl())) || !strlen(trim($settings->getOwnerEmail()))) {
 			$this->onNoAccount();
 			return;
 		}
