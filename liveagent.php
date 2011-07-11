@@ -4,12 +4,12 @@
  Plugin URI: http://www.qualityunit.com/liveagent
  Description: Plugin that enable integration with Live Agent
  Author: QualityUnit
- Version: 1.1.3
+ Version: 1.1.5
  Author URI: http://www.qualityunit.com
  License: GPL2
  */
 
-define('LIVEAGENT_PLUGIN_VERSION', '1.1.3');
+define('LIVEAGENT_PLUGIN_VERSION', '1.1.5');
 define('LIVEAGENT_PLUGIN_NAME', 'liveagent');
 include WP_PLUGIN_DIR . '/' . LIVEAGENT_PLUGIN_NAME . '/Config.class.php';
 
