@@ -61,6 +61,9 @@ For more info check out [this page](href='http://www.qualityunit.com/liveagent/ 
 
 == Changelog ==
 
+= 1.2.0 =
+* added account creation wizard
+
 = 1.1.5 =
 * short description update 
 

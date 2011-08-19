@@ -1,0 +1,53 @@
+<!-- BEGIN: main -->
+<div class="wrap">
+        <h2>Live Agent - Helpdesk and Live Chat plugin for Wordpress</h2>
+        We want you to enjoy the full functionality of LiveAgent in the trial period. Trial accounts do not limit the number of agents and you have the option to activate all available features. Once you upgrade your Trial account, we will apply the account restrictions as defined by your selected plan.
+        <div class="clear"></div>
+    </div>
+<div class="nlStepBox">
+        <div class="nlStepHeader">
+            <div class="nlStepHeaderLeft">
+                <span class="nlStepName">
+                    Account Installation
+                </span>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="nlStepBoxContent">
+            <div class="nlStepBoxLeft">
+                <div class="nlHurrayMessage">
+                    Thank you!
+                </div>
+
+                <div class="nlDarkOrangeText">
+                    Your account will be online within next few seconds.
+                    <br/><br/>
+                </div>
+                <div class="nlDarkOrangeText">
+                    Please wait, once will be your account online ....
+                </div>
+                <div class="nlLoader"><span>loading...</span></div>                
+                <div class="nlDarkOrangeText" name="liveagent_wait_status">
+                    Initializing...
+                </div>
+            </div>
+            
+            <div class="nlBoxWithScreenshots"></div>
+            <div class="nlContactUs">
+                <div class="nlDarkOrangeText">
+                    Do you need help with this plugin?
+                </div>
+                <div class="nlDarkOrangeText">
+                    Feel free to 
+                    <a href="http://support.qualityunit.com/la/chat/index.php?bid=858b57ea" target="_blank">
+                        contact us
+                    </a>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        </form>
+     </div>
+</div>
+<div class="clear"></div>
+<!-- END: main -->
