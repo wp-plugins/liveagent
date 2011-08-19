@@ -14,6 +14,9 @@ if (!class_exists('liveagent_Base')) {
         const TEMPLATES_PATH = 'templates/';
         const JS_PATH = 'js/';
         const CSS_PATH = 'css/';
+        
+        const ACCOUNT_STATUS_NOTSET = 'N';
+        const ACCOUNT_STATUS_SET = 'S';
         	
         protected function _log($message) {
             if( WP_DEBUG === true ){
@@ -52,6 +55,13 @@ if (!class_exists('liveagent_Base')) {
 
         protected function showConnectionError() {
             $this->showAdminError(__('Unable to connect to Live Agent. please check your connection settings', LIVEAGENT_PLUGIN_NAME));
+        }
+        
+        public function getAccountStatus() {
+            if (get_option(liveagent_Settings::ACCOUNT_STATUS) == '') {
+                return self::ACCOUNT_STATUS_NOTSET;
+            }
+            return get_option(liveagent_Settings::ACCOUNT_STATUS);
         }
 
         public function getRemoteTrackJsUrl() {

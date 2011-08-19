@@ -31,15 +31,22 @@ if (!class_exists('liveagent_Loader')) {
             $this->loadClass('liveagent_helper_Grid');
             $this->loadClass('liveagent_helper_Buttons');
             $this->loadClass('liveagent_helper_Visits');
+            $this->loadClass('liveagent_AjaxHandler');
+            $this->loadClass('liveagent_helper_Signup');
+            $this->loadClass('liveagent_helper_CompactTracker');
         }
 
         private function loadForms() {
             $this->loadClass('liveagent_Form_Base');
+            $this->loadClass('liveagent_Form_Settings_CanLoginToPanel');
             $this->loadClass('liveagent_Form_Settings_Account');
             $this->loadClass('liveagent_Form_Settings_ButtonsTableRow');
             $this->loadClass('liveagent_Form_Settings_Buttons');
             $this->loadClass('liveagent_Form_Grid_Visits');
             $this->loadClass('liveagent_Form_Grid_VisitsTableRow');
+            $this->loadClass('liveagent_Form_Settings_Signup');
+            $this->loadClass('liveagent_Form_Settings_SignupWait');
+            $this->loadClass('liveagent_Form_Settings_Congratulations');
         }
 
         private function loadThirdPartyLibraries() {

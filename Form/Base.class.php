@@ -28,7 +28,7 @@ abstract class liveagent_Form_Base extends liveagent_Base {
 	}
 	
 	protected function getNoAccountMessage() {
-		return __('No account selected. Enter your existing account credetials, or create new free trial <a href="http://www.qualityunit.com/liveagent/pricing/hosted/#wordpress" target="_blank">free trial</a>. (No credit card required)', LIVEAGENT_PLUGIN_NAME);
+		return __('No account selected. Enter your existing account credetials, or create new free trial <a href="#" onclick="onSignupRestart()">free trial</a>. (No credit card required)', LIVEAGENT_PLUGIN_NAME);
 	}
 	
 	protected function onNoAccount() {
@@ -41,7 +41,7 @@ abstract class liveagent_Form_Base extends liveagent_Base {
 			$this->loadSettingsString($name);
 			$this->form = new HTMLForm($name, 'post', $action, '', $this->getType());
 		} else {
-			$this->form = new HTMLForm('', '', '', '', $this->getType());
+			$this->form = new HTMLForm($name, '', '', '', $this->getType());
 		}
 		$this->initForm();
 	}
@@ -61,7 +61,7 @@ abstract class liveagent_Form_Base extends liveagent_Base {
 		if (!strlen(trim($settings->getLiveAgentUrl())) || !strlen(trim($settings->getOwnerEmail()))) {
 			$this->onNoAccount();
 			return;
-		}
+		}		
 		try {
 			$auth->ping();
 			$settings->getOwnerSessionId();

@@ -16,9 +16,12 @@ class liveagent_Settings {
     const OWNER_SESSIONID = 'la-settings_owner-sessionid';
     const OWNER_AUTHTOKEN = 'la-settings_owner-authtoken';
     const BUTTONS_DATA = 'la-settings_buttonsdata';
+    const ACCOUNT_STATUS = 'la-settings_accountstatus';
 
     //general page
     const GENERAL_SETTINGS_PAGE_NAME = 'la-config-general-page';
+    const SIGNUP_SETTINGS_PAGE_NAME = 'la-config-signup-page';
+    const SIGNUP_WAIT_SETTINGS_PAGE_NAME = 'la-config-signup-wait-page';
 
     const LA_URL_SETTING_NAME = 'la-url';
     const LA_OWNER_EMAIL_SETTING_NAME = 'la-owner-email';
@@ -39,6 +42,7 @@ class liveagent_Settings {
         register_setting(self::INTERNAL_SETTINGS, self::OWNER_SESSIONID);
         register_setting(self::INTERNAL_SETTINGS, self::OWNER_AUTHTOKEN);
         register_setting(self::INTERNAL_SETTINGS, self::BUTTONS_DATA);
+        register_setting(self::INTERNAL_SETTINGS, self::ACCOUNT_STATUS);
     }
 
     public function sanitizeUrl($url) {
@@ -81,7 +85,7 @@ class liveagent_Settings {
     public function getOwnerSessionId() {
         try {
             return $this->getCachedSetting(self::OWNER_SESSIONID);
-        } catch (liveagent_Exception_SettingNotValid $e) {
+        } catch (liveagent_Exception_SettingNotValid $e) {            
             return $this->login();
         }
     }
