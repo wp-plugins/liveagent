@@ -69,16 +69,15 @@ if (!class_exists('liveagent_Auth')) {
          */
         public function LoginAndGetLoginData() {
             if (strpos($this->getRemoteApiUrl(), '.ladesk.com') === false) {
-                $this->InternalLoginAndGetLoginData($this->getRemoteApiUrl());
-                return;
+                return $this->InternalLoginAndGetLoginData($this->getRemoteApiUrl());
             }
             //hack to fix dns problem - should be romved in the future myla.ladesk.com is not accessible, but www.myla.ladesk.com is - so try both
             try {
-                $this->InternalLoginAndGetLoginData($this->getRemoteApiUrl());
+                return $this->InternalLoginAndGetLoginData($this->getRemoteApiUrl());
             } catch (liveagent_Exception_ConnectProblem $e) {
                 $url = $this->getRemoteApiUrl();
                 $url = preg_replace('/http:\/\//', 'http://www.', $url);
-                $this->InternalLoginAndGetLoginData($url);
+                return $this->InternalLoginAndGetLoginData($url);
             }
         }
     }
