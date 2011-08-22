@@ -26,6 +26,10 @@
                 <div class="nlDarkOrangeText">
                     Please wait, once will be your account online ....
                 </div>
+                <div class="nlDarkOrangeText">
+                    In the meantime, you should recieve confirmation email with your account credentials. <br/>
+                    Note: Sometimes account creation process may take a <a href='http://support.qualityunit.com/knowledgebase/live-agent/wordpress-plugin/frequently-asked-questions.html' target='_blank'>bit longer</a>. 
+                </div>
                 <div class="nlLoader"><span>loading...</span></div>                
                 <div class="nlDarkOrangeText" name="liveagent_wait_status">
                     Initializing...

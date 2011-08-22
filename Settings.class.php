@@ -78,7 +78,12 @@ class liveagent_Settings {
         if ($validTo > time()) {
             return $settings[0];
         } else {
-            throw new liveagent_Exception_SettingNotValid(__(sprintf('Setting\'s %s validity exceeded: %s', $code, $settings['time'])));
+            if (array_key_exists('time', $settings)) {
+                $message = __(sprintf('Setting\'s %s validity exceeded: %s', $code, $settings['time']));
+            } else {
+                $message = __(sprintf('Setting\'s %s validity exceeded: unknown', $code));
+            }
+                throw new liveagent_Exception_SettingNotValid($message);
         }
     }
 

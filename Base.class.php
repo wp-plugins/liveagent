@@ -30,7 +30,7 @@ if (!class_exists('liveagent_Base')) {
         }
 
         protected function isDebugMode() {
-            return defined('DEBUG_MODE') && DEBUG_MODE == true;
+            return defined('LIVEAGENT_DEBUG_MODE') && LIVEAGENT_DEBUG_MODE == true;
         }
 
         protected function getTemplatesPath() {

@@ -8,6 +8,6 @@
  *   Licensed under GPL2
  */
 
-define('DEBUG_MODE', true);
+define('LIVEAGENT_DEBUG_MODE', false);
 
 ?>

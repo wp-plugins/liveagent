@@ -50,13 +50,10 @@ class liveagent_AjaxHandler extends liveagent_Base {
             echo json_encode(array('result'=>0));
             die();
         }
-        
-        $buttonHelper = new liveagent_helper_Buttons();
-        $buttonHelper->enableDefaultButton();
-        
+
         $form = new liveagent_Form_Settings_Congratulations($this->settings);
         $html = $form->render(true);
-        echo json_encode(array('result'=>1, 
+        echo json_encode(array('result'=>1,
             'runfunction'=>'onPingSuccessfull',
             'dialog'=>$html, 
             'replaceform'=>liveagent_Settings::SIGNUP_WAIT_SETTINGS_PAGE_NAME));
@@ -91,31 +88,26 @@ class liveagent_AjaxHandler extends liveagent_Base {
             die();
         }
     }
-    
+
     private function getVisitorId() {
         $tracker = new liveagent_helper_CompactTracker();
         return $tracker->getVisitorId();
     }
 
-    public function liveagentSignupSubmit($attributes) {        
+    public function liveagentSignupSubmit($attributes) {
         $name = $attributes['name'];
         $domain = $attributes['domain'];
         $email = $attributes['email'];
         $password = substr(md5(microtime()),0,8);
-        
+
         $tracker = new liveagent_helper_CompactTracker();
         $this->setTrackingData($tracker, $domain);
         $papvisitorId = $tracker->getCookie();
-        
+
         $this->sendSignupRequest($name, $email, $domain, $password, $papvisitorId);
         
-        if ($this->getAccountStatus()==self::ACCOUNT_STATUS_NOTSET) {
-            update_option(liveagent_Settings::ACCOUNT_STATUS, self::ACCOUNT_STATUS_SET);
-        }
-        
-        update_option(liveagent_Settings::LA_URL_SETTING_NAME, 'http://' . $domain . '.ladesk.com');
-        update_option(liveagent_Settings::LA_OWNER_EMAIL_SETTING_NAME, $email);
-        update_option(liveagent_Settings::LA_OWNER_PASSWORD_SETTING_NAME, $password);
+        $this->saveOptionsAndActivateDefaultButton($domain, $email, $password);
+
         $form = new liveagent_Form_Settings_SignupWait();
         $html = $form->render(true);
         echo json_encode(array(
@@ -124,12 +116,23 @@ class liveagent_AjaxHandler extends liveagent_Base {
             'runafter'=>true,
             'domain'=>$domain.'.ladesk.com',
             'replaceform'=>liveagent_Settings::SIGNUP_SETTINGS_PAGE_NAME, 'runfunction'=>'onSignupWait'
-        ));
-        die();
+            ));
+            die();
     }
-    
+
+    private function saveOptionsAndActivateDefaultButton($domain, $email, $password) {
+        update_option(liveagent_Settings::ACCOUNT_STATUS, self::ACCOUNT_STATUS_SET);
+        
+        update_option(liveagent_Settings::LA_URL_SETTING_NAME, 'http://' . $domain . '.ladesk.com');
+        update_option(liveagent_Settings::LA_OWNER_EMAIL_SETTING_NAME, $email);
+        update_option(liveagent_Settings::LA_OWNER_PASSWORD_SETTING_NAME, $password);
+
+        $buttonHelper = new liveagent_helper_Buttons();
+        $buttonHelper->enableDefaultButton();
+    }
+
     private function setTrackingData(liveagent_helper_CompactTracker $tracker, $domain) {
-        $tracker->setData1('Wordpress ver.: ' . get_bloginfo('version') . ', domain: ' . $domain);        
+        $tracker->setData1('Wordpress ver.: ' . get_bloginfo('version') . ', domain: ' . $domain);
     }
 
     public function liveagentSignupRestart() {

@@ -11,9 +11,23 @@
 if (!class_exists('liveagent_Auth')) {
     class liveagent_Auth extends liveagent_Base {
         public function ping() {
-            $request = new La_Rpc_DataRequest("Gpf_Common_ConnectionUtil", "ping");
-            $request->setUrl($this->getRemoteApiUrl());
+            if (strpos($this->getRemoteApiUrl(), '.ladesk.com') === false) {
+                $this->internalPing($this->getRemoteApiUrl());
+                return;
+            }
+            //hack to fix dns problem - should be romved in the future myla.ladesk.com is not accessible, but www.myla.ladesk.com is - so try both
+            try {
+                $this->internalPing($this->getRemoteApiUrl());
+            } catch (liveagent_Exception_ConnectProblem $e) {
+                $url = $this->getRemoteApiUrl();
+                $url = preg_replace('/http:\/\//', 'http://www.', $url);
+                $this->internalPing($url);
+            }
+        }
 
+        private function internalPing($url) {
+            $request = new La_Rpc_DataRequest("Gpf_Common_ConnectionUtil", "ping");
+            $request->setUrl($url);
             try {
                 $request->sendNow();
             } catch (Exception $e) {
@@ -26,17 +40,14 @@ if (!class_exists('liveagent_Auth')) {
             }
         }
 
-        /**
-         * @return La_Rpc_Data
-         */
-        public function LoginAndGetLoginData() {
+        private function InternalLoginAndGetLoginData($url) {
             $settings = new liveagent_Settings();
-            	
+             
             $request = new La_Rpc_DataRequest("Gpf_Api_AuthService", "authenticate");
 
             $request->setField('username' ,$settings->getOwnerEmail());
             $request->setField('password' ,$settings->getOwnerPassword());
-            $request->setUrl($this->getRemoteApiUrl());
+            $request->setUrl($url);
             try {
                 $request->sendNow();
             } catch (Exception $e) {
@@ -48,9 +59,27 @@ if (!class_exists('liveagent_Auth')) {
             }
             if ($request->getData()->getParam('error')!=null) {
                 $this->_log(__('Answer from server: ' . print_r($request->getResponseObject()->toObject(), true), LIVEAGENT_PLUGIN_NAME));
-                throw new liveagent_Exception_ConnectProblem();                
-            }            
+                throw new liveagent_Exception_ConnectProblem();
+            }
             return $request->getData();
+        }
+
+        /**
+         * @return La_Rpc_Data
+         */
+        public function LoginAndGetLoginData() {
+            if (strpos($this->getRemoteApiUrl(), '.ladesk.com') === false) {
+                $this->InternalLoginAndGetLoginData($this->getRemoteApiUrl());
+                return;
+            }
+            //hack to fix dns problem - should be romved in the future myla.ladesk.com is not accessible, but www.myla.ladesk.com is - so try both
+            try {
+                $this->InternalLoginAndGetLoginData($this->getRemoteApiUrl());
+            } catch (liveagent_Exception_ConnectProblem $e) {
+                $url = $this->getRemoteApiUrl();
+                $url = preg_replace('/http:\/\//', 'http://www.', $url);
+                $this->InternalLoginAndGetLoginData($url);
+            }
         }
     }
 }
