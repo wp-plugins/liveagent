@@ -2,6 +2,7 @@
 The only thing you should edit here is the 'error_msg' block!
 -->
 <!-- BEGIN: main -->
+<div name="{formName}">
     <!-- BEGIN: file_upload -->
 
     <input type="hidden" name="MAX_FILE_SIZE" value="{maxFileSize}">
@@ -35,3 +36,4 @@ The only thing you should edit here is the 'error_msg' block!
 	<!-- END: container -->
 
     {content}
+</div>

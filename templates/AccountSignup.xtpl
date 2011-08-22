@@ -1,0 +1,79 @@
+<!-- BEGIN: main -->
+<div class="wrap">
+        <h2>Live Agent - Helpdesk and Live Chat plugin for Wordpress</h2>
+        We want you to enjoy the full functionality of LiveAgent in the trial period. Trial accounts do not limit the number of agents and you have the option to activate all available features. Once you upgrade your Trial account, we will apply the account restrictions as defined by your selected plan.
+        <div class="clear"></div>
+    </div>
+<div class="nlStepBox">
+        <div class="nlStepHeader">
+            <div class="nlStepHeaderLeft">
+                <span class="nlStepName">
+                    Create your Trial account
+                </span>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="nlStepBoxContent">
+            <div class="nlStepBoxLeft">         
+                <div class="nlFormField">
+                    <div class="nlFormFieldLabel">
+                        Full name
+                    </div>
+                    <div class="nlFormFieldInput">
+                        {controls.la-full-name}
+                    </div>                    
+                </div>
+                <div class="nlFormField">
+                    <div class="nlFormFieldLabel">
+                        Email
+                    </div>
+                    <div class="nlFormFieldInput">
+                        {controls.la-owner-email}
+                    </div>
+                </div>
+                <div class="nlFormField">                   
+                    <div class="nlFormFieldLabel">
+                        Domain selection
+                    </div>
+                    <div class="nlFormFieldInputDomain nlDomainSelection">
+                        {controls.la-url}
+                    </div>
+                    <div class="nlDomainName">
+                        .ladesk.com
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <input type="hidden" value="submit">                
+                <a class="nlBigButton" name="liveagent_create_account_button" onclick="onSignupSubmit(document.getElementById('la-full-name').value, document.getElementById('la-owner-email').value, document.getElementById('la-url').value)">
+                    {controls.submit}
+                </a>
+                <div class="nlTermsAndConditions">
+                    By creating an account I agree with
+                    <a href="http://www.qualityunit.com/liveagent/pricing/hosted/terms-and-conditions" target="_blank">
+                        Terms & Conditions
+                    </a>
+                </div>
+                <div class="nlDarkOrangeText">
+                    <a href="#" name="liveagent_link_onSignupCancel" onclick="onSignupCancel()">
+                        Skip this step, I have already account »
+                    </a>
+                </div>
+            </div>
+            <div class="nlBoxWithScreenshots"></div>
+            <div class="nlContactUs">
+                <div class="nlDarkOrangeText">
+                    Do you need help with this plugin?
+                </div>
+                <div class="nlDarkOrangeText">
+                    Feel free to 
+                    <a href="http://support.qualityunit.com/la/chat/index.php?bid=858b57ea" target="_blank">
+                        contact us
+                    </a>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+     </div>
+</div>
+<div class="clear"></div>
+<!-- END: main -->

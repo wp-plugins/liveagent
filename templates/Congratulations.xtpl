@@ -1,0 +1,43 @@
+<!-- BEGIN: main -->
+<div class="nlStepBox">
+        <div class="nlStepHeader">
+            <div class="nlStepHeaderLeft">
+                <span class="nlStepName">
+                    Congratulations!
+                </span>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="nlStepBoxContent">
+            <div class="nlStepBoxLeft">
+                <div class="nlHurrayMessage">
+                    Great, you are ready!!
+                </div>
+                <div class="nlDarkOrangeText">
+                    You have now default chat button placed on your site. Now you can login to admin panel and start helping your customers... 
+                    <br/><br/>
+                </div>
+                <a class="nlBigButton">
+                    {controls.la-signup-button}
+                </a>
+            </div>
+            
+            <div class="nlBoxWithScreenshots"></div>
+            <div class="nlContactUs">
+                <div class="nlDarkOrangeText">
+                    Do you need help with this plugin?
+                </div>
+                <div class="nlDarkOrangeText">
+                    Feel free to 
+                    <a href="http://support.qualityunit.com/la/chat/index.php?bid=858b57ea" target="_blank">
+                        contact us
+                    </a>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        </form>
+     </div>
+</div>
+<div class="clear"></div>
+<!-- END: main -->
