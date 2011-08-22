@@ -134,10 +134,12 @@ class liveagent_Settings {
     public function getButtonsGridRecordset() {
         try {
             $data = unserialize($this->getCachedSetting(self::BUTTONS_DATA));
-            return $data;
         } catch (liveagent_Exception_SettingNotValid $e) {
             $buttonsHelper = new liveagent_helper_Buttons();
             $data = $buttonsHelper->getData();
+            if ($data->getSize() == 0) {
+                return $data;
+            }
             $this->setCachedSetting(self::BUTTONS_DATA, serialize($data));
         }
         return $data;
