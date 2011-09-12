@@ -22,6 +22,7 @@ class liveagent_helper_Signup extends liveagent_Base {
         $request->addParam('password', $password);
         $request->addParam('password', $password);
         $request->addParam('PAPvisitorId', $papVisitorId);
+        $request->addParam('source', 'wordpress');
         $request->sendNow();
         return $request->getStdResponse();
     }
