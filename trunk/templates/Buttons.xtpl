@@ -1,0 +1,69 @@
+<!-- BEGIN: main -->
+<div class="wrap buttonsSettings">
+	<div class="nlAboveStepBox">
+		<!-- BEGIN: login_check_ok -->
+			<div class="nlHurrayMessage">
+				{connection-ok}
+			</div>
+		<!-- END: login_check_ok -->
+       	<!-- BEGIN: login_check_failed -->
+			<div class="error"><p>{connection-error}</p>
+		<!-- END: login_check_failed -->
+		<div class="nlHurrayMessage">
+           	You can customize Live chat buttons in admin panel.
+        </div>        
+        <div class="nlStepBoxLeft">
+            {controls.la-signup-button}
+        </div>
+        <div class="clear"></div>
+	</div>	
+    <form method="post" action="options.php">
+    	{controls.form-settings}
+    	<div class="nlStepBox">
+		<div class="nlStepHeader">
+			<div class="nlStepHeaderLeft">
+				<span class="nlStepName">
+					Integrate buttons with your website
+				</span>
+			</div>
+			<div class="nlStepHeaderRight">
+                <div class="nlLightText">
+	                Do you need help with this plugin?
+                </div>
+                <div class="nlLightText">
+                	Feel free to 
+                    <a href="http://support.qualityunit.com/la/chat/index.php?bid=858b57ea">
+                    	contact us
+                    </a>
+                </div>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="nlStepBoxContent nlGridHolder">
+            <!-- table header - begin -->
+                <div class="buttonTableRow">
+                <div class='laButtonsTableHeader'>
+                 {controls.onlinepreview-header} 
+                </div>
+                <div class='laButtonsTableHeader'>
+                 {controls.offlinepreview-header}
+                </div>
+                <div class='laButtonsTableHeader laButtonsTableHeaderType'>
+                 {controls.type-header}
+                </div>
+                <div class='laButtonsTableHeader laButtonsTableHeaderEnabled'>
+                 {controls.enabled-header}
+                </div>
+                </div>                
+            <!-- table header - end -->
+            {controls.buttons-table}
+		</div>
+	 </div>
+	 <div class="buttonsSave">
+     <a class="nlBigButton" href="javascript:document.getElementsByName('la-config-buttons-page')[0].submit()">
+      	{controls.submit}
+     </a>
+     </div>
+    </form>
+</div>
+<!-- END: main -->

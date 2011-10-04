@@ -1,0 +1,20 @@
+<!-- BEGIN: main -->
+<div class="buttonTableRow">
+	<div class='laButtonsTableCell'>
+		<div class="laButtonPreview">
+			<iframe id="{controls.la-htmlonlinebutton-id}"></iframe>   
+		</div>
+	</div>
+ <div class='laButtonsTableCell'>
+  <div class="laButtonPreview">
+   <iframe id="{controls.la-htmlofflinebutton-id}"></iframe>
+  </div>
+ </div>
+ <div class='laButtonsTableCell laButtonsTableCellType'>
+  {controls.buttonType}
+ </div>
+ <div class='laButtonsTableCell laButtonsTableCellEnabled'>
+  {controls.isEnabled}
+ </div> 
+</div>
+<!-- END: main -->

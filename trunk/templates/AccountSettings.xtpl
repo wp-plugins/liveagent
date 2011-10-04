@@ -1,0 +1,79 @@
+<!-- BEGIN: main -->
+<div class="wrap">
+	<div class="nlAboveStepBox">
+		<!-- BEGIN: login_check_ok -->
+		<div class="nlHurrayMessage">
+		{connection-ok}
+		</div>
+		<!-- END: login_check_ok -->
+		<!-- BEGIN: login_check_failed -->
+		<div class="error"><p>{connection-error}</p></div>
+		<!-- END: login_check_failed -->       	        
+        <div class="nlStepBoxLeft">
+        	{controls.la-signup-button}            
+        </div>
+        <div class="clear"></div>
+	</div>
+<div class="nlStepBox">
+		<div class="nlStepHeader">
+			<div class="nlStepHeaderLeft">
+				<span class="nlStepName">
+					Account options
+				</span>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<form method="post" action="options.php">
+    	{controls.form-settings}
+		<div class="nlStepBoxContent">
+			<div class="nlStepBoxLeft">
+            	<div class="nlFormField">
+                	<div class="nlFormFieldLabel">
+                    	Account Url
+                    </div>
+                	<div class="nlFormFieldInput">
+                    	{controls.la-url}
+                    </div>
+                    <div class="nlFormFieldDesc">
+                    	include 'http://' or 'https://'
+                    </div>
+                </div>
+	           	<div class="nlFormField">
+                	<div class="nlFormFieldLabel">
+                    	Email
+                    </div>
+                	<div class="nlFormFieldInput">
+                    	{controls.la-owner-email}
+                    </div>
+                </div>
+            	<div class="nlFormField">
+                	<div class="nlFormFieldLabel">
+                    	Password
+                    </div>
+                	<div class="nlFormFieldInput">
+                    	{controls.la-owner-password}
+                    </div>
+                </div>
+                <input type="hidden" value="submit">                
+                <a class="nlBigButton" href="javascript:document.getElementsByName('la-config-general-page')[0].submit()">
+                	{controls.submit}
+                </a>
+			</div>
+			<div class="nlBoxWithScreenshots"></div>
+            <div class="nlContactUs">
+                <div class="nlDarkOrangeText">
+	                Do you need help with this plugin?
+                </div>
+                <div class="nlDarkOrangeText">
+                	Feel free to 
+                    <a href="http://support.qualityunit.com/la/chat/index.php?bid=858b57ea" target="_blank">
+                    	contact us
+                    </a>
+                </div>
+            </div>
+			<div class="clear"></div>
+		</div>
+		</form>
+	 </div>
+</div>
+<!-- END: main -->
