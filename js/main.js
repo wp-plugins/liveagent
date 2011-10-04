@@ -94,16 +94,18 @@ function onPingSuccessfull(data) {
 }
 
 function onSignupWait(data) {
-	doPing(data.domain);
+	doPing(data.domain, true);
 	runWaitingStatusChanger();
 }
 
-function doPing(domain) {
+function doPing(domain, postpondPing) {
 	var attributes = {
 		"domain" : domain
 	};
-	runAction('liveagent_signup_action', 'ping', attributes);
-	liveagent_timerId = setTimeout("doPing('" + domain + "')", 2000);	
+	if (!postpondPing) {
+		runAction('liveagent_signup_action', 'ping', attributes);
+	}
+	liveagent_timerId = setTimeout("doPing('" + domain + "',false)", 8000);	
 }
 
 function runWaitingStatusChanger() {
