@@ -1607,7 +1607,10 @@ if (!class_exists('La_Net_Http_Request', false)) {
         }
 
         private function parseUrl() {
-            $components = parse_url($this->url);
+            $components = @parse_url($this->url);
+            if (!$components) {
+                return;
+            }
             if (array_key_exists('scheme', $components)) {
                 $this->scheme = $components['scheme'];
             }

@@ -21,10 +21,10 @@ class liveagent_helper_Grid extends liveagent_Base {
         $this->className = $className;
     }
 
-    public function getData() {
+    private function internalGetData($url) {
         $request = new La_Rpc_Request($this->className, 'getRows');
         try {
-            $request->setUrl($this->getRemoteApiUrl() . '?S=' . $this->settings->getOwnerSessionId());
+            $request->setUrl($url);
         } catch (liveagent_Exception_ConnectProblem $e) {
             $this->_log(__('Unable to connect and get session id'));
             if ($this->isDebugMode()) {
@@ -48,6 +48,23 @@ class liveagent_helper_Grid extends liveagent_Base {
         $grid = new La_Data_Grid();
         $grid->loadFromObject($request->getStdResponse());
         return $grid->getRecordset();
+    }
+
+    public function getData() {
+        $url = $this->getRemoteApiUrl() . '?S=' . $this->settings->getOwnerSessionId();
+        if (strpos($this->getRemoteApiUrl(), '.ladesk.com') === false) {
+            return $this->internalGetData($url);
+        }
+        $secondUrl = preg_replace('/http:\/\//', 'http://www.', $url);
+        try {            
+            $rows = $this->internalGetData($url);
+        } catch (Exception $e) {
+            return $this->internalGetData($secondUrl);
+        }
+        if ($rows->getSize() == 0) {
+            return $this->internalGetData($secondUrl);
+        }
+        return $rows;
     }
 
 }
