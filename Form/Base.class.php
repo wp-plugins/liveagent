@@ -28,7 +28,7 @@ abstract class liveagent_Form_Base extends liveagent_Base {
 	}
 	
 	protected function getNoAccountMessage() {
-		return __('No account selected. Enter your existing account credetials, or create new free trial <a href="#" onclick="onSignupRestart()">free trial</a>. (No credit card required)', LIVEAGENT_PLUGIN_NAME);
+		return __('No account selected. Enter your existing account credetials, or create new <a href="#" onclick="onSignupRestart()">free account</a>. (No credit card required)', LIVEAGENT_PLUGIN_NAME);
 	}
 	
 	protected function onNoAccount() {
