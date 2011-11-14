@@ -1,15 +1,17 @@
-=== Live Agent ===
+=== Live Agent free chat & helpdesk===
 Contributors: jurajsim
 Tags: live chat, live agent, help desk, help desk software, live chat software, live agent software, chat, online support, support, mails, mail handler, qualityunit
 Requires at least: 3.0.0
 Tested up to: 3.1.3
-Stable tag: 1.2.7
+Stable tag: 1.2.8
 
-Wordpress LiveAgent plugin integrates well known help desk and live chat software into any Wordpress installation. No HTML knowledge is required. 
+Wordpress LiveAgent plugin integrates well known help desk and live chat software into any Wordpress installation. No HTML knowledge is required.
 
 == Description ==
 
-Wordpress-LiveAgent plugin integrates full featured help desk and live chat software [Live Agent](href='http://www.qualityunit.com/liveagent/#wordpress "Live Agent software") into any Wordpress installation.
+Wordpress-LiveAgent free plugin integrates full featured help desk and live chat software [Live Agent](href='http://www.qualityunit.com/liveagent/#wordpress "Live Agent software") into any Wordpress installation.
+It can provide complete customer support platform with hybrid chat and email tickets. You will have 100 chats/tickets per month for free.
+It will be installed in our cloud. We handle backups, traffic and performance for you.
 Simply add "start chat" button by few simple clicks and be live within 5 minutes.
 
 Liveagent connects your visitors with your support team in real time and will solve following problems for you:
