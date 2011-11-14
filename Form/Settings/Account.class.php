@@ -8,12 +8,7 @@
  *   Licensed under GPL2
  */
 
-class liveagent_Form_Settings_Account extends liveagent_Form_Base {
-    /**
-     * @var liveagent_Settings
-     */
-    private $settings;
-
+class liveagent_Form_Settings_Account extends liveagent_Form_Settings_CanLoginToPanel {
     /**
      * @var liveagent_Auth
      */
@@ -44,17 +39,7 @@ class liveagent_Form_Settings_Account extends liveagent_Form_Base {
         $this->addTextBox(liveagent_Settings::LA_URL_SETTING_NAME, null, 'nlInput text');
         $this->addTextBox(liveagent_Settings::LA_OWNER_EMAIL_SETTING_NAME, null, 'nlInput text');
         $this->addPassword(liveagent_Settings::LA_OWNER_PASSWORD_SETTING_NAME, null, 'nlInput text');
-        $loginToPanel = __('Login to Admin panel', LIVEAGENT_PLUGIN_NAME);
-        try {
-            $authToken = $this->settings->getOwnerAuthToken();
-            if ($authToken == liveagent_Settings::NO_AUTH_TOKEN) {
-                $this->addHtml('la-signup-button', '<a href="'.$this->settings->getLiveAgentUrl() . '/agent?S='.$this->settings->getOwnerSessionId().'" target="_blank" class="nlBigButton">'.$loginToPanel.'</a>');
-            } else {
-                $this->addHtml('la-signup-button', '<a href="'.$this->settings->getLiveAgentUrl() . '/agent?AuthToken='.$authToken.'" target="_blank" class="nlBigButton">'.$loginToPanel.'</a>');
-            }
-        } catch (liveagent_Exception_ConnectProblem $e) {
-            $this->addHtml('la-signup-button', '<a href="'.$this->settings->getLiveAgentUrl() . '/agent" target="_blank" class="nlBigButton">'.$loginToPanel.'</a>');
-        }
+        $this->addSignupButton();
         $this->form->add('html', 'submit', __('Save Account Settings', LIVEAGENT_PLUGIN_NAME));
     }
 }

@@ -22,6 +22,21 @@ class liveagent_helper_Buttons extends liveagent_helper_Grid {
             default: return 'Unknown';
         }
     }
+    
+    public function enableDefaultButton(){
+        $settings = new liveagent_Settings();
+        if ($settings->buttonIsEnabled('b2222222')) {
+            return;    
+        }
+        $value = get_option(liveagent_Settings::BUTTONS_CONFIGURATION_SETTING_NAME);
+        if ($value == '' || $value === null) {
+            $value = array('b2222222' => 'true');
+        }
+        if (!array_key_exists('b2222222', $value)) {
+            $value['b2222222'] = 'true';
+        }
+        update_option(liveagent_Settings::BUTTONS_CONFIGURATION_SETTING_NAME, $value);
+    }
 
     public function isSomeButtonEnabled() {
         $buttons = get_option(liveagent_Settings::BUTTONS_CONFIGURATION_SETTING_NAME);
