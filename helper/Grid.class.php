@@ -42,7 +42,10 @@ class liveagent_helper_Grid extends liveagent_Base {
         try {
             $request->sendNow();
         } catch (Exception $e) {
-            $this->_log(__(sprintf('Unable to data for %s', $this->className)));
+            $this->_log(__(sprintf('Unable to get data for %s', $this->className)));
+            if (defined('LIVEAGENT_DEBUG_MODE') && LIVEAGENT_DEBUG_MODE === true) {
+                $this->_log(__($e->getMessage()));
+            }
             return new La_Data_RecordSet();
         }
         $grid = new La_Data_Grid();
