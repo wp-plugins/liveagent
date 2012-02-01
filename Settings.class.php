@@ -63,8 +63,9 @@ class liveagent_Settings {
         $settingValue = $value . "||" . time();
         if ($settings != '') {
             update_option($code, $settingValue);
-        } else {
+        } else {            
             add_option($code, $settingValue);
+            update_option($code, $settingValue);
         }
     }
 

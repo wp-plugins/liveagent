@@ -4,12 +4,12 @@
  Plugin URI: http://www.qualityunit.com/liveagent
  Description: Plugin that enable integration with Live Agent
  Author: QualityUnit
- Version: 1.2.9
+ Version: 1.2.10
  Author URI: http://www.qualityunit.com
  License: GPL2
  */
 
-define('LIVEAGENT_PLUGIN_VERSION', '1.2.9');
+define('LIVEAGENT_PLUGIN_VERSION', '1.2.10');
 define('LIVEAGENT_PLUGIN_NAME', 'liveagent');
 require_once WP_PLUGIN_DIR . '/' . LIVEAGENT_PLUGIN_NAME . '/Config.class.php';
 
@@ -73,12 +73,7 @@ if (!class_exists('liveagent')) {
             add_action('admin_menu', array($this, 'addPrimaryConfigMenu'));
             add_filter ('wp_head', array($this, 'initHeader'), 99);
             add_filter ('admin_head', array($this, 'initAdminHeader'), 99);
-            if (!$this->includeJavascript('liveagent-jquery', 'jQuery.js')) {
-                return;
-            }
-            if (!$this->includeJavascript('liveagent-main', 'main.js')) {
-                return;
-            }
+            add_action ('wp_enqueue_scripts', array($this, 'includeJavascripts'));
             if (!$this->settings->settingsDefinedForConnection()) {
                 return;
             }
@@ -90,6 +85,11 @@ if (!class_exists('liveagent')) {
             }
             $widgetIntegrator = new liveagent_WidgetIntegrator($this->settings, $this->buttonHelper);
             $widgetIntegrator->initWidgets();
+        }
+
+        public function includeJavascripts() {
+            $this->includeJavascript('liveagent-jquery', 'jQuery.js');
+            $this->includeJavascript('liveagent-main', 'main.js');
         }
 
         private function includeJavascript($handle, $jsName) {
@@ -140,7 +140,7 @@ if (!class_exists('liveagent')) {
         public function addPrimaryConfigMenu() {
             add_menu_page(__('Live Agent', LIVEAGENT_PLUGIN_NAME), __('Live Agent',LIVEAGENT_PLUGIN_NAME), 'manage_options', 'la-top-level-options-handle', array($this, 'printGeneralConfigPage'), $this->getLaIconURL());
             if (!strlen(trim($this->settings->getLiveAgentUrl())) || !strlen(trim($this->settings->getOwnerEmail()))) {
-                return;                
+                return;
             }
             add_submenu_page('la-top-level-options-handle', __('Buttons',LIVEAGENT_PLUGIN_NAME), __('Buttons',LIVEAGENT_PLUGIN_NAME), 'manage_options', 'buttons-config-page', array($this, 'printButtonsConfigPage'));
         }
