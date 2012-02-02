@@ -16,9 +16,12 @@ class liveagent_Settings {
     const OWNER_SESSIONID = 'la-settings_owner-sessionid';
     const OWNER_AUTHTOKEN = 'la-settings_owner-authtoken';
     const BUTTONS_DATA = 'la-settings_buttonsdata';
+    const ACCOUNT_STATUS = 'la-settings_accountstatus';
 
     //general page
     const GENERAL_SETTINGS_PAGE_NAME = 'la-config-general-page';
+    const SIGNUP_SETTINGS_PAGE_NAME = 'la-config-signup-page';
+    const SIGNUP_WAIT_SETTINGS_PAGE_NAME = 'la-config-signup-wait-page';
 
     const LA_URL_SETTING_NAME = 'la-url';
     const LA_OWNER_EMAIL_SETTING_NAME = 'la-owner-email';
@@ -39,6 +42,7 @@ class liveagent_Settings {
         register_setting(self::INTERNAL_SETTINGS, self::OWNER_SESSIONID);
         register_setting(self::INTERNAL_SETTINGS, self::OWNER_AUTHTOKEN);
         register_setting(self::INTERNAL_SETTINGS, self::BUTTONS_DATA);
+        register_setting(self::INTERNAL_SETTINGS, self::ACCOUNT_STATUS);
     }
 
     public function sanitizeUrl($url) {
@@ -59,8 +63,9 @@ class liveagent_Settings {
         $settingValue = $value . "||" . time();
         if ($settings != '') {
             update_option($code, $settingValue);
-        } else {
+        } else {            
             add_option($code, $settingValue);
+            update_option($code, $settingValue);
         }
     }
 
@@ -74,14 +79,19 @@ class liveagent_Settings {
         if ($validTo > time()) {
             return $settings[0];
         } else {
-            throw new liveagent_Exception_SettingNotValid(__(sprintf('Setting\'s %s validity exceeded: %s', $code, $settings['time'])));
+            if (array_key_exists('time', $settings)) {
+                $message = __(sprintf('Setting\'s %s validity exceeded: %s', $code, $settings['time']));
+            } else {
+                $message = __(sprintf('Setting\'s %s validity exceeded: unknown', $code));
+            }
+                throw new liveagent_Exception_SettingNotValid($message);
         }
     }
 
     public function getOwnerSessionId() {
         try {
             return $this->getCachedSetting(self::OWNER_SESSIONID);
-        } catch (liveagent_Exception_SettingNotValid $e) {
+        } catch (liveagent_Exception_SettingNotValid $e) {            
             return $this->login();
         }
     }
@@ -125,10 +135,12 @@ class liveagent_Settings {
     public function getButtonsGridRecordset() {
         try {
             $data = unserialize($this->getCachedSetting(self::BUTTONS_DATA));
-            return $data;
         } catch (liveagent_Exception_SettingNotValid $e) {
             $buttonsHelper = new liveagent_helper_Buttons();
             $data = $buttonsHelper->getData();
+            if ($data->getSize() == 0) {
+                return $data;
+            }
             $this->setCachedSetting(self::BUTTONS_DATA, serialize($data));
         }
         return $data;
