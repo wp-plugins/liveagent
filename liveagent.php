@@ -4,12 +4,12 @@
  Plugin URI: http://www.qualityunit.com/liveagent
  Description: Plugin that enable integration with Live Agent
  Author: QualityUnit
- Version: 1.2.10
+ Version: 1.2.11
  Author URI: http://www.qualityunit.com
  License: GPL2
  */
 
-define('LIVEAGENT_PLUGIN_VERSION', '1.2.10');
+define('LIVEAGENT_PLUGIN_VERSION', '1.2.11');
 define('LIVEAGENT_PLUGIN_NAME', 'liveagent');
 require_once WP_PLUGIN_DIR . '/' . LIVEAGENT_PLUGIN_NAME . '/Config.class.php';
 
@@ -55,10 +55,6 @@ if (!class_exists('liveagent')) {
             $this->buttonHelper = new liveagent_helper_Buttons();
             $this->settings = new liveagent_Settings();
             $this->initPlugin();
-
-            /*$session = new Gpf_Api_Session('http://www.qualityunit.com/affiliate/scripts/track.php');
-             $tracker = new Pap_Api_Tracker();
-             $tracker->track();*/
         }
 
         private function getLaIconURL() {
@@ -74,6 +70,7 @@ if (!class_exists('liveagent')) {
             add_filter ('wp_head', array($this, 'initHeader'), 99);
             add_filter ('admin_head', array($this, 'initAdminHeader'), 99);
             add_action ('wp_enqueue_scripts', array($this, 'includeJavascripts'));
+            add_action ('admin_enqueue_scripts', array($this, 'includeJavascripts'));
             if (!$this->settings->settingsDefinedForConnection()) {
                 return;
             }
