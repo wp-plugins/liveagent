@@ -129,6 +129,6 @@ class liveagent_helper_CompactTracker extends liveagent_Base {
     }
 
     private function setVisitorIdCookie($visitor) {
-        La_Http::setCookie(self::PAP_VISITOR_ID, $visitor, time() + 315569260, "/");
+        setcookie(self::PAP_VISITOR_ID, $visitor, time() + 315569260, "/");
     }
 }

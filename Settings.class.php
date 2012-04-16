@@ -15,7 +15,7 @@ class liveagent_Settings {
     const INTERNAL_SETTINGS = 'la-settings_internal-settings';
     const OWNER_SESSIONID = 'la-settings_owner-sessionid';
     const OWNER_AUTHTOKEN = 'la-settings_owner-authtoken';
-    const BUTTONS_DATA = 'la-settings_buttonsdata';
+    const BUTTONS_DATA = 'la-settings_buttonsdata';    
     const ACCOUNT_STATUS = 'la-settings_accountstatus';
 
     //general page
@@ -31,17 +31,19 @@ class liveagent_Settings {
     //buttons options
     const BUTTONS_SETTINGS_PAGE_NAME = 'la-config-buttons-page';
     const BUTTONS_CONFIGURATION_SETTING_NAME = 'la-buttons-configuration';
+    const BUTTON_CODE = 'la-buttons_buttoncode';
 
     const NO_AUTH_TOKEN = 'no_auth_token';
 
-    public function initSettings() {
+    public function initSettingsForAdminPanel() {
         register_setting(self::GENERAL_SETTINGS_PAGE_NAME, self::LA_URL_SETTING_NAME, array($this, 'sanitizeUrl'));
         register_setting(self::GENERAL_SETTINGS_PAGE_NAME, self::LA_OWNER_EMAIL_SETTING_NAME);
         register_setting(self::GENERAL_SETTINGS_PAGE_NAME, self::LA_OWNER_PASSWORD_SETTING_NAME);
         register_setting(self::BUTTONS_SETTINGS_PAGE_NAME, self::BUTTONS_CONFIGURATION_SETTING_NAME);
+        register_setting(self::BUTTONS_SETTINGS_PAGE_NAME, self::BUTTON_CODE);
         register_setting(self::INTERNAL_SETTINGS, self::OWNER_SESSIONID);
         register_setting(self::INTERNAL_SETTINGS, self::OWNER_AUTHTOKEN);
-        register_setting(self::INTERNAL_SETTINGS, self::BUTTONS_DATA);
+        register_setting(self::INTERNAL_SETTINGS, self::BUTTONS_DATA);        
         register_setting(self::INTERNAL_SETTINGS, self::ACCOUNT_STATUS);
     }
 
@@ -50,12 +52,22 @@ class liveagent_Settings {
             return $url;
         }
         return 'http://' . $url;
-    }
+    }    
 
     public function clearCache() {
         update_option(self::OWNER_SESSIONID, '');
         update_option(self::OWNER_AUTHTOKEN, '');
         update_option(self::BUTTONS_DATA, '');
+    }
+    
+    private function setSetting($code, $settingValue) {
+        $settings = get_option($code);
+        if ($settings != '') {
+            update_option($code, $settingValue);
+        } else {
+            add_option($code, $settingValue);
+            update_option($code, $settingValue);
+        }
     }
 
     private function setCachedSetting($code, $value) {
@@ -131,23 +143,23 @@ class liveagent_Settings {
     public function settingsDefinedForConnection() {
         return strlen(trim($this->getLiveAgentUrl())) && strlen(trim($this->getOwnerEmail()));
     }
-
-    public function getButtonsGridRecordset() {
-        try {
-            $data = unserialize($this->getCachedSetting(self::BUTTONS_DATA));
-        } catch (liveagent_Exception_SettingNotValid $e) {
-            $buttonsHelper = new liveagent_helper_Buttons();
-            $data = $buttonsHelper->getData();
-            if ($data->getSize() == 0) {
-                return $data;
-            }
-            $this->setCachedSetting(self::BUTTONS_DATA, serialize($data));
-        }
-        return $data;
+    
+    public function setButtonCode($buttonCode) {
+        $this->setSetting(self::BUTTON_CODE, $buttonCode);
     }
 
     public function getLiveAgentUrl() {
-        return get_option(self::LA_URL_SETTING_NAME);
+        $url = get_option(self::LA_URL_SETTING_NAME);
+        if ($url == null) {
+            return $url;
+        }
+        if (strpos($url, 'http://') === false && strpos($url, 'https://') === false) {
+            $url = 'http://' . $url;
+        }
+        if (strrpos($url, '/') == (strlen($url) - 1)) {
+            $url = substr($url, 0, -1);
+        }
+        return $url; 
     }
 
     public function getOwnerEmail() {
@@ -156,6 +168,30 @@ class liveagent_Settings {
 
     public function getOwnerPassword() {
         return get_option(self::LA_OWNER_PASSWORD_SETTING_NAME);
+    }
+    
+    public function getButtonCode() {
+        $code = get_option(self::BUTTON_CODE);
+        if ($code != '') {
+            return $code;
+        }
+        $enabledButtons = get_option(liveagent_Settings::BUTTONS_CONFIGURATION_SETTING_NAME);
+        if ($enabledButtons == null) {
+            return $code;
+        }
+        //for compatibility reasons from older versions (1.2.X) 
+        foreach ($enabledButtons as $buttonid => $value) {
+            $url = $this->getLiveAgentUrl();
+            update_option(self::BUTTONS_CONFIGURATION_SETTING_NAME, null);
+            $integrationCode = $this->getIntegrationCode($url, $buttonid);
+            $this->setButtonCode($integrationCode);
+            return $integrationCode;
+        }
+    }
+
+    public function getIntegrationCode($url, $buttonid) {
+        return '<script type="text/javascript" id="la_x2s6df8d" src="'.$url.'/scripts/trackjs.php"></script>' . "\n" .
+                '<img src="'.$url.'/scripts/pix.gif" onLoad="LiveAgentTracker.createButton(\''.$buttonid.'\', this);"/>';
     }
 
     public function buttonIsEnabled($buttonId) {

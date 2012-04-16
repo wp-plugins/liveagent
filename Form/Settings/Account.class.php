@@ -32,7 +32,10 @@ class liveagent_Form_Settings_Account extends liveagent_Form_Settings_CanLoginTo
     protected function initForm() {
         parent::initForm();
         if ($this->connectionSucc) {
-            $this->parseBlock('login_check_ok', array('connection-ok' => __('Your WordPress installation is succesfully connected with Live Agent', LIVEAGENT_PLUGIN_NAME)));
+            $this->parseBlock('login_check_ok', array(
+                    'connection-ok' => __('Your WordPress installation is succesfully connected with Live Agent', LIVEAGENT_PLUGIN_NAME),
+                    'ok-icon' => '<div style="display:inline;"><img class="InfoIcon" src="'.$this->getImgUrl().'ok.png" /></div>')
+            );
         } else if (!$this->connectionSucc && $this->settings->settingsDefinedForConnection()) {
             $this->onConnectionFailed();
         }

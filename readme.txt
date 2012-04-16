@@ -69,6 +69,10 @@ For more info check out [this page](href='http://www.qualityunit.com/liveagent/ 
 
 == Changelog ==
 
+= 2.0.0 =
+* code refactoring
+* simplification of user interface and code complexity
+
 = 1.2.11 =
 * fixed not functional signup
 

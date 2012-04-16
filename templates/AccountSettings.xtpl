@@ -2,12 +2,12 @@
 <div class="wrap">
 	<div class="nlAboveStepBox">
 		<!-- BEGIN: login_check_ok -->
-		<div class="nlHurrayMessage">
-		{connection-ok}
-		</div>
+		  <div class="updated">
+		      {ok-icon}<div class="InfoText">{connection-ok}</div>
+		  </div>
 		<!-- END: login_check_ok -->
 		<!-- BEGIN: login_check_failed -->
-		<div class="error"><p>{connection-error}</p></div>
+		  <div class="error"><p>{connection-error}</p></div>
 		<!-- END: login_check_failed -->       	        
         <div class="nlStepBoxLeft">
         	{controls.la-signup-button}            
@@ -35,7 +35,7 @@
                     	{controls.la-url}
                     </div>
                     <div class="nlFormFieldDesc">
-                    	include 'http://' or 'https://'
+                    	Example: http://example.support.com
                     </div>
                 </div>
 	           	<div class="nlFormField">
@@ -66,7 +66,7 @@
                 </div>
                 <div class="nlDarkOrangeText">
                 	Feel free to 
-                    <a href="http://support.qualityunit.com/la/chat/index.php?bid=858b57ea" target="_blank">
+                    <a href="http://support.qualityunit.com/submit_ticket" target="_blank">
                     	contact us
                     </a>
                 </div>

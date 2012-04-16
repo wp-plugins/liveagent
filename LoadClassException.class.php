@@ -8,7 +8,9 @@
  *   Licensed under GPL2
  */
 if (!class_exists('liveagent_LoadClassException')) {
-	class liveagent_LoadClassException extends Exception {}
+	class liveagent_LoadClassException extends Exception {
+	    
+	}
 }
 
 ?>

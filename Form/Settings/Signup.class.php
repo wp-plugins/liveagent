@@ -15,6 +15,9 @@ class liveagent_Form_Settings_Signup extends liveagent_Form_Base {
         global $current_user;
         get_currentuserinfo();
         $this->userName = $current_user->display_name;
+        if ($this->userName == '') {
+            $this->userName = 'name';
+        }
         parent::__construct(liveagent_Settings::SIGNUP_SETTINGS_PAGE_NAME);        
     }
 
@@ -31,9 +34,6 @@ class liveagent_Form_Settings_Signup extends liveagent_Form_Base {
     }
 
     protected function getOption($name) {
-        if (get_option($name) != '') {
-            return get_option($name);
-        }
         switch ($name) {
             case liveagent_Settings::LA_OWNER_EMAIL_SETTING_NAME:
                 return get_bloginfo('admin_email');
@@ -41,7 +41,12 @@ class liveagent_Form_Settings_Signup extends liveagent_Form_Base {
                 return $this->userName;
             case liveagent_Settings::LA_URL_SETTING_NAME:
                 $domain = substr($this->getdomainOnly(), 0, strpos($this->getdomainOnly(), '.'));
-                return preg_replace('/[^A-Za-z0-9]/', '', $domain);
+                $domain = str_replace(array('http://', 'https://'), '', $domain);
+                $domain = preg_replace('/[^A-Za-z0-9]/', '', $domain);
+                if ($domain == '') {
+                    $domain = 'support' . time();
+                }
+                return $domain;
         }
     }
 
