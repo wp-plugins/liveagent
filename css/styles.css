@@ -119,8 +119,10 @@ div.laSignup {
 .nlFormField {margin:0 0 15px 0;}
 	.nlFormFieldLabel {font-size:13px; font-weight:bold;}
 	.nlFormFieldInput, .nlFormFieldInputDomain  {background:#fff; border:1px solid #949494; border-color:#888888 #AAAAAA #DDDDDD; border-radius:7px 7px 7px 7px; border-style:solid; border-width:1px; height:35px;}
+	.nlFormFieldTextArea {background:#fff; border:1px solid #949494; border-color:#888888 #AAAAAA #DDDDDD; border-radius:7px 7px 7px 7px; border-style:solid; border-width:1px; width: 920px; margin-left: 10px; margin-right: 10px;}
 		.nlInput, .nlFormFieldInput .password-focus, .nlFormFieldInput .password, .nlFormFieldInput .text, .nlFormFieldInput .text-focus {font-size:17px !important; border-radius:5px 5px 5px 5px; height:100%; margin:0; border:none; padding:0 6px; width:275px;}
-		.nlFormFieldInputDomain .text-focus, .nlFormFieldInputDomain .text {font-size:17px !important; border-radius:5px 5px 5px 5px; height:100%; margin:0; border:none; padding:0 6px; width:186px;}
+		.nlTextArea {width: 100%; font-size:17px !important; border-radius:5px 5px 5px 5px; border:none; height:170px; background-color: #FFFEDE;}
+		.nlFormFieldInputDomain .text-focus, .nlFormFieldInputDomain .text {font-size:17px !important; border-radius:5px 5px 5px 5px; height:100%; margin:0; border:none; padding:6px 6px 6px 6px; width:186px;}
 
 .nlStepBox {margin:20px 0; width:962px; font-family:'PT Sans', arial, serif; position:relative;}
 	.nlStepHeader {background:#1a1a1a url('../img/black-dotted-background.png') repeat-x; border-radius:8px 8px 0 0; -moz-border-radius:8px 8px 0 0; -webkit-border-radius:8px 8px 0 0; padding:18px 20px; text-align:left; font-size:25px; font-weight:bold; color:#bebebe;}
@@ -173,7 +175,9 @@ div.laSignup {
 	width: 902px;
 }
 .buttonsSettings .nlStepBoxContent {
-	width:900px;
+	width:940px;
+	min-height:174px;
+	height:174px;
 	float:left;
 	clear:both;
 }
@@ -183,4 +187,15 @@ div.laSignup {
 
 .nlFormFieldInputDomain {
 	float:left;
+}
+
+.InfoIcon {
+	padding-top: 4px;
+	padding-right: 10px;
+	
+}
+
+.InfoText {
+	font-size: 16px;
+	display: inline;
 }

@@ -22,10 +22,7 @@ class liveagent_Form_Settings_SignupWait extends liveagent_Form_Base {
     }
 
     protected function initForm() {
-//        $this->addTextBox('la-full-name', null, 'nlInput text');        
-//        $this->addTextBox(liveagent_Settings::LA_OWNER_EMAIL_SETTING_NAME, null, 'nlInput text');
-//        $this->addTextBox(liveagent_Settings::LA_URL_SETTING_NAME, 5, 'nlInput text');
-//        $this->form->add('html', 'submit', __('Create your account', LIVEAGENT_PLUGIN_NAME));
+        //do not init anything
     }
 }
 

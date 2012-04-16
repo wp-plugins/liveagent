@@ -25,7 +25,7 @@ if (!class_exists('liveagent_Base')) {
                 }
                 $message = 'LiveAgent plugin log: ' . $message;
                 error_log($message);
-                echo $message;
+                echo '<div class="error" style="margin-left:0px;"><p>'.$message."</p></div>\n";
             }
         }
 
