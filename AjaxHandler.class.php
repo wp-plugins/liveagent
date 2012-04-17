@@ -23,27 +23,7 @@ class liveagent_AjaxHandler extends liveagent_Base {
         $this->auth = $auth;
     }
 
-    public function handle() {
-        if ( isset( $_POST['action'])&&isset($_POST['data']) ) {
-            $this->includeWordpressBase();
-            if ($_POST['action'] == 'liveagent_signup_action' && $_POST['data'] == 'cancel') {
-                $this->liveagentSignupCancel();
-            }
-            if ($_POST['action'] == 'liveagent_signup_action' && $_POST['data'] == 'restart') {
-                $this->liveagentSignupRestart();
-            }
-            if ($_POST['action'] == 'liveagent_signup_action' && $_POST['data'] == 'submit') {
-                $this->liveagentSignupSubmit($_POST['att']);
-            }
-            if ($_POST['action'] == 'liveagent_signup_action' && $_POST['data'] == 'ping') {
-                $this->liveagentPing($_POST['att']);
-            }
-            echo json_encode(array());
-            die();
-        }
-    }
-
-    public function liveagentPing($attributes) {
+    public function liveagentPing() {
         try {
             $this->auth->ping();
         } catch (liveagent_Exception_ConnectProblem $e) {
@@ -58,11 +38,6 @@ class liveagent_AjaxHandler extends liveagent_Base {
             'dialog'=>$html, 
             'replaceform'=>liveagent_Settings::SIGNUP_WAIT_SETTINGS_PAGE_NAME));
         die();
-    }
-
-    private function includeWordpressBase() {
-        require_once '../wp-config.php';
-        require_once 'includes/admin.php';
     }
 
     public function liveagentSignupCancel() {
@@ -89,15 +64,10 @@ class liveagent_AjaxHandler extends liveagent_Base {
         }
     }
 
-    private function getVisitorId() {
-        $tracker = new liveagent_helper_CompactTracker();
-        return $tracker->getVisitorId();
-    }
-
-    public function liveagentSignupSubmit($attributes) {
-        $name = $attributes['name'];
-        $domain = $attributes['domain'];
-        $email = $attributes['email'];
+    public function liveagentSignupSubmit() {
+        $name = $_REQUEST['name'];
+        $domain = $_REQUEST['domain'];
+        $email = $_REQUEST['email'];
         $password = substr(md5(microtime()),0,8);
 
         $tracker = new liveagent_helper_CompactTracker();
@@ -127,8 +97,12 @@ class liveagent_AjaxHandler extends liveagent_Base {
         update_option(liveagent_Settings::LA_OWNER_EMAIL_SETTING_NAME, $email);
         update_option(liveagent_Settings::LA_OWNER_PASSWORD_SETTING_NAME, $password);
 
-        $buttonHelper = new liveagent_helper_Buttons();
-        $buttonHelper->enableDefaultButton();
+        $this->settings->setButtonCode(
+            $this->settings->getIntegrationCode($this->settings->getLiveAgentUrl(), 'button1')
+        );
+        
+        //for compatibility reasons to disable old storeage for buttons
+        update_option(liveagent_Settings::BUTTONS_CONFIGURATION_SETTING_NAME, null);
     }
 
     private function setTrackingData(liveagent_helper_CompactTracker $tracker, $domain) {

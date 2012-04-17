@@ -13,13 +13,6 @@
  *
  */
 
-@ini_set('session.gc_maxlifetime', 28800);
-@ini_set('session.cookie_path', '/');
-@ini_set('session.use_cookies', true);
-@ini_set('magic_quotes_runtime', false);
-@ini_set('session.use_trans_sid', false);
-@ini_set('zend.ze1_compatibility_mode', false);
-
 if (!class_exists('La_Lang', false)) {
     class La_Lang {
         public static function _replaceArgs($message, $args = null) {

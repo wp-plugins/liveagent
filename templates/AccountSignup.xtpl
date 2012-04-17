@@ -1,7 +1,7 @@
 <!-- BEGIN: main -->
 <div class="wrap">
-        <h2>Live Agent - Helpdesk and Live Chat plugin for Wordpress</h2>
-        We want you to enjoy the full functionality of LiveAgent in the trial period. Trial accounts do not limit the number of agents and you have the option to activate all available features. Once you upgrade your Trial account, we will apply the account restrictions as defined by your selected plan.
+        <h2>Live Agent - Free helpdesk and live chat plugin for Wordpress</h2>
+        We want you to enjoy the functionality of LiveAgent with the free account. Free account do not limit the number of agents and you have the option to activate the most of available features.
         <div class="clear"></div>
     </div>
 <div class="nlStepBox">
@@ -66,7 +66,7 @@
                 </div>
                 <div class="nlDarkOrangeText">
                     Feel free to 
-                    <a href="http://support.qualityunit.com/la/chat/index.php?bid=858b57ea" target="_blank">
+                    <a href="http://support.qualityunit.com/submit_ticket" target="_blank">
                         contact us
                     </a>
                 </div>

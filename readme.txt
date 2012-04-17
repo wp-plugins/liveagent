@@ -3,7 +3,7 @@ Contributors: jurajsim
 Tags: live chat, live agent, help desk, help desk software, live chat software, live agent software, chat, online support, support, mails, mail handler, qualityunit
 Requires at least: 3.0.0
 Tested up to: 3.3.1
-Stable tag: 1.2.11
+Stable tag: 2.0.1
 
 Wordpress LiveAgent plugin integrates well known help desk and live chat software into any Wordpress installation. No HTML knowledge is required.
 
@@ -68,6 +68,13 @@ For more info check out [this page](href='http://www.qualityunit.com/liveagent/ 
 8. example of default chat button on page
 
 == Changelog ==
+
+= 2.0.1 =
+* readme changes only
+
+= 2.0.0 =
+* code refactoring
+* simplification of user interface and code complexity
 
 = 1.2.11 =
 * fixed not functional signup
@@ -152,7 +159,15 @@ For more info check out [this page](href='http://www.qualityunit.com/liveagent/ 
 
 == Upgrade Notice ==
 
-Nothing so far.
+= Upgrade from 1.2.X  to 2.0.X =
+
+In this upgrade there were many code and user interface changes.
+* Buttons table was removed. User now can input button code from application.
+* First enabled button code will be automatically inserted after upgrade
+* widgets were removed completely (they will be added later)
+* alax calls were fixed
+* plugin now uses WP jQuery instead of its own
+
 
 == Arbitrary section ==
 

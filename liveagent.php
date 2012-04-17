@@ -1,45 +1,72 @@
 <?php
 /*
- Plugin Name: Live Agent
- Plugin URI: http://www.qualityunit.com/liveagent
- Description: Plugin that enable integration with Live Agent
- Author: QualityUnit
- Version: 1.2.11
- Author URI: http://www.qualityunit.com
- License: GPL2
- */
+Plugin Name: Live Agent
+Plugin URI: http://www.qualityunit.com/liveagent
+Description: Plugin enable integration of Wordpress with Live Agent
+Author: QualityUnit
+Version: 2.0.1
+Author URI: http://www.qualityunit.com
+License: GPL2
+*/
 
-define('LIVEAGENT_PLUGIN_VERSION', '1.2.11');
-define('LIVEAGENT_PLUGIN_NAME', 'liveagent');
-require_once WP_PLUGIN_DIR . '/' . LIVEAGENT_PLUGIN_NAME . '/Config.class.php';
+/*  Copyright 2012  QualityUnit  (email : support@qualityunit.com)
 
-$loadErrorMessage = null;
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License, version 2, as
+published by the Free Software Foundation.
 
-function liveagent_PluginLoadError() {
-    global $loadErrorMessage;
-    echo '<div class="error"><p>'.$loadErrorMessage.'</p></div>';
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+*/
+
+if (!defined('LIVEAGENT_PLUGIN_VERSION')) {
+    define('LIVEAGENT_PLUGIN_VERSION', '2.0.1');
+}
+if (!defined('LIVEAGENT_PLUGIN_NAME')) {
+    define('LIVEAGENT_PLUGIN_NAME', 'liveagent');
+}
+
+include_once WP_PLUGIN_DIR . DIRECTORY_SEPARATOR . LIVEAGENT_PLUGIN_NAME . DIRECTORY_SEPARATOR . 'Config.class.php';
+
+$liveagentloadErrorMessage = null;
+
+if (!function_exists('liveagent_PluginLoadError')) {
+    function liveagent_PluginLoadError() {
+        global $liveagentloadErrorMessage;
+        if (current_user_can( 'install_plugins') && current_user_can('manage_options') ) {
+            echo '<div class="error"><p>'.$loadErrorMessage.'</p></div>';
+        }
+    }
 }
 
 try {
-    include WP_PLUGIN_DIR . '/'.LIVEAGENT_PLUGIN_NAME.'/Loader.class.php';
-    $liveagentLoader = new liveagent_Loader();
+    include_once WP_PLUGIN_DIR . DIRECTORY_SEPARATOR . LIVEAGENT_PLUGIN_NAME . DIRECTORY_SEPARATOR . 'Loader.class.php';
+    $liveagentLoader = liveagent_Loader::getInstance();
     $liveagentLoader->load();
 } catch (Exception $e) {
-    $loadErrorMessage = __(sprintf('Critical error during liveagent plugin %s', $e->getMessage()), LIVEAGENT_PLUGIN_NAME);
+    $loadErrorMessage = __(sprintf('Critical error during liveagent plugin load %s', $e->getMessage()), LIVEAGENT_PLUGIN_NAME);
     add_action( 'admin_notices', 'liveagent_PluginLoadError');
     return;
 }
 
 if (!class_exists('liveagent')) {
     class liveagent extends liveagent_Base {
+
+        /**
+         * @var liveagent
+         */
+        private static $instance = null;
+
         /**
          * @var liveagent_Settings
          */
         private $settings;
-        /**
-         * @var liveagent_helper_Buttons
-         */
-        private $buttonHelper;
 
         /**
          * @var liveagent_Auth
@@ -51,113 +78,110 @@ if (!class_exists('liveagent')) {
          */
         private $ajaxHandler;
 
-        public function __construct() {
-            $this->buttonHelper = new liveagent_helper_Buttons();
+        /**
+         * @var boolean
+         */
+        private $active = false;
+
+        public function activate() {
+            if ($this->isActive()) {
+                return;
+            }
             $this->settings = new liveagent_Settings();
+            $this->auth = new liveagent_Auth();
+            $this->ajaxHandler = new liveagent_AjaxHandler($this->settings, $this->auth);
+
             $this->initPlugin();
+            $this->active = true;
         }
 
-        private function getLaIconURL() {
-            return $this->getImgUrl() . 'menu-icon.png';
+        public function isActive() {
+            return $this->active;
+        }
+
+        public static function getInstance() {
+            if (self::$instance == null) {
+                self::$instance = new self;
+            }
+            return self::$instance;
+        }
+
+        /**
+         * calledby add_filter ('admin_head', array($this, 'initAdminHeader'), 99);
+         */
+        public function adminInit() {
+            $this->settings->initSettingsForAdminPanel();
+            add_action('wp_ajax_lasignupcancel', array($this->ajaxHandler,'liveagentSignupCancel'));
+            add_action('wp_ajax_lasignuprestart', array($this->ajaxHandler,'liveagentSignupRestart'));
+            add_action('wp_ajax_lasignupsubmit', array($this->ajaxHandler,'liveagentSignupSubmit'));
+            add_action('wp_ajax_laping', array($this->ajaxHandler,'liveagentPing'));
         }
 
         private function initPlugin() {
-            $this->auth = new liveagent_Auth();
-            $this->ajaxHandler = new liveagent_AjaxHandler($this->settings, $this->auth);
-            add_filter ('init', array($this->ajaxHandler, 'handle'), 99);
-            add_action('admin_init', array($this->settings, 'initSettings'));
+            add_action('admin_init', array($this, 'adminInit'));
             add_action('admin_menu', array($this, 'addPrimaryConfigMenu'));
-            add_filter ('wp_head', array($this, 'initHeader'), 99);
             add_filter ('admin_head', array($this, 'initAdminHeader'), 99);
             add_action ('wp_enqueue_scripts', array($this, 'includeJavascripts'));
             add_action ('admin_enqueue_scripts', array($this, 'includeJavascripts'));
+
             if (!$this->settings->settingsDefinedForConnection()) {
                 return;
             }
             add_filter ('wp_footer', array($this, 'initFooter'), 99);
+            
+            if ($this->settings->getButtonCode() == null) {
+                add_action( 'admin_notices', array($this, 'showButtonCodeEmptyError'));
+            }
+            
             try {
                 $this->settings->getOwnerSessionId();
             } catch (liveagent_Exception_ConnectProblem $e) {
                 return;
+            }            
+        }
+        
+        public function showButtonCodeEmptyError() {
+            if (current_user_can('manage_options')) {
+                echo('<div class="error" style="margin-left:0px;"><p>' . __('No chat buttons enabled on your page. Enable one of them in your <b>Live Agnet/Button code</b> configuration.') . '</p></div>');
             }
-            $widgetIntegrator = new liveagent_WidgetIntegrator($this->settings, $this->buttonHelper);
-            $widgetIntegrator->initWidgets();
         }
 
         public function includeJavascripts() {
-            $this->includeJavascript('liveagent-jquery', 'jQuery.js');
-            $this->includeJavascript('liveagent-main', 'main.js');
-        }
-
-        private function includeJavascript($handle, $jsName) {
-            if (function_exists('wp_enqueue_script')) {
-                wp_enqueue_script($handle, $this->getJsUrl() . $jsName, array(), LIVEAGENT_PLUGIN_VERSION);
-                return true;
-            } else {
-                $this->showAdminError(__('Live Agent plugin error: Unable to load required javascript files! Wordpress function wp_enqueue_script is missing.', LIVEAGENT_PLUGIN_NAME));
-                return false;
-            }
-        }
-
-        private function initCommonHeaders() {
-            echo '<link type="text/css" rel="stylesheet" href="' . $this->getCssUrl() . 'styles.css?ver=' . LIVEAGENT_PLUGIN_VERSION . '" \>' . "\n";
+            wp_enqueue_script('liveagent-main', $this->getJsUrl() . 'main.js', array(), LIVEAGENT_PLUGIN_VERSION);
         }
 
         public function initAdminHeader($content) {
             if(!is_feed()) {
-                $this->initCommonHeaders();
+                echo '<link type="text/css" rel="stylesheet" href="' . $this->getCssUrl() . 'styles.css?ver=' . LIVEAGENT_PLUGIN_VERSION . '" \>' . "\n";
                 echo '<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,italicbold" rel="stylesheet" type="text/css" />' . "\n";
             }
             echo $content;
         }
 
-        public function initHeader($content) {
-            if(!is_feed()) {
-                $this->initCommonHeaders();
-                if (!$this->settings->settingsDefinedForConnection()) {
-                    return;
-                }
-                echo '<script type="text/javascript" id="la_x2s6df8d" src="'.$this->getRemoteTrackJsUrl().'"></script>';
-            }
-            echo $content;
-        }
-
         public function initFooter() {
-            if(!is_feed()) {
-                try {
-                    echo $this->buttonHelper->getIntegrationCodeForEnabledFloatButtons();
-                } catch (liveagent_Exception_ConnectProblem $e) {
-                    $this->showConnectionError();
-                } catch (Exception $e) {
-                    $this->_log(__(sprintf('Unable to insert button in footer %s', $e->getMessage()), LIVEAGENT_PLUGIN_NAME));
-                }
-            }
+            $footer = new liveagent_wordpress_Footer($this->settings);
+            $footer->initVisitorFooter();
         }
 
         public function addPrimaryConfigMenu() {
-            add_menu_page(__('Live Agent', LIVEAGENT_PLUGIN_NAME), __('Live Agent',LIVEAGENT_PLUGIN_NAME), 'manage_options', 'la-top-level-options-handle', array($this, 'printGeneralConfigPage'), $this->getLaIconURL());
-            if (!strlen(trim($this->settings->getLiveAgentUrl())) || !strlen(trim($this->settings->getOwnerEmail()))) {
-                return;
-            }
-            add_submenu_page('la-top-level-options-handle', __('Buttons',LIVEAGENT_PLUGIN_NAME), __('Buttons',LIVEAGENT_PLUGIN_NAME), 'manage_options', 'buttons-config-page', array($this, 'printButtonsConfigPage'));
-        }
+            $formHandler = new liveagent_Form_Handler($this->settings, $this->auth);
+            add_menu_page(__('Live Agent', LIVEAGENT_PLUGIN_NAME),
+                    __('Live Agent',LIVEAGENT_PLUGIN_NAME),
+                    'manage_options',
+                    'la-top-level-options-handle',
+                    array($formHandler, 'printGeneralConfigPage'),
+                    $this->getImgUrl() . 'menu-icon.png');
 
-        public function printGeneralConfigPage() {
-            if ($this->getAccountStatus() == self::ACCOUNT_STATUS_NOTSET) {
-                $form = new liveagent_Form_Settings_Signup($this->settings, $this->auth);
-
-            } else {
-                $form = new liveagent_Form_Settings_Account($this->settings, $this->auth);
-            }
-            $form->render();
-        }
-
-        public function printButtonsConfigPage() {
-            $form = new liveagent_Form_Settings_Buttons($this->settings);
-            $form->render();
+            add_submenu_page('la-top-level-options-handle',
+                    __('Button code',LIVEAGENT_PLUGIN_NAME),
+                    __('Button code',LIVEAGENT_PLUGIN_NAME),
+                    'manage_options',
+                    'buttons-config-page',
+                    array($formHandler, 'printButtonsConfigPage'));
         }
     }
 }
 
-$liveagent = new liveagent();
+$liveagent = liveagent::getInstance();
+$liveagent->activate();
 ?>

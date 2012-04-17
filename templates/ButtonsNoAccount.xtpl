@@ -1,8 +1,0 @@
-<!-- BEGIN: main -->
-<div class="wrap">
-	<!-- BEGIN: login_check_failed -->
-		<div class="error"><p>{connection-error}</p></div>
-		</div>
-	<!-- END: login_check_failed -->
-</div>
-<!-- END: main -->
