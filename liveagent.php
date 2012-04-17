@@ -4,13 +4,29 @@ Plugin Name: Live Agent
 Plugin URI: http://www.qualityunit.com/liveagent
 Description: Plugin enable integration of Wordpress with Live Agent
 Author: QualityUnit
-Version: 2.0.0
+Version: 2.0.1
 Author URI: http://www.qualityunit.com
 License: GPL2
 */
 
+/*  Copyright 2012  QualityUnit  (email : support@qualityunit.com)
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License, version 2, as
+published by the Free Software Foundation.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+*/
+
 if (!defined('LIVEAGENT_PLUGIN_VERSION')) {
-    define('LIVEAGENT_PLUGIN_VERSION', '2.0.0');
+    define('LIVEAGENT_PLUGIN_VERSION', '2.0.1');
 }
 if (!defined('LIVEAGENT_PLUGIN_NAME')) {
     define('LIVEAGENT_PLUGIN_NAME', 'liveagent');
