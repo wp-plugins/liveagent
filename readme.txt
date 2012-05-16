@@ -58,6 +58,9 @@ For more info check out [this page](href='http://www.qualityunit.com/liveagent/ 
 = Is it free? =
 Yes it is if you create account with our plugin. You'll get free account which support multiple channels (mail, chat, facebook, twitter, etc.). Only limitation is 50 chats/mails per month.
 
+= Is plugin avaliable also in my language? =
+From version 3.0.0 plugin supports translations to any language that WordPress supports. So if you have time and will you can help us to improve it. [Make your own translation](href='http://support.qualityunit.com/634703-Making-custom-translation' "Custom translation") and send it to us. We add it to next plugin release. 
+
 
 == Screenshots ==
 
