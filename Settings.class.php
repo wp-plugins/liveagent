@@ -15,18 +15,18 @@ class liveagent_Settings {
     const INTERNAL_SETTINGS = 'la-settings_internal-settings';
     const OWNER_SESSIONID = 'la-settings_owner-sessionid';
     const OWNER_AUTHTOKEN = 'la-settings_owner-authtoken';
-    const BUTTONS_DATA = 'la-settings_buttonsdata';    
     const ACCOUNT_STATUS = 'la-settings_accountstatus';
+    const ACCOUNT_CREATING_DIALOG_LOAD_COUNT = 'la-settings_account-creating-dialog-load-count';
 
     //general page
     const GENERAL_SETTINGS_PAGE_NAME = 'la-config-general-page';
     const SIGNUP_SETTINGS_PAGE_NAME = 'la-config-signup-page';
     const SIGNUP_WAIT_SETTINGS_PAGE_NAME = 'la-config-signup-wait-page';
 
+    const LA_FULL_NAME = 'la-full-name';
     const LA_URL_SETTING_NAME = 'la-url';
     const LA_OWNER_EMAIL_SETTING_NAME = 'la-owner-email';
     const LA_OWNER_PASSWORD_SETTING_NAME = 'la-owner-password';
-    const GENERAL_SETTINGS_PAGE_STATE_SETTING_NAME = 'general-settings-state';
 
     //buttons options
     const BUTTONS_SETTINGS_PAGE_NAME = 'la-config-buttons-page';
@@ -34,31 +34,50 @@ class liveagent_Settings {
     const BUTTON_CODE = 'la-buttons_buttoncode';
 
     const NO_AUTH_TOKEN = 'no_auth_token';
-
+    
+    //action codes
+    const ACTION_CREATE_ACCOUNT = 'createAccount';
+    const ACTION_SKIP_CREATE = 'skipCreate';
+    const ACTION_CHANGE_ACCOUNT = 'changeAccount';
+    const ACTION_RESET_ACCOUNT = 'resetAccount';
+    
+    const DEFAULT_BUTTON_CODE = 'button1';
+    
+    //account statuses
+    const ACCOUNT_STATUS_NOTSET = 'N';
+    const ACCOUNT_STATUS_SET = 'S';
+    const ACCOUNT_STATUS_CREATING = 'C';
+    
     public function initSettingsForAdminPanel() {
         register_setting(self::GENERAL_SETTINGS_PAGE_NAME, self::LA_URL_SETTING_NAME, array($this, 'sanitizeUrl'));
         register_setting(self::GENERAL_SETTINGS_PAGE_NAME, self::LA_OWNER_EMAIL_SETTING_NAME);
         register_setting(self::GENERAL_SETTINGS_PAGE_NAME, self::LA_OWNER_PASSWORD_SETTING_NAME);
+        //only for comaptibility with 1.2.X versions
         register_setting(self::BUTTONS_SETTINGS_PAGE_NAME, self::BUTTONS_CONFIGURATION_SETTING_NAME);
+        //
         register_setting(self::BUTTONS_SETTINGS_PAGE_NAME, self::BUTTON_CODE);
         register_setting(self::INTERNAL_SETTINGS, self::OWNER_SESSIONID);
         register_setting(self::INTERNAL_SETTINGS, self::OWNER_AUTHTOKEN);
-        register_setting(self::INTERNAL_SETTINGS, self::BUTTONS_DATA);        
         register_setting(self::INTERNAL_SETTINGS, self::ACCOUNT_STATUS);
+        register_setting(self::INTERNAL_SETTINGS, self::ACCOUNT_CREATING_DIALOG_LOAD_COUNT);
+    }
+    
+    public function getAccountStatus() {
+        if (get_option(liveagent_Settings::ACCOUNT_STATUS) == '') {
+            return liveagent_Settings::ACCOUNT_STATUS_NOTSET;
+        }
+        return get_option(liveagent_Settings::ACCOUNT_STATUS);
     }
 
     public function sanitizeUrl($url) {
+        if ($url == null) {
+            return '';
+        }
         if (stripos($url, 'http://')!==false || stripos($url, 'https://')!==false) {
-            return $url;
+            return esc_url($url);
         }
         return 'http://' . $url;
     }    
-
-    public function clearCache() {
-        update_option(self::OWNER_SESSIONID, '');
-        update_option(self::OWNER_AUTHTOKEN, '');
-        update_option(self::BUTTONS_DATA, '');
-    }
     
     private function setSetting($code, $settingValue) {
         $settings = get_option($code);
@@ -124,7 +143,7 @@ class liveagent_Settings {
 
     private function login() {
         $auth = new liveagent_Auth();
-        $loginData = $auth->LoginAndGetLoginData();
+        $loginData = $auth->loginAndGetLoginData();
         try {
             $sessionId = $loginData->getValue('session');
             $this->setCachedSetting(self::OWNER_SESSIONID, $sessionId);
@@ -138,10 +157,6 @@ class liveagent_Settings {
             $this->setCachedSetting(self::OWNER_AUTHTOKEN, self::NO_AUTH_TOKEN);
         }
         return $sessionId;
-    }
-
-    public function settingsDefinedForConnection() {
-        return strlen(trim($this->getLiveAgentUrl())) && strlen(trim($this->getOwnerEmail()));
     }
     
     public function setButtonCode($buttonCode) {
@@ -192,17 +207,6 @@ class liveagent_Settings {
     public function getIntegrationCode($url, $buttonid) {
         return '<script type="text/javascript" id="la_x2s6df8d" src="'.$url.'/scripts/trackjs.php"></script>' . "\n" .
                 '<img src="'.$url.'/scripts/pix.gif" onLoad="LiveAgentTracker.createButton(\''.$buttonid.'\', this);"/>';
-    }
-
-    public function buttonIsEnabled($buttonId) {
-        $value = get_option(liveagent_Settings::BUTTONS_CONFIGURATION_SETTING_NAME);
-        if ($value == '' || $value === null) {
-            return false;
-        }
-        if (array_key_exists($buttonId, $value) && $value[$buttonId] == 'true') {
-            return true;
-        }
-        return false;
     }
 }
 

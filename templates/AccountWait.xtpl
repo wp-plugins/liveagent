@@ -1,57 +1,17 @@
 <!-- BEGIN: main -->
+<table cellpadding="5px">
+    <tr>
+        <td><div class="logo"></div></td>
+        <td>
+            <h2>{controls.LiveAgentFreeHelpdeskAndLiveChat}</h2>
+            <p>{controls.LiveAgentFreeHelpdeskAndLiveChatDescription}</p>
+        </td>
+    </tr>
+</table>
 <div class="wrap">
-        <h2>Live Agent - Free helpdesk and live chat plugin for Wordpress</h2>
-        We want you to enjoy the functionality of LiveAgent with the free account. Free account do not limit the number of agents and you have the option to activate the most of available features.
-        <div class="clear"></div>
-    </div>
-<div class="nlStepBox">
-        <div class="nlStepHeader">
-            <div class="nlStepHeaderLeft">
-                <span class="nlStepName">
-                    Account Installation
-                </span>
-            </div>
-            <div class="clear"></div>
-        </div>
-        <div class="nlStepBoxContent">
-            <div class="nlStepBoxLeft">
-                <div class="nlHurrayMessage">
-                    Thank you!
-                </div>
-
-                <div class="nlDarkOrangeText">
-                    Your account will be online within next few seconds.
-                    <br/><br/>
-                </div>
-                <div class="nlDarkOrangeText">
-                    Please wait, once will be your account online ....
-                </div>
-                <div class="nlDarkOrangeText">
-                    In the meantime, you should recieve confirmation email with your account credentials. <br/>
-                    Note: Sometimes account creation process may take a <a href='http://support.qualityunit.com/knowledgebase/live-agent/wordpress-plugin/frequently-asked-questions.html' target='_blank'>bit longer</a>. 
-                </div>
-                <div class="nlLoader"><span>loading...</span></div>                
-                <div class="nlDarkOrangeText" name="liveagent_wait_status">
-                    Initializing...
-                </div>
-            </div>
-            
-            <div class="nlBoxWithScreenshots"></div>
-            <div class="nlContactUs">
-                <div class="nlDarkOrangeText">
-                    Do you need help with this plugin?
-                </div>
-                <div class="nlDarkOrangeText">
-                    Feel free to 
-                    <a href="http://support.qualityunit.com/la/chat/index.php?bid=858b57ea" target="_blank">
-                        contact us
-                    </a>
-                </div>
-            </div>
-            <div class="clear"></div>
-        </div>
-        </form>
-     </div>
-</div>
-<div class="clear"></div>
+    <h2>{controls.Installing}</h2>
+    <p>{controls.YourAccountWillBeOnline}</p>
+    <p class="description">{controls.NoteSometimesAccount}</p>
+    <br/>
+    <div name="liveagent_wait_status">{controls.initializing}</div>            
 <!-- END: main -->

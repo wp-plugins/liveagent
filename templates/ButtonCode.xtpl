@@ -1,55 +1,51 @@
 <!-- BEGIN: main -->
-<div class="wrap buttonsSettings">
-	<div class="nlAboveStepBox">
-		<!-- BEGIN: login_check_ok -->
-			<div class="updated">
-				{ok-icon}<div class="InfoText">{connection-ok}</div>
-			</div>
-		<!-- END: login_check_ok -->
-       	<!-- BEGIN: login_check_failed -->
-			<div class="error"><p>{connection-error}</p></div>
-		<!-- END: login_check_failed -->
-		<div class="updated">
-           	{controls.bulb-icon}<div class="InfoText">You can customize Live chat buttons in admin panel by clicking on <b>"Login to Admin panel"</b> bellow.</div>
-        </div>        
-        <div class="nlStepBoxLeft">
-            {controls.la-signup-button}
-        </div>
-        <div class="clear"></div>
-	</div>	
+<table cellpadding="5px">
+    <tr>
+        <td><div class="logo"></div></td>
+        <td>
+            <h2>{controls.LiveAgentFreeHelpdeskAndLiveChat}</h2>
+            <p>{controls.DoYouNeedHelp}</p>
+        </td>
+    </tr>
+</table>
+<div class="wrap">
+    <h2>{controls.YourAccount}</h2>
+    {controls.errorMessages}
+    {controls.infoMessages}
     <form method="post" action="options.php">
-    	{controls.form-settings}
-    	<div class="nlStepBox">
-		<div class="nlStepHeader">
-			<div class="nlStepHeaderLeft">
-				<span class="nlStepName">
-					Integrate contact button with your website
-				</span>
-			</div>
-			<div class="nlStepHeaderRight">
-                <div class="nlLightText">
-	                Do you need help with this plugin?
-                </div>
-                <div class="nlLightText">
-                	Feel free to 
-                    <a href="http://support.qualityunit.com/submit_ticket">
-                    	contact us
-                    </a>
-                </div>
-			</div>
-			<div class="clear"></div>
-		</div>
-		<div class="nlStepBoxContent ButtonCodeCotent">
-		<div class="nlFormFieldTextArea">
-                        {controls.la-buttons_buttoncode}
-                    </div>
-		</div>
-	 </div>
-	 <div class="buttonsSave">
-     <a class="nlBigButton" href="javascript:document.getElementsByName('la-config-buttons-page')[0].submit()">
-      	{controls.submit}
-     </a>
-     </div>
+        {controls.form-settings}    
+        <table class="form-table">
+            <tr>
+                <th><label for="la-url">{controls.url}: </label></th>
+                <td>
+                    {controls.la-url}&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span>{controls.loginLink}</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span><a href="{controls.changeLinkUrl}">{controls.changeLink}</a></span>
+                </td>            
+            </tr>
+        </table>
+        <br/>
+        <h3>Integration</h3>
+        <table class="form-table">
+            <tr>
+                <th><label for="la-buttons_buttoncode">{controls.buttonCode}</label></th>
+                <td>
+                    <fieldset>
+                        <legend class="screen-reader-text">
+                            <span>{controls.buttonCode}</span>
+                        </legend>
+                        <p>
+                            <label for="la-buttons_buttoncode">{controls.PlaceHereCode}</label>
+                        </p>
+                        <p>
+                            {controls.la-buttons_buttoncode}
+                        </p>                        
+                    </fieldset>
+                </td>            
+            </tr>            
+        </table>
     </form>
-</div>
+    <p class="submit"> 
+        <input type="submit" value="{controls.submit}" class="button-primary" id="submit" name="submit">
+    </p>
 <!-- END: main -->

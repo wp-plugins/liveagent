@@ -1,79 +1,45 @@
 <!-- BEGIN: main -->
+<table cellpadding="5px">
+    <tr>
+        <td><div class="logo"></div></td>
+        <td>
+            <h2>{controls.LiveAgentFreeHelpdeskAndLiveChat}</h2>
+            <p>{controls.LiveAgentFreeHelpdeskAndLiveChatDescription}</p>
+        </td>
+    </tr>
+</table>
 <div class="wrap">
-        <h2>Live Agent - Free helpdesk and live chat plugin for Wordpress</h2>
-        We want you to enjoy the functionality of LiveAgent with the free account. Free account do not limit the number of agents and you have the option to activate the most of available features.
-        <div class="clear"></div>
-    </div>
-<div class="nlStepBox">
-        <div class="nlStepHeader">
-            <div class="nlStepHeaderLeft">
-                <span class="nlStepName">
-                    Create your Trial account
-                </span>
-            </div>
-            <div class="clear"></div>
-        </div>
-        <div class="nlStepBoxContent">
-            <div class="nlStepBoxLeft">         
-                <div class="nlFormField">
-                    <div class="nlFormFieldLabel">
-                        Full name
-                    </div>
-                    <div class="nlFormFieldInput">
-                        {controls.la-full-name}
-                    </div>                    
-                </div>
-                <div class="nlFormField">
-                    <div class="nlFormFieldLabel">
-                        Email
-                    </div>
-                    <div class="nlFormFieldInput">
-                        {controls.la-owner-email}
-                    </div>
-                </div>
-                <div class="nlFormField">                   
-                    <div class="nlFormFieldLabel">
-                        Domain selection
-                    </div>
-                    <div class="nlFormFieldInputDomain nlDomainSelection">
-                        {controls.la-url}
-                    </div>
-                    <div class="nlDomainName">
-                        .ladesk.com
-                    </div>
-                    <div class="clear"></div>
-                </div>
-                <input type="hidden" value="submit">                
-                <a class="nlBigButton" name="liveagent_create_account_button" onclick="onSignupSubmit(document.getElementById('la-full-name').value, document.getElementById('la-owner-email').value, document.getElementById('la-url').value)">
-                    {controls.submit}
-                </a>
-                <div class="nlTermsAndConditions">
-                    By creating an account I agree with
-                    <a href="http://www.qualityunit.com/liveagent/pricing/hosted/terms-and-conditions" target="_blank">
-                        Terms & Conditions
-                    </a>
-                </div>
-                <div class="nlDarkOrangeText">
-                    <a href="#" name="liveagent_link_onSignupCancel" onclick="onSignupCancel()">
-                        Skip this step, I have already account »
-                    </a>
-                </div>
-            </div>
-            <div class="nlBoxWithScreenshots"></div>
-            <div class="nlContactUs">
-                <div class="nlDarkOrangeText">
-                    Do you need help with this plugin?
-                </div>
-                <div class="nlDarkOrangeText">
-                    Feel free to 
-                    <a href="http://support.qualityunit.com/submit_ticket" target="_blank">
-                        contact us
-                    </a>
-                </div>
-            </div>
-            <div class="clear"></div>
-        </div>
-     </div>
-</div>
-<div class="clear"></div>
+    <h2>{controls.CreateYourTrialAccount}</h2>
+    {controls.errorMessages}    
+    <form method="post" action="options.php">
+        {controls.form-settings}    
+        <table class="form-table">
+            <tr>
+                <th><label for="la-full-name">{controls.fullName}</label></th>
+                <td>
+                    {controls.la-full-name}
+                    <span class="description">{controls.yourFirstNameAndLastName}</span>
+                </td>            
+            </tr>
+            <tr>
+                <th><label for="la-owner-email">{controls.Email}</label></th>
+                <td>
+                    {controls.la-owner-email}                
+                </td>            
+            </tr>
+            <tr>
+                <th><label for="la-url">{controls.domainSelection}</label></th>
+                <td>
+                    {controls.la-url}
+                    <span class="description">{controls.ladeskCom}</span>                
+                </td>            
+            </tr>
+        </table>
+    </form>
+    <br/>
+    <p>{controls.iAgreeWith} <a href="http://www.qualityunit.com/liveagent/pricing/hosted/terms-and-conditions" target="_blank">{controls.TermsAndConditions}</a></p>
+    <p class="submit"> 
+        <input type="submit" value="{controls.submit}" class="button-primary" id="submit" name="submit">
+    </p>
+    <a href="{controls.skipCreateUrl}">{controls.SkipThisStepIHaveAccount}</a>    
 <!-- END: main -->

@@ -3,10 +3,8 @@
 	<description>
         deploy plugin to wordpress
     </description>
-	<property name="wordpressPath" value="/home/juraj/work/www/wp331" />
+	<property name="wordpressPath" value="/home/juraj/work/www/wp332" />
 	<target name="deploy">
-		<delete dir="${wordpressPath}/wp-content/plugins/liveagent">
-		</delete>
 		<copy todir="${wordpressPath}/wp-content/plugins/liveagent" overwrite="on">
 			<fileset dir="${basedir}">
 				<include name="**" />

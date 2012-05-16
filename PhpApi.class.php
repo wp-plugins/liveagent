@@ -2222,7 +2222,7 @@ if (!class_exists('La_Rpc_Form', false)) {
         }
 
         public function getDefaultErrorMessage() {
-            return $this->_('There were errors, please check highlighted fields');
+            return $this->_('There were errors, please check the highlighted fields');
         }
     }
 

@@ -76,9 +76,9 @@ class HTMLForm_text extends HTMLForm_control
                 'id'        =>  $controlID,
                 'name'      =>  $controlID,
                 'value'     =>  $defaultValue,
-                'class'     =>  'text',
-                'onfocus'   =>  'this.className = \'text-focus\'',
-                'onblur'    =>  'this.className = \'text\''
+                'class'     =>  'text'
+                //'onfocus'   =>  'this.className = \'text-focus\'',
+                //'onblur'    =>  'this.className = \'text\''
 
 		    )
 

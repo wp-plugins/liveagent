@@ -50,12 +50,14 @@ if (!class_exists('liveagent_Loader')) {
 
         private function loadForms() {
             $this->loadClass('liveagent_Form_Base');
-            $this->loadClass('liveagent_Form_Settings_CanLoginToPanel');
             $this->loadClass('liveagent_Form_Settings_Account');
             $this->loadClass('liveagent_Form_Settings_ButtonCode');
-            $this->loadClass('liveagent_Form_Settings_Signup');
-            $this->loadClass('liveagent_Form_Settings_SignupWait');
-            $this->loadClass('liveagent_Form_Settings_Congratulations');
+            $this->loadClass('liveagent_Form_Signup');
+            $this->loadClass('liveagent_Form_SignupWait');
+            
+            $this->loadClass('liveagent_Form_Validator_Base');
+            $this->loadClass('liveagent_Form_Validator_Signup');
+            $this->loadClass('liveagent_Form_Validator_Account');
         }
 
         private function loadThirdPartyLibraries() {
@@ -72,7 +74,8 @@ if (!class_exists('liveagent_Loader')) {
             $this->loadClass('liveagent_Auth');
             $this->loadClass('liveagent_Exception_SettingNotValid');
             $this->loadClass('liveagent_Exception_ConnectProblem');
-            $this->loadClass('liveagent_Form_Handler');
+            $this->loadClass('liveagent_Exception_SignupFail');
+            $this->loadClass('liveagent_Form_Handler');            
         }
 
         protected function loadClass($className) {

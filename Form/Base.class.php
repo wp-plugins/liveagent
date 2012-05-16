@@ -19,22 +19,38 @@ abstract class liveagent_Form_Base extends liveagent_Base {
     protected $form;
     private $settings;
     private $formName;
-    protected $connectionSucc = false;
-
-    protected function onConnectionFailed() {
-        $message = __('Unable to connect, check your account settings', LIVEAGENT_PLUGIN_NAME);
-        if ($this->isDebugMode()) {
-            $this->_log($message);
+    protected $connectionSucc = false;   
+    
+    public function setErrorMessages(array $messages) {
+        if (count($messages) == 0) {
+            return;
         }
-        $this->parseBlock('login_check_failed', array('connection-error' => $message));
+        $html = '<div class="error">';
+        foreach ($messages as $message) {
+            $html .= '<p><strong>' . __('ERROR', LIVEAGENT_PLUGIN_NAME) . '</strong>: ' . $message . '</p>';
+        }
+        $html .= $this->getUnderErrorMessagesText();
+        $html .='</div>';
+        $this->addHtml('errorMessages', $html);
     }
-
-    protected function getNoAccountMessage() {
-        return __('No account selected. Enter your existing account credetials, or create new <a href="#" onclick="onSignupRestart()">free account</a>. (No credit card required)', LIVEAGENT_PLUGIN_NAME);
+    
+    protected function getUnderErrorMessagesText() {
     }
-
-    protected function onNoAccount() {
-        $this->parseBlock('login_check_failed', array('connection-error' => $this->getNoAccountMessage()));
+    
+    public function setInfoMessages(array $messages) {
+        if (count($messages) == 0) {
+            return;
+        }
+        $html = '<div class="updated">';
+        foreach ($messages as $message) {
+            $html .= '<p>' . $message . '</p>';
+        }
+        $html .='</div>';
+        $this->addHtml('infoMessages', $html);
+    }
+    
+    protected function addTranslation($code, $translation) {                        
+        $this->form->add('html', $code, $translation);
     }
 
     public function __construct($name = null, $action = null) {
@@ -57,20 +73,7 @@ abstract class liveagent_Form_Base extends liveagent_Base {
 
     protected abstract function getType();
 
-    protected function initForm() {
-        $settings = new liveagent_Settings();
-        $auth = new liveagent_Auth();
-        if (!strlen(trim($settings->getLiveAgentUrl())) || !strlen(trim($settings->getOwnerEmail()))) {
-            $this->onNoAccount();
-            return;
-        }
-        try {
-            $auth->ping();
-            $settings->getOwnerSessionId();
-            $this->connectionSucc = true;
-        } catch (liveagent_Exception_ConnectProblem $e) {
-            $this->showConnectionError();
-        }
+    protected function initForm() {        
     }
 
     protected abstract function getTemplateFile();
@@ -81,6 +84,10 @@ abstract class liveagent_Form_Base extends liveagent_Base {
 
     protected function addHtml($name, $code) {
         $this->form->add('html', $name, $code);
+    }
+    
+    protected function addLink($name, $caption, $url, $target = '_blank') {
+        $this->form->add('html', $name, '<a href="'.$url.'" target=".$target.">'.$caption.'</a>');
     }
 
     protected function getOption($name) {

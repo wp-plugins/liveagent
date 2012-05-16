@@ -76,9 +76,9 @@ class HTMLForm_password extends HTMLForm_control
                 'id'        =>  $controlID,
                 'name'      =>  $controlID,
                 'value'     =>  $defaultValue,
-                'class'     =>  'password',
-                'onfocus'   =>  'this.className = \'password-focus\'',
-                'onblur'    =>  'this.className = \'password\''
+                'class'     =>  'password'
+                //'onfocus'   =>  'this.className = \'password-focus\'',
+                //'onblur'    =>  'this.className = \'password\''
 
 		    )
 

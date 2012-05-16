@@ -113,16 +113,16 @@ class liveagent_helper_CompactTracker extends liveagent_Base {
         $request->addQueryParam('ip', $this->getIp());
         $request->addQueryParam('useragent', $this->getUserAgent());
         $request->setUrl($request->getUrl() . $request->getQuery());
-        if ($this->isDebugMode()) {
+        if ($this->isPluginDebugMode()) {
             $request->addQueryParam('PDebug', 'Y');
         }
         $request->setBody("sale=");
-        if ($this->isDebugMode()) {
+        if ($this->isPluginDebugMode()) {
             $this->_log('Tracking request: '.$request->getUrl());
         }
         $client = new La_Net_Http_Client();
         $trackingResponse = trim($client->execute($request)->getBody());
-        if ($this->isDebugMode()) {
+        if ($this->isPluginDebugMode()) {
             $this->_log('Tracking response: '.$trackingResponse);
         }
         return $this->getVisitorId($trackingResponse);

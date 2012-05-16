@@ -1,79 +1,44 @@
 <!-- BEGIN: main -->
+<table cellpadding="5px">
+    <tr>
+        <td><div class="logo"></div></td>
+        <td>
+            <h2>{controls.LiveAgentFreeHelpdeskAndLiveChat}</h2>
+            <p>{controls.DoYouNeedHelp}</p>
+        </td>
+    </tr>
+</table>
 <div class="wrap">
-	<div class="nlAboveStepBox">
-		<!-- BEGIN: login_check_ok -->
-		  <div class="updated">
-		      {ok-icon}<div class="InfoText">{connection-ok}</div>
-		  </div>
-		<!-- END: login_check_ok -->
-		<!-- BEGIN: login_check_failed -->
-		  <div class="error"><p>{connection-error}</p></div>
-		<!-- END: login_check_failed -->       	        
-        <div class="nlStepBoxLeft">
-        	{controls.la-signup-button}            
-        </div>
-        <div class="clear"></div>
-	</div>
-<div class="nlStepBox">
-		<div class="nlStepHeader">
-			<div class="nlStepHeaderLeft">
-				<span class="nlStepName">
-					Account options
-				</span>
-			</div>
-			<div class="clear"></div>
-		</div>
-		<form method="post" action="options.php">
-    	{controls.form-settings}
-		<div class="nlStepBoxContent">
-			<div class="nlStepBoxLeft">
-            	<div class="nlFormField">
-                	<div class="nlFormFieldLabel">
-                    	Account Url
-                    </div>
-                	<div class="nlFormFieldInput">
-                    	{controls.la-url}
-                    </div>
-                    <div class="nlFormFieldDesc">
-                    	Example: http://example.support.com
-                    </div>
-                </div>
-	           	<div class="nlFormField">
-                	<div class="nlFormFieldLabel">
-                    	Email
-                    </div>
-                	<div class="nlFormFieldInput">
-                    	{controls.la-owner-email}
-                    </div>
-                </div>
-            	<div class="nlFormField">
-                	<div class="nlFormFieldLabel">
-                    	Password
-                    </div>
-                	<div class="nlFormFieldInput">
-                    	{controls.la-owner-password}
-                    </div>
-                </div>
-                <input type="hidden" value="submit">                
-                <a class="nlBigButton" href="javascript:document.getElementsByName('la-config-general-page')[0].submit()">
-                	{controls.submit}
-                </a>
-			</div>
-			<div class="nlBoxWithScreenshots"></div>
-            <div class="nlContactUs">
-                <div class="nlDarkOrangeText">
-	                Do you need help with this plugin?
-                </div>
-                <div class="nlDarkOrangeText">
-                	Feel free to 
-                    <a href="http://support.qualityunit.com/submit_ticket" target="_blank">
-                    	contact us
-                    </a>
-                </div>
-            </div>
-			<div class="clear"></div>
-		</div>
-		</form>
-	 </div>
-</div>
+    <h2>{controls.AccountSettings}</h2>
+    {controls.errorMessages}        
+    <form method="post" action="options.php">
+        {controls.form-settings}    
+        <table class="form-table">
+            <tr>
+                <th><label for="la-url">{controls.url}: </label></th>
+                <td>
+                    {controls.la-url}
+                    <span class="description">{controls.urlWrereLaIsLcated}</span>
+                </td>            
+            </tr>           
+            <tr>
+                <th><label for="la-owner-email">{controls.username}: </label></th>
+                <td>
+                    {controls.la-owner-email}
+                    <span class="description">{controls.usernameWhichYouUsingToLogin}</span>
+                </td>            
+            </tr>
+            <tr>
+                <th><label for="la-owner-email">{controls.password}: </label></th>
+                <td>
+                    {controls.la-owner-password}
+                    <span class="description">{controls.YourPassword}</span>
+                </td>            
+            </tr>
+        </table>
+    </form>
+    <p class="submit"> 
+        <input type="submit" value="{controls.submit}" class="button-primary" id="submit" name="submit">
+    </p>
+    <a href="javascript:resetLaAccount();">{controls.resetAccount}</a>&nbsp;-&nbsp;<span class="description">{controls.resetDescription}</span>
 <!-- END: main -->

@@ -15,26 +15,25 @@ if (!class_exists('liveagent_Base')) {
         const JS_PATH = 'js/';
         const CSS_PATH = 'css/';
         
-        const ACCOUNT_STATUS_NOTSET = 'N';
-        const ACCOUNT_STATUS_SET = 'S';
-        	
+        const REMOTE_SCRIPTS_DIR = 'scripts/';
+         
         protected function _log($message) {
-            if( WP_DEBUG === true ){
-                if( is_array( $message ) || is_object( $message ) ){
-                    $message = print_r( $message, true );
-                }
-                $message = 'LiveAgent plugin log: ' . $message;
-                error_log($message);
-                echo '<div class="error" style="margin-left:0px;"><p>'.$message."</p></div>\n";
+            if( is_array( $message ) || is_object( $message ) ){
+                $message = var_export($message, true);
+            }
+            $message = LIVEAGENT_PLUGIN_NAME . ' plugin log: ' . $message;
+            error_log($message);
+            if ($this->isPluginDebugMode()) {
+                echo $message;
             }
         }
 
-        protected function isDebugMode() {
+        protected function isPluginDebugMode() {
             return defined('LIVEAGENT_DEBUG_MODE') && LIVEAGENT_DEBUG_MODE == true;
         }
 
         protected function getTemplatesPath() {
-            return WP_PLUGIN_DIR . '/' . LIVEAGENT_PLUGIN_NAME . '/' . self::TEMPLATES_PATH;
+            return WP_PLUGIN_DIR . DIRECTORY_SEPARATOR . LIVEAGENT_PLUGIN_NAME . DIRECTORY_SEPARATOR . self::TEMPLATES_PATH;
         }
 
         protected function getImgUrl() {
@@ -49,35 +48,19 @@ if (!class_exists('liveagent_Base')) {
             return WP_PLUGIN_URL . '/' . LIVEAGENT_PLUGIN_NAME . '/' . self::CSS_PATH;
         }
 
-        protected function showAdminError($error) {
-            $this->_log($error);
-        }
-
-        protected function showConnectionError() {
-            $this->showAdminError(__('Unable to connect to Live Agent. please check your connection settings', LIVEAGENT_PLUGIN_NAME));
-        }
-        
-        public function getAccountStatus() {
-            if (get_option(liveagent_Settings::ACCOUNT_STATUS) == '') {
-                return self::ACCOUNT_STATUS_NOTSET;
-            }
-            return get_option(liveagent_Settings::ACCOUNT_STATUS);
-        }
-
         public function getRemoteTrackJsUrl() {
-            return get_option(liveagent_Settings::LA_URL_SETTING_NAME) . '/scripts/trackjs.php';
+            return get_option(liveagent_Settings::LA_URL_SETTING_NAME) . '/'.self::REMOTE_SCRIPTS_DIR.'trackjs.php';
         }
 
         public function getRemotePixUrl() {
-            return get_option(liveagent_Settings::LA_URL_SETTING_NAME) . '/scripts/pix.gif';
+            return get_option(liveagent_Settings::LA_URL_SETTING_NAME) . '/'.self::REMOTE_SCRIPTS_DIR.'pix.gif';
         }
 
-        public function getRemoteApiUrl() {
-            return get_option(liveagent_Settings::LA_URL_SETTING_NAME) . '/api/index.php';
-        }
-
-        protected function isEmpty($var) {
-            return $var=== null || $var=='';
+        public function getRemoteApiUrl($url = null) {
+            if ($url === null) {
+                return get_option(liveagent_Settings::LA_URL_SETTING_NAME) . '/api/index.php';
+            }
+            return $url . '/api/index.php';
         }
     }
 }

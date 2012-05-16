@@ -1,9 +1,9 @@
 === Live Agent free chat & helpdesk===
 Contributors: jurajsim
 Tags: live chat, live agent, help desk, help desk software, live chat software, live agent software, chat, online support, support, mails, mail handler, qualityunit
-Requires at least: 3.0.0
-Tested up to: 3.3.1
-Stable tag: 2.0.1
+Requires at least: 3.0.1
+Tested up to: 3.3.2
+Stable tag: 3.0.1
 
 Wordpress LiveAgent plugin integrates well known help desk and live chat software into any Wordpress installation. No HTML knowledge is required.
 
@@ -34,7 +34,7 @@ You can find more info about Live Agent [here](href='http://www.qualityunit.com/
 
 Supported features:
 
-*	Integrates wordpress with live chat and help desk sfotware (Live Agent)
+* Integrates wordpress with live chat and help desk sfotware (Live Agent)
 * Automatic inclusion of live chat buttons in your pages, no HTML knowledge required
 
 == Installation ==
@@ -52,22 +52,32 @@ Here is the basic guide:
 == Frequently Asked Questions ==
 
 = What is Live Agent? =
-
 Live Agent is full featured help desk and live web chat software integrated into one powerful support platform.
 For more info check out [this page](href='http://www.qualityunit.com/liveagent/ "Live Agent")
+
+= Is it free? =
+Yes it is if you create account with our plugin. You'll get free account which support multiple channels (mail, chat, facebook, twitter, etc.). Only limitation is 50 chats/mails per month.
+
 
 == Screenshots ==
 
 1. Example of conversation detail in LiveAgent
 2. Example of Visitor's chat window
 3. Account settings configuration screen in Wordpress
-4. Buttons settings screen in Wordpress
-5. Account creation screen
-6. Waiting for creation screen
-7. Signup complete screen
-8. example of default chat button on page
+4. Account creation screen
+5. example of default chat button on page
 
 == Changelog ==
+
+= 3.0.1 =
+* add slovak translation
+
+= 3.0.0 =
+* use native Wordpress ui
+* user experience enhancements
+* better settings handling
+* better user privileges handling
+* internalization support
 
 = 2.0.1 =
 * readme changes only
