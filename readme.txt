@@ -17,24 +17,24 @@ Simply add "start chat" button by few simple clicks and be live within 5 minutes
 
 = Features =
 
-<b>Online Chat</b> 
+1. **Online Chat** 
 Your customers can connect with you in real time using live chat button on your website
 You can convert your visitors into customers much faster as before (studies shows average 20% increase of sales with live chat on website)
 
-2. Help Desk 
+2. **Help Desk** 
 Your customers can reach you by emails (you can scan unlimited number of mail accounts and sort emails into multiple departments)
 You can answer emails in same way as if it would be chat - customer will get immediate answers
 
-3. Offline Messages
+3. **Offline Messages**
 In case your support is not online, your customer can leave you offline message, which will be later asnwered by email
 
-4. Facebook
+4. **Facebook**
 With LiveAgent you can monitor all your Facebook fan pages and answer messages from one place. LiveAgent will turn each wall message into ticket, which could be answered by your suport team in the same way as email, chat or tweet.
 
-5. Twitter
+5. **Twitter**
 LiveAgent lets you backup all your tweets and key word mentions. You will be able to search tweets any time in the future and review complete communication with your customers in ticket timeline.
 
-6. Knowledge Base & Forum
+6. **Knowledge Base & Forum**
 LiveAgent Knowledge Base will help you to reduce customer support costs and workload while improving overall customer satisfaction. Encourage your customers to help themselves. LiveAgent will help you to deliver answers to common problems much quicker as other knowledge base softwares.
 
 It doesn't matter, if your customer will contact you by email, chat, Facebook or Twitter LiveAgent can handle all types of support channels into one hybrid communication.
@@ -44,7 +44,7 @@ You can find more info about Live Agent [here](href='http://www.qualityunit.com/
 = Promotional video =
 [vimeo http://vimeo.com/34832602]
 
-Plugin features:
+= Plugin features =
 
 * Integrates wordpress with live chat and help desk sfotware (Live Agent)
 * Automatic inclusion of live chat buttons in your pages, no HTML knowledge required
