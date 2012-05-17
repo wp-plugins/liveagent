@@ -1,6 +1,6 @@
 === Live Agent free chat & helpdesk===
 Contributors: jurajsim
-Tags: live chat, live agent, help desk, help desk software, live chat software, live agent software, chat, online support, support, mails, mail handler, qualityunit
+Tags: live chat, live agent, help desk, help desk software, live chat software, live agent software, chat, online support, support, mails, mail handler, qualityunit,twitter,facebook,social
 Requires at least: 3.0.1
 Tested up to: 3.3.2
 Stable tag: 3.0.2
