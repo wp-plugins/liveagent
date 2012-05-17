@@ -13,7 +13,7 @@ Wordpress LiveAgent plugin integrates well known help desk and live chat softwar
 Wordpress-LiveAgent free plugin integrates full featured help desk and live chat software [Live Agent](href='http://www.qualityunit.com/liveagent/#wordpress) "Live Agent software") into any Wordpress installation.
 It can provide complete customer support platform with hybrid chat and email tickets. You will have 50 chats/tickets per month for free - [read more](href='http://support.qualityunit.com/671226-Free-account-limitations' "Read more about free account limitations").
 It will be installed in our cloud. We handle backups, traffic and performance for you.
-Simply add "start chat" button by few simple clicks and be live within 5 minutes.
+Add chat button by few simple clicks and be live within 5 minutes.
 
 = Features =
 
@@ -185,10 +185,13 @@ From version 3.0.0 plugin supports translations to any language that WordPress s
 = 1.0.1 =
 * Bugfixes on plugin startup
 
-== Upgrade Notice ==
+== Arbitrary section ==
+
+Now, for html form generation purposes php libraby htmlForm from http://stefangabos.blogspot.com/ is used.
+
+If you have any thoughts how to make this plugin better, do not hasitate to leave your ideas in plugin forum, or write an email to support@qualityunit.com.
 
 = Upgrade from 1.2.X  to 2.0.X =
-
 In this upgrade there were many code and user interface changes.
 * Buttons table was removed. User now can input button code from application.
 * First enabled button code will be automatically inserted after upgrade
@@ -196,9 +199,7 @@ In this upgrade there were many code and user interface changes.
 * alax calls were fixed
 * plugin now uses WP jQuery instead of its own
 
-
-== Arbitrary section ==
-
-Now, for html form generation purposes php libraby htmlForm from http://stefangabos.blogspot.com/ is used.
-
-If you have any thoughts how to make this plugin better, do not hasitate to leave your ideas in plugin forum, or write an email to support@qualityunit.com.
+= Localizations = 
+This plugin is currently localized in the following languages:
+* Slovak (sk_SK) by Qualityunit
+* Hungarioan (hu_HU) by Qualityunit
