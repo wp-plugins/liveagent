@@ -40,8 +40,8 @@ It doesn't matter, if your customer will contact you by email, chat, Facebook or
 You can keep full history of conversations with your customers, you have full overview about the past of customer on one page.
  
 You can find more info about Live Agent [here](href='http://www.qualityunit.com/liveagent/#wordpress "Live Agent software")
-
-[vimeo http://player.vimeo.com/video/34832602?title=0&#038;byline=0&#038;portrait=0&#038;autoplay=1]
+= Promotional video =
+[vimeo http://vimeo.com/34832602]
 
 Plugin features:
 
