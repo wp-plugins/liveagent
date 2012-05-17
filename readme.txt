@@ -191,7 +191,7 @@ Now, for html form generation purposes php libraby htmlForm from http://stefanga
 
 If you have any thoughts how to make this plugin better, do not hasitate to leave your ideas in plugin forum, or write an email to support@qualityunit.com.
 
-= Upgrade from 1.2.X  to 2.0.X =
+== Upgrade from 1.2.X  to 2.0.X ==
 In this upgrade there were many code and user interface changes.
 * Buttons table was removed. User now can input button code from application.
 * First enabled button code will be automatically inserted after upgrade
@@ -199,7 +199,7 @@ In this upgrade there were many code and user interface changes.
 * alax calls were fixed
 * plugin now uses WP jQuery instead of its own
 
-= Localizations = 
+== Localizations == 
 This plugin is currently localized in the following languages:
 * Slovak (sk_SK) by Qualityunit
 * Hungarioan (hu_HU) by Qualityunit
