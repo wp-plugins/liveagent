@@ -39,6 +39,8 @@ Knowledge Base will help you to reduce customer support costs and workload while
 
 It doesn't matter, if your customer will contact you by email, chat, Facebook or Twitter LiveAgent can handle all types of support channels into one hybrid communication.
 You can keep full history of conversations with your customers, you have full overview about the past of customer on one page.
+
+*Note: You can upgrade to full version with no limitations anytime, directly from your Live Agent administration panel*
  
 = Promotional video =
 [vimeo http://vimeo.com/34832602]
