@@ -15,7 +15,7 @@ It can provide complete customer support platform with hybrid chat and email tic
 It will be installed in our cloud. We handle backups, traffic and performance for you.
 Add chat button by few simple clicks and be live within 5 minutes.
 
-= Features =
+= Live Agent Features =
 
 1. **Online Chat:** 
 Your customers can connect with you in real time using live chat button on your website
