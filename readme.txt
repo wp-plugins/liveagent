@@ -48,6 +48,7 @@ You can find more info about Live Agent [here](href='http://www.qualityunit.com/
 
 * Integrates wordpress with live chat and help desk sfotware (Live Agent)
 * Automatic inclusion of live chat buttons in your pages, no HTML knowledge required
+* Multilingual support
 
 == Installation ==
 No HTML knowledge is required and integration will take you less than 5 minutes.
@@ -81,6 +82,10 @@ From version 3.0.0 plugin supports translations to any language that WordPress s
 3. Account settings configuration screen in Wordpress
 4. Account creation screen
 5. example of default chat button on page
+6. Button code screen
+7. Agent is chatting
+8. Agent home screen
+
 
 == Changelog ==
 
