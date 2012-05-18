@@ -206,5 +206,6 @@ In this upgrade there were many code and user interface changes.
 
 == Localizations == 
 This plugin is currently localized in the following languages:
+
 * Slovak (sk_SK) by Qualityunit
 * Hungarioan (hu_HU) by Qualityunit
