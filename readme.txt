@@ -52,7 +52,7 @@ You can find more info about Live Agent [here](href='http://www.qualityunit.com/
 
 == Installation ==
 No HTML knowledge is required and integration will take you less than 5 minutes.
-You can also visit our fully described <a href='http://support.qualityunit.com/knowledgebase/live-agent/integration/wordpress-plugin.html' target='_blank' title='Installation guide'>step-by-step guide</a> on our pages.
+You can also visit our fully described <a href='http://support.qualityunit.com/140502-Overview' target='_blank' title='Installation guide'>step-by-step guide</a> on our pages.
 
 Here is the basic guide:
 1. Unzip `liveagent.zip` to the directory `/wp-content/plugins/liveagent`
