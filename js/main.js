@@ -1,7 +1,7 @@
 /*
- Plugin Name: Live Agent
+ Plugin Name: LiveAgent
  Plugin URI: http://www.qualityunit.com/liveagent
- Description: Plugin that enable integration with Live Agent
+ Description: Plugin that enable integration with LiveAgent
  Author: QualityUnit
  Version: 1.0.0
  Author URI: http://www.qualityunit.com

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: liveagent\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-17 09:34+0100\n"
-"PO-Revision-Date: 2012-05-17 09:38+0100\n"
+"POT-Creation-Date: 2012-05-18 15:32+0100\n"
+"PO-Revision-Date: 2012-05-18 15:32+0100\n"
 "Last-Translator: Juraj Simon <jsimon@qualityunit.com>\n"
 "Language-Team: Quality Unit <support@qualityunit.com>\n"
 "Language: \n"
@@ -40,12 +40,12 @@ msgstr "Biztosan törölni szeretné számláját?"
 
 #: liveagent.php:194
 #: liveagent.php:195
-msgid "Live Agent"
-msgstr "Live Agent"
+msgid "LiveAgent"
+msgstr "LiveAgent"
 
 #: Auth.class.php:21
-msgid "Unable to ping Live Agent remotelly: "
-msgstr "Nem sikerült elérni (ping-elni) Live Agent-et távúton"
+msgid "Unable to ping LiveAgent remotelly: "
+msgstr "Nem sikerült elérni (ping-elni) LiveAgent-et távúton"
 
 #: Auth.class.php:45
 msgid "Unable to login."
@@ -89,13 +89,13 @@ msgstr "Hozzon létre magának egy számlát"
 #: Form/SignupWait.class.php:35
 #: Form/Settings/ButtonCode.class.php:63
 #: Form/Settings/Account.class.php:73
-msgid "Live Agent - Free live chat and helpdesk plugin for Wordpress"
-msgstr "Live Agent - ingyenes csevegő és ügyfélszolgálati bépülő modul Wordpress számára"
+msgid "LiveAgent - Free live chat and helpdesk plugin for Wordpress"
+msgstr "LiveAgent - ingyenes csevegő és ügyfélszolgálati bépülő modul Wordpress számára"
 
 #: Form/Signup.class.php:69
 #: Form/SignupWait.class.php:36
 msgid "We want you to enjoy the full functionality of LiveAgent with the free account. It does not limit the number of agents and you have the option to activate the most of available features. The only limitation is max. 50 conversations per month"
-msgstr "Érdekünkben áll, hogy az ingyenes számlával élvezhesse a Live Agent összes kiváltságát. Az ügynökök száma korlátlan és lehetősége van a legtöbb elérhető funkció aktiválására. Egyetlen korlát: maximum 50 csevegés havonta."
+msgstr "Érdekünkben áll, hogy az ingyenes számlával élvezhesse a LiveAgent összes kiváltságát. Az ügynökök száma korlátlan és lehetősége van a legtöbb elérhető funkció aktiválására. Egyetlen korlát: maximum 50 csevegés havonta."
 
 #: Form/Signup.class.php:70
 #: Form/SignupWait.class.php:37
@@ -209,8 +209,8 @@ msgid "Button code"
 msgstr "Gomb kód"
 
 #: Form/Settings/ButtonCode.class.php:74
-msgid "Place here the code from your Live Agent admin panel"
-msgstr "Helyezze ide a Live Agent admin panelben kapott kódot"
+msgid "Place here the code from your LiveAgent admin panel"
+msgstr "Helyezze ide a LiveAgent admin panelben kapott kódot"
 
 #: Form/Settings/Account.class.php:47
 msgid "Okay, I want to"
@@ -237,12 +237,12 @@ msgid "Account settings"
 msgstr "Számla beállításai"
 
 #: Form/Settings/Account.class.php:75
-msgid "Url where your Live Agent installation is located"
-msgstr "URL mely a Live Agent telepítéshez vezet"
+msgid "Url where your LiveAgent installation is located"
+msgstr "URL mely a LiveAgent telepítéshez vezet"
 
 #: Form/Settings/Account.class.php:76
 msgid "Username which you use to login to your Live Agnet"
-msgstr "Felhasználónév melyet a Live Agent-be való bejelnetkezésre használ"
+msgstr "Felhasználónév melyet a LiveAgent-be való bejelnetkezésre használ"
 
 #: Form/Settings/Account.class.php:77
 msgid "Your password"

@@ -65,7 +65,7 @@ class liveagent_Form_Signup extends liveagent_Form_Base {
     protected function initForm() {
         $this->addTranslation('CreateYourTrialAccount', __('Create your Trial account', LIVEAGENT_PLUGIN_NAME));
         $this->addTranslation('submit', __('Create your account', LIVEAGENT_PLUGIN_NAME));
-        $this->addTranslation('LiveAgentFreeHelpdeskAndLiveChat', __('Live Agent - Free live chat and helpdesk plugin for Wordpress', LIVEAGENT_PLUGIN_NAME));
+        $this->addTranslation('LiveAgentFreeHelpdeskAndLiveChat', __('LiveAgent - Free live chat and helpdesk plugin for Wordpress', LIVEAGENT_PLUGIN_NAME));
         $this->addTranslation('LiveAgentFreeHelpdeskAndLiveChatDescription', __('We want you to enjoy the full functionality of LiveAgent with the free account. It does not limit the number of agents and you have the option to activate the most of available features. The only limitation is max. 50 conversations per month', LIVEAGENT_PLUGIN_NAME) .
                 '&nbsp;-&nbsp;<a href="http://support.qualityunit.com/671226-Free-account-limitations" target="_blank">' . __('read more', LIVEAGENT_PLUGIN_NAME) . '</a>.');
         $this->addTranslation('domainSelection', __('Domain selection', LIVEAGENT_PLUGIN_NAME));

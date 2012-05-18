@@ -60,7 +60,7 @@ class liveagent_Form_Settings_ButtonCode extends liveagent_Form_Base {
         parent::initForm();
 
         $this->addTranslation('DoYouNeedHelp', __('Do you need any help with this plugin? Feel free to ', LIVEAGENT_PLUGIN_NAME) . '<a href="http://support.qualityunit.com/submit_ticket" target="_blank">'.__('contact us', LIVEAGENT_PLUGIN_NAME).'</a>.');
-        $this->addTranslation('LiveAgentFreeHelpdeskAndLiveChat', __('Live Agent - Free live chat and helpdesk plugin for Wordpress', LIVEAGENT_PLUGIN_NAME));
+        $this->addTranslation('LiveAgentFreeHelpdeskAndLiveChat', __('LiveAgent - Free live chat and helpdesk plugin for Wordpress', LIVEAGENT_PLUGIN_NAME));
         $this->addTranslation('YourAccount',__('Your account', LIVEAGENT_PLUGIN_NAME));
         $this->addTranslation('url',__('Account url', LIVEAGENT_PLUGIN_NAME));
 
@@ -71,7 +71,7 @@ class liveagent_Form_Settings_ButtonCode extends liveagent_Form_Base {
         $this->addTextArea(liveagent_Settings::BUTTON_CODE, 50, 10, 'large-text code');
         $this->form->add('html', 'submit', __('Save', LIVEAGENT_PLUGIN_NAME));
         $this->addTranslation('buttonCode', __('Button code', LIVEAGENT_PLUGIN_NAME));
-        $this->addTranslation('PlaceHereCode', __('Place here the code from your Live Agent admin panel', LIVEAGENT_PLUGIN_NAME));
+        $this->addTranslation('PlaceHereCode', __('Place here the code from your LiveAgent admin panel', LIVEAGENT_PLUGIN_NAME));
     }
 }
 

@@ -18,7 +18,7 @@ if (!class_exists('liveagent_Auth')) {
                 $request->sendNow();
             } catch (Exception $e) {                
                 if ($supressErrors == false && $this->isPluginDebugMode()) {
-                    $this->_log(__('Unable to ping Live Agent remotelly: ', LIVEAGENT_PLUGIN_NAME) . ' ' . $e->getMessage());
+                    $this->_log(__('Unable to ping LiveAgent remotelly: ', LIVEAGENT_PLUGIN_NAME) . ' ' . $e->getMessage());
                 }
                 throw new liveagent_Exception_ConnectProblem();
             }

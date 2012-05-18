@@ -1,8 +1,8 @@
 <?php
 /*
- Plugin Name: Live Agent
+ Plugin Name: LiveAgent
 Plugin URI: http://www.qualityunit.com/liveagent
-Description: Plugin enable integration of Wordpress with Live Agent
+Description: Plugin enable integration of Wordpress with LiveAgent
 Author: QualityUnit
 Version: 3.0.2
 Author URI: http://www.qualityunit.com
@@ -191,8 +191,8 @@ if (!class_exists(LIVEAGENT_PLUGIN_NAME)) {
 
         public function addPrimaryConfigMenu() {
             $formHandler = new liveagent_Form_Handler($this->settings, $this->auth);
-            add_menu_page(__('Live Agent', LIVEAGENT_PLUGIN_NAME),
-                    __('Live Agent',LIVEAGENT_PLUGIN_NAME),
+            add_menu_page(__('LiveAgent', LIVEAGENT_PLUGIN_NAME),
+                    __('LiveAgent',LIVEAGENT_PLUGIN_NAME),
                     'manage_options',
                     liveagent_Form_Handler::TOP_LEVEL_OPTIONS_HANDLE,
                     array($formHandler, 'printPrimaryPage'),

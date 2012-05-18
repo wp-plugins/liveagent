@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: liveagent\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-16 09:30+0100\n"
-"PO-Revision-Date: 2012-05-16 09:38+0100\n"
+"POT-Creation-Date: 2012-05-18 15:32+0100\n"
+"PO-Revision-Date: 2012-05-18 15:32+0100\n"
 "Last-Translator: Juraj Simon <jsimon@qualityunit.com>\n"
 "Language-Team: \n"
 "Language: \n"
@@ -39,12 +39,12 @@ msgstr "Ste si istí, že chcete zrušiť Váš účet?"
 
 #: liveagent.php:194
 #: liveagent.php:195
-msgid "Live Agent"
-msgstr "Live Agent"
+msgid "LiveAgent"
+msgstr "LiveAgent"
 
 #: Auth.class.php:21
-msgid "Unable to ping Live Agent remotelly: "
-msgstr "Neni možné kontaktovat vydialenú inštaláciu Live Agent:"
+msgid "Unable to ping LiveAgent remotelly: "
+msgstr "Neni možné kontaktovat vydialenú inštaláciu LiveAgent:"
 
 #: Auth.class.php:45
 msgid "Unable to login."
@@ -89,8 +89,8 @@ msgstr "Vytvorte Váš účet"
 #: Form/SignupWait.class.php:35
 #: Form/Settings/ButtonCode.class.php:63
 #: Form/Settings/Account.class.php:73
-msgid "Live Agent - Free live chat and helpdesk plugin for Wordpress"
-msgstr "Live Agent - live chat a helpdesk modul pre Wordpress zadarmo"
+msgid "LiveAgent - Free live chat and helpdesk plugin for Wordpress"
+msgstr "LiveAgent - live chat a helpdesk modul pre Wordpress zadarmo"
 
 #: Form/Signup.class.php:69
 #: Form/SignupWait.class.php:36
@@ -214,8 +214,8 @@ msgid "Button code"
 msgstr "Kód tlačidla"
 
 #: Form/Settings/ButtonCode.class.php:74
-msgid "Place here the code from your Live Agent admin panel"
-msgstr "Sem vložte kód tlačidla z Vašeho Live Agent adminstrátorského panelu"
+msgid "Place here the code from your LiveAgent admin panel"
+msgstr "Sem vložte kód tlačidla z Vašeho LiveAgent adminstrátorského panelu"
 
 # Okay, I want to cancel this change
 #: Form/Settings/Account.class.php:47
@@ -244,12 +244,12 @@ msgid "Account settings"
 msgstr "Nastavenia účtu"
 
 #: Form/Settings/Account.class.php:75
-msgid "Url where your Live Agent installation is located"
-msgstr "Url adresa, na ktorej sa nachádza vaša inštalácia Live Agent"
+msgid "Url where your LiveAgent installation is located"
+msgstr "Url adresa, na ktorej sa nachádza vaša inštalácia LiveAgent"
 
 #: Form/Settings/Account.class.php:76
 msgid "Username which you use to login to your Live Agnet"
-msgstr "Prihlasovacie meno, ktoré používate na prihlásenie sa do Vašej inštalácie Live Agent"
+msgstr "Prihlasovacie meno, ktoré používate na prihlásenie sa do Vašej inštalácie LiveAgent"
 
 #: Form/Settings/Account.class.php:77
 msgid "Your password"

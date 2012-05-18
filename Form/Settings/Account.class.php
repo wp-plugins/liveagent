@@ -70,9 +70,9 @@ class liveagent_Form_Settings_Account extends liveagent_Form_Base {
         $this->addTranslation('username', __('Username', LIVEAGENT_PLUGIN_NAME));
         $this->addTranslation('password', __('Password', LIVEAGENT_PLUGIN_NAME));
         $this->addTranslation('DoYouNeedHelp', __('Do you need any help with this plugin? Feel free to ', LIVEAGENT_PLUGIN_NAME) . '<a href="http://support.qualityunit.com/submit_ticket" target="_blank">'.__('contact us', LIVEAGENT_PLUGIN_NAME).'</a>.');
-        $this->addTranslation('LiveAgentFreeHelpdeskAndLiveChat', __('Live Agent - Free live chat and helpdesk plugin for Wordpress', LIVEAGENT_PLUGIN_NAME));
+        $this->addTranslation('LiveAgentFreeHelpdeskAndLiveChat', __('LiveAgent - Free live chat and helpdesk plugin for Wordpress', LIVEAGENT_PLUGIN_NAME));
         $this->addTranslation('AccountSettings', __('Account settings', LIVEAGENT_PLUGIN_NAME));
-        $this->addTranslation('urlWrereLaIsLcated', __('Url where your Live Agent installation is located', LIVEAGENT_PLUGIN_NAME));
+        $this->addTranslation('urlWrereLaIsLcated', __('Url where your LiveAgent installation is located', LIVEAGENT_PLUGIN_NAME));
         $this->addTranslation('usernameWhichYouUsingToLogin', __('Username which you use to login to your Live Agnet', LIVEAGENT_PLUGIN_NAME));
         $this->addTranslation('YourPassword', __('Your password', LIVEAGENT_PLUGIN_NAME));
         $this->addTextBox(liveagent_Settings::LA_URL_SETTING_NAME, null, 'regular-text code');
