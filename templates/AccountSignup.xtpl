@@ -9,7 +9,7 @@
     </tr>
 </table>
 <div class="wrap">
-    <h2>{controls.CreateYourTrialAccount}</h2>
+    <h2>{controls.CreateYourFreeAccount}</h2>
     {controls.errorMessages}    
     <form method="post" action="options.php">
         {controls.form-settings}    

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: liveagent\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-18 15:32+0100\n"
-"PO-Revision-Date: 2012-05-18 15:32+0100\n"
+"POT-Creation-Date: 2012-06-01 15:58+0100\n"
+"PO-Revision-Date: 2012-06-01 15:58+0100\n"
 "Last-Translator: Juraj Simon <jsimon@qualityunit.com>\n"
 "Language-Team: \n"
 "Language: \n"
@@ -78,8 +78,8 @@ msgid "Save"
 msgstr "Ulož"
 
 #: Form/Signup.class.php:66
-msgid "Create your Trial account"
-msgstr "Vytvorte si váš trial účet"
+msgid "Create your Free account"
+msgstr "Vytvorte Váš účet"
 
 #: Form/Signup.class.php:67
 msgid "Create your account"
@@ -293,6 +293,9 @@ msgstr "Dobrý deň, moje meno je %s"
 #, php-format
 msgid "Hello %s, do you need %s?"
 msgstr "Dobrý deň %s, potrebujete %s?"
+
+#~ msgid "Create your Trial account"
+#~ msgstr "Vytvorte si váš trial účet"
 
 #~ msgid "Login to Admin panel"
 #~ msgstr "Prihlásiť sa do admin panelu"
