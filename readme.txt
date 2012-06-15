@@ -2,7 +2,7 @@
 Contributors: jurajsim
 Tags: live chat, liveagent, help desk, help desk software, live chat software, live agent software, chat, online support, support, mails, mail handler, qualityunit,twitter,facebook,social
 Requires at least: 3.0.1
-Tested up to: 3.3.2
+Tested up to: 3.4
 Stable tag: 3.0.3
 Support Link: http://support.qualityunit.com/
 
