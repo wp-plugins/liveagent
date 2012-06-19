@@ -1,6 +1,6 @@
 === LiveAgent free chat & helpdesk===
 Contributors: jurajsim
-Tags: live chat, liveagent, help desk, help desk software, live chat software, live agent software, chat, online support, support, mails, mail handler, qualityunit,twitter,facebook,social
+Tags: live chat, liveagent, help desk, help desk software, live chat software, live agent software, chat, online support, support, mails, mail handler, qualityunit, twitter, facebook, social, forum, knowledgebase, twilio, phone
 Requires at least: 3.0.1
 Tested up to: 3.4
 Stable tag: 3.0.3
@@ -9,8 +9,8 @@ Wordpress LiveAgent plugin integrates well known help desk and live chat softwar
 
 == Description ==
 
-Wordpress LiveAgent free plugin integrates full featured help desk and live chat software [LiveAgent](href='http://www.qualityunit.com/liveagent/#wordpress' "LiveAgent software") into any Wordpress installation.
-It can provide complete customer support platform with hybrid chat and email tickets. You will have 50 chats/tickets per month for free - [read more](href='http://support.qualityunit.com/671226-Free-account-limitations' "Read more about free account limitations").
+Wordpress LiveAgent free plugin integrates full featured help desk and live chat software [LiveAgent](http://www.qualityunit.com/liveagent/#wordpress) into any Wordpress installation.
+It can provide complete customer support platform with hybrid chat and email tickets. You will have 50 chats/tickets per month for free - [read more](http://support.qualityunit.com/671226-Free-account-limitations).
 It will be installed in our cloud. We handle backups, traffic and performance for you.
 Add chat button by few simple clicks and be live within 5 minutes.
 
@@ -43,7 +43,7 @@ You can keep full history of conversations with your customers, you have full ov
  
 = Promotional video =
 [vimeo http://vimeo.com/34832602]
-You can find more info about LiveAgent [here](href='http://www.qualityunit.com/liveagent/#wordpress "LiveAgent software").
+You can find more info about LiveAgent [here](http://www.qualityunit.com/liveagent/#wordpress).
 
 = Plugin features =
 
@@ -67,13 +67,13 @@ Here is the basic guide:
 
 = What is LiveAgent? =
 LiveAgent is full featured help desk and live web chat software integrated into one powerful support platform.
-For more info check out [this page](href='http://www.qualityunit.com/liveagent/ "LiveAgent")
+For more info check out [this page](http://www.qualityunit.com/liveagent/)
 
 = Is it free? =
 Yes it is if you create account with our plugin. You'll get free account which support multiple channels (mail, chat, facebook, twitter, etc.). Only limitation is 50 chats/mails per month.
 
 = Is plugin avaliable also in my language? =
-From version 3.0.0 plugin supports translations to any language that WordPress supports. So if you have time and will you can help us to improve it. [Make your own translation](href='http://support.qualityunit.com/634703-Making-custom-translation' "Custom translation") and send it to us. We add it to next plugin release. 
+From version 3.0.0 plugin supports translations to any language that WordPress supports. So if you have time and will you can help us to improve it. [Make your own translation](http://support.qualityunit.com/634703-Making-custom-translation) and send it to us. We add it to next plugin release. 
 
 
 == Screenshots ==
