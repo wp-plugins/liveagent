@@ -2,7 +2,7 @@
 Contributors: jurajsim
 Tags: live chat, liveagent, help desk, help desk software, live chat software, live agent software, chat, online support, support, mails, mail handler, qualityunit, twitter, facebook, social, forum, knowledgebase, twilio, phone
 Requires at least: 3.0.1
-Tested up to: 3.4
+Tested up to: 3.4.1
 Stable tag: 3.0.3
 
 Wordpress LiveAgent plugin integrates well known help desk and live chat software into any Wordpress installation. No HTML knowledge is required.
