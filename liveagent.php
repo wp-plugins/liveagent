@@ -4,7 +4,7 @@
 Plugin URI: http://www.qualityunit.com/liveagent
 Description: Plugin enable integration of Wordpress with LiveAgent
 Author: QualityUnit
-Version: 3.0.3
+Version: 3.0.4
 Author URI: http://www.qualityunit.com
 License: GPL2
 */
@@ -26,7 +26,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
 if (!defined('LIVEAGENT_PLUGIN_VERSION')) {
-    define('LIVEAGENT_PLUGIN_VERSION', '3.0.3');
+    define('LIVEAGENT_PLUGIN_VERSION', '3.0.4');
 }
 if (!defined('LIVEAGENT_PLUGIN_NAME')) {
     define('LIVEAGENT_PLUGIN_NAME', 'liveagent');
