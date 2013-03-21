@@ -78,14 +78,14 @@ From version 3.0.0 plugin supports translations to any language that WordPress s
 
 == Screenshots ==
 
-1. Example of conversation detail in LiveAgent
+1. Example of statistics screen in LiveAgent
 2. Example of Visitor's chat window
 3. Account settings configuration screen in Wordpress
 4. Account creation screen
 5. example of default chat button on page
 6. Button code screen
-7. Agent is chatting
-8. Agent home screen
+7. Emails window
+8. Home screen
 
 
 == Changelog ==
