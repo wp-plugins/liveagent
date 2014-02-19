@@ -1,11 +1,11 @@
-=== LiveAgent free chat & helpdesk===
+===Live Chat & Complete Helpdesk by LiveAgent===
 Contributors: jurajsim
 Tags: live chat, liveagent, help desk, help desk software, live chat software, live agent software, chat, online support, support, mails, mail handler, qualityunit, twitter, facebook, social, forum, knowledgebase, twilio, phone
 Requires at least: 3.0.1
-Tested up to: 3.4.1
-Stable tag: 3.0.3
+Tested up to: 3.8.1
+Stable tag: 3.0.9
 
-Wordpress LiveAgent plugin integrates well known help desk and live chat software into any Wordpress installation. No HTML knowledge is required.
+This Wordpress plugin integrates complete helpdesk and live chat by LiveAgent into any Wordpress installation. No HTML skills required.
 
 == Description ==
 
@@ -78,17 +78,29 @@ From version 3.0.0 plugin supports translations to any language that WordPress s
 
 == Screenshots ==
 
-1. Example of conversation detail in LiveAgent
+1. Example of statistics screen in LiveAgent
 2. Example of Visitor's chat window
 3. Account settings configuration screen in Wordpress
 4. Account creation screen
 5. example of default chat button on page
 6. Button code screen
-7. Agent is chatting
-8. Agent home screen
+7. Emails window
+8. Home screen
 
 
 == Changelog ==
+
+= 3.0.9 =
+* add compatibility for WP 3.8.1
+
+= 3.0.8 =
+* fixed some issues in code
+
+= 3.0.7 =
+* add compatibility to WordPress 3.7.1
+
+= 3.0.4 =
+* add compatibility to WordPress 3.5
 
 = 3.0.3 =
 * transaltion fixes
