@@ -54,20 +54,16 @@ class liveagent_Form_Signup extends liveagent_Form_Base {
                 }
                 $domain = substr($this->getdomainOnly(), 0, strpos($this->getdomainOnly(), '.'));
                 $domain = str_replace(array('http://', 'https://'), '', $domain);
-                $domain = preg_replace('/[^A-Za-z0-9]/', '', $domain);
-                if ($domain == '') {
-                    $domain = 'support' . time();
-                }
+                $domain = preg_replace('/[^A-Za-z0-9]/', '', $domain);                
                 return $domain;
         }
     }
 
     protected function initForm() {
-        $this->addTranslation('CreateYourFreeAccount', __('Create your Free account', LIVEAGENT_PLUGIN_NAME));
+        $this->addTranslation('CreateYourFreeAccount', __('Create your Trial account', LIVEAGENT_PLUGIN_NAME));
         $this->addTranslation('submit', __('Create your account', LIVEAGENT_PLUGIN_NAME));
-        $this->addTranslation('LiveAgentFreeHelpdeskAndLiveChat', __('LiveAgent - Free live chat and helpdesk plugin for Wordpress', LIVEAGENT_PLUGIN_NAME));
-        $this->addTranslation('LiveAgentFreeHelpdeskAndLiveChatDescription', __('We want you to enjoy the full functionality of LiveAgent with the free account. It does not limit the number of agents and you have the option to activate the most of available features. The only limitation is max. 50 conversations per month', LIVEAGENT_PLUGIN_NAME) .
-                '&nbsp;-&nbsp;<a href="http://support.qualityunit.com/671226-Free-account-limitations" target="_blank">' . __('read more', LIVEAGENT_PLUGIN_NAME) . '</a>.');
+        $this->addTranslation('LiveAgentFreeHelpdeskAndLiveChat', __('LiveAgent - Live chat and helpdesk plugin for Wordpress', LIVEAGENT_PLUGIN_NAME));
+        $this->addTranslation('LiveAgentFreeHelpdeskAndLiveChatDescription', __('We want you to enjoy the full functionality of LiveAgent with the trial account.', LIVEAGENT_PLUGIN_NAME));
         $this->addTranslation('domainSelection', __('Domain selection', LIVEAGENT_PLUGIN_NAME));
         $this->addTranslation('Email', __('Email', LIVEAGENT_PLUGIN_NAME));
         $this->addTranslation('fullName', __('Full name', LIVEAGENT_PLUGIN_NAME));

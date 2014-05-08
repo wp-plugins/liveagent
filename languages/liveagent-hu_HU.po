@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: liveagent\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-01 15:59+0100\n"
-"PO-Revision-Date: 2012-06-01 16:00+0100\n"
+"POT-Creation-Date: 2014-05-08 11:29+0100\n"
+"PO-Revision-Date: 2014-05-08 11:30+0100\n"
 "Last-Translator: Juraj Simon <jsimon@qualityunit.com>\n"
 "Language-Team: \n"
 "Language: \n"
@@ -16,29 +16,29 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: liveagent.php:53
+#: liveagent.php:36
 #, php-format
 msgid "Critical error during %s plugin load %s"
 msgstr "Kritikus hiba %s bővítmény terhelés %s"
 
-#: liveagent.php:157
+#: liveagent.php:140
 msgid "Installing"
 msgstr "Telepítek"
 
-#: liveagent.php:158
+#: liveagent.php:141
 msgid "Just a few more seconds"
 msgstr "Még néhány másodperc"
 
-#: liveagent.php:159
+#: liveagent.php:142
 msgid "Installation completed. Setting up..."
 msgstr "Telepítés befejeződött"
 
-#: liveagent.php:160
+#: liveagent.php:143
 msgid "Are you sure you want to cancel your account?"
 msgstr "Biztosan törölni szeretné számláját?"
 
-#: liveagent.php:194
-#: liveagent.php:195
+#: liveagent.php:177
+#: liveagent.php:178
 msgid "LiveAgent"
 msgstr "LiveAgent"
 
@@ -76,60 +76,56 @@ msgstr "HIBA"
 msgid "Save"
 msgstr "Mentés"
 
-#: Form/Signup.class.php:66
-msgid "Create your Free account"
-msgstr "Hozzon létre magának egy számlát"
+#: Form/Signup.class.php:63
+msgid "Create your Trial account"
+msgstr "Hozzon létre magának egy próba számlát"
 
-#: Form/Signup.class.php:67
+#: Form/Signup.class.php:64
 msgid "Create your account"
 msgstr "Hozzon létre magának egy számlát"
 
-#: Form/Signup.class.php:68
+#: Form/Signup.class.php:65
 #: Form/SignupWait.class.php:35
 #: Form/Settings/ButtonCode.class.php:63
 #: Form/Settings/Account.class.php:73
-msgid "LiveAgent - Free live chat and helpdesk plugin for Wordpress"
+#, fuzzy
+msgid "LiveAgent - Live chat and helpdesk plugin for Wordpress"
 msgstr "Live Agent - ingyenes csevegő és ügyfélszolgálati bépülő modul Wordpress számára"
 
-#: Form/Signup.class.php:69
+#: Form/Signup.class.php:66
 #: Form/SignupWait.class.php:36
-msgid "We want you to enjoy the full functionality of LiveAgent with the free account. It does not limit the number of agents and you have the option to activate the most of available features. The only limitation is max. 50 conversations per month"
-msgstr "Érdekünkben áll, hogy az ingyenes számlával élvezhesse a Live Agent összes kiváltságát. Az ügynökök száma korlátlan és lehetősége van a legtöbb elérhető funkció aktiválására. Egyetlen korlát: maximum 50 csevegés havonta."
+msgid "We want you to enjoy the full functionality of LiveAgent with the trial account."
+msgstr ""
 
-#: Form/Signup.class.php:70
-#: Form/SignupWait.class.php:37
-msgid "read more"
-msgstr "tudjon meg többet"
-
-#: Form/Signup.class.php:71
+#: Form/Signup.class.php:67
 msgid "Domain selection"
 msgstr "Domain választás"
 
-#: Form/Signup.class.php:72
+#: Form/Signup.class.php:68
 msgid "Email"
 msgstr "E-mail cím"
 
-#: Form/Signup.class.php:73
+#: Form/Signup.class.php:69
 msgid "Full name"
 msgstr "Teljes név"
 
-#: Form/Signup.class.php:74
+#: Form/Signup.class.php:70
 msgid "Your first name and last name"
 msgstr "Keresztnév és vezetéknév"
 
-#: Form/Signup.class.php:75
+#: Form/Signup.class.php:71
 msgid ".ladesk.com"
 msgstr ".ladesk.com"
 
-#: Form/Signup.class.php:76
+#: Form/Signup.class.php:72
 msgid "By creating an account I agree to"
 msgstr "Számla létrehozásávál elfogadom a"
 
-#: Form/Signup.class.php:77
+#: Form/Signup.class.php:73
 msgid "Terms & Conditions"
 msgstr "Szabályokat és Követelményeket"
 
-#: Form/Signup.class.php:78
+#: Form/Signup.class.php:74
 msgid "Skip this step, I already have an account"
 msgstr "Kihagyni ezt a lépést, már van számlám"
 
@@ -256,7 +252,8 @@ msgid "Cancel account"
 msgstr "Törölni a számlát"
 
 #: Form/Settings/Account.class.php:83
-msgid "this will clear all your existing account settings and offer you to create a new free account"
+#, fuzzy
+msgid "this will clear all your existing account settings and offer you to create a new trial account"
 msgstr "ez törli az összes létezo számla beállítást és lehetoséget ad új ingyenes számlát létrehozni"
 
 #: Form/Validator/Signup.class.php:15
@@ -284,8 +281,22 @@ msgstr "Heló, a nevem %s"
 msgid "Hello %s, do you need %s?"
 msgstr "Heló %s, szükséged van %s ?"
 
-#~ msgid "Create your Trial account"
-#~ msgstr "Hozzon létre magának egy próba számlát"
+#~ msgid "Create your Free account"
+#~ msgstr "Hozzon létre magának egy számlát"
+
+#~ msgid ""
+#~ "We want you to enjoy the full functionality of LiveAgent with the free "
+#~ "account. It does not limit the number of agents and you have the option "
+#~ "to activate the most of available features. The only limitation is max. "
+#~ "50 conversations per month"
+#~ msgstr ""
+#~ "Érdekünkben áll, hogy az ingyenes számlával élvezhesse a Live Agent "
+#~ "összes kiváltságát. Az ügynökök száma korlátlan és lehetősége van a "
+#~ "legtöbb elérhető funkció aktiválására. Egyetlen korlát: maximum 50 "
+#~ "csevegés havonta."
+
+#~ msgid "read more"
+#~ msgstr "tudjon meg többet"
 
 #~ msgid "Login to Admin panel"
 #~ msgstr "Bejelentkezés az Adminisztrátor panelbe"

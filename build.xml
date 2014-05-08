@@ -3,8 +3,11 @@
 	<description>
         deploy plugin to wordpress
     </description>
-	<property name="wordpressPath" value="/home/juraj/work/www/wp332" />
-	<target name="deploy">
+	<property name="wordpressPath" value="/home/juraj/work/www/wp381" />
+	<target name="compile">
+		
+	</target>
+	<target name="deploy" depends="compile">
 		<copy todir="${wordpressPath}/wp-content/plugins/liveagent" overwrite="on">
 			<fileset dir="${basedir}">
 				<include name="**" />

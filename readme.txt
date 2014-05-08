@@ -1,31 +1,32 @@
-===Live Chat & Complete Helpdesk by LiveAgent===
+===LiveAgent - Live chat & Helpdesk===
 Contributors: jurajsim
-Tags: live chat, liveagent, help desk, help desk software, live chat software, live agent software, chat, online support, support, mails, mail handler, qualityunit, twitter, facebook, social, forum, knowledgebase, twilio, phone
+Tags: Chat, Facebook, forum, help desk, help desk software, knowledgebase, live agent software, live chat, live chat software, liveagent, mail handler, mails, online support, phone, qualityunit, social, support, twilio, twitter, liveagent, online chat, qualityunit, zopim 
 Requires at least: 3.0.1
 Tested up to: 3.8.1
-Stable tag: 3.0.9
+Stable tag: 4.0.0
+License: GPL3 - http://gplv3.fsf.org/
 
-This Wordpress plugin integrates complete helpdesk and live chat by LiveAgent into any Wordpress installation. No HTML skills required.
+LiveAgent is the most affordable WordPress live chat, help desk, voice chat & social desk for your website.
 
 == Description ==
 
-Wordpress LiveAgent free plugin integrates full featured help desk and live chat software [LiveAgent](http://www.qualityunit.com/liveagent/#wordpress) into any Wordpress installation.
-It can provide complete customer support platform with hybrid chat and email tickets. You will have 50 chats/tickets per month for free - [read more](http://support.qualityunit.com/671226-Free-account-limitations).
-It will be installed in our cloud. We handle backups, traffic and performance for you.
-Add chat button by few simple clicks and be live within 5 minutes.
+Do you want to engage and live chat with your website visitors? Do you want to handle email tickets, answer voice chats, Tweet or Facebook chat, create and manage knowledge base from the same enviroment ? With LiveAgent Live Chat & Helpdesk, you are just a click away !
+LiveAgent is a powerful "all-in-one" customer support platform used by small(one-man) and medium sized websites in more than 50 countries and in 27 language mutations. Installation is fast and easy and no HTML skills are required.
+
+= What is LiveAgent in 1 Minute =
+[vimeo http://vimeo.com/34832602]
+You can find more info about LiveAgent [here](http://www.qualityunit.com/liveagent/#wordpress).
 
 = LiveAgent Features =
 
 1. **Online Chat:** 
-Your customers can connect with you in real time using live chat button on your website
-You can convert your visitors into customers much faster as before (studies shows average 20% increase of sales with live chat on website)
+Your customers can connect with you in real time using live chat button on your website You can convert your visitors into customers much faster as before (studies shows average 20% increase of sales with live chat on website).
 
 2. **Help Desk:** 
-Your customers can reach you by emails (you can scan unlimited number of mail accounts and sort emails into multiple departments)
-You can answer emails in same way as if it would be chat - customer will get immediate answers
+Your customers can reach you by emails (you can scan unlimited number of mail accounts and sort emails into multiple departments) You can answer emails in same way as if it would be chat - customer will get immediate answers.
 
 3. **Offline Messages:**
-In case your support is not online, your customer can leave you offline message, which will be later asnwered by email
+In case your support is not online, your customer can leave you offline message, which will be later asnwered by email.
 
 4. **Facebook:**
 You can monitor all your Facebook fan pages and answer messages from one place. LiveAgent will turn each wall message into ticket, which could be answered by your suport team in the same way as email, chat or tweet.
@@ -36,15 +37,8 @@ Backup all your tweets and key word mentions. You will be able to search tweets 
 6. **Knowledge Base & Forum:**
 Knowledge Base will help you to reduce customer support costs and workload while improving overall customer satisfaction. Encourage your customers to help themselves. LiveAgent will help you to deliver answers to common problems much quicker as other knowledge base softwares.
 
-It doesn't matter, if your customer will contact you by email, chat, Facebook or Twitter LiveAgent can handle all types of support channels into one hybrid communication.
-You can keep full history of conversations with your customers, you have full overview about the past of customer on one page.
-
-*Note: You can upgrade to full version with no limitations anytime, directly from your LiveAgent administration panel*
+You can keep full history of conversations with your customers and you have full overview of interactions on one page.
  
-= Promotional video =
-[vimeo http://vimeo.com/34832602]
-You can find more info about LiveAgent [here](http://www.qualityunit.com/liveagent/#wordpress).
-
 = Plugin features =
 
 * Integrates wordpress with live chat and help desk sfotware (LiveAgent)
@@ -58,7 +52,7 @@ You can also visit our fully described <a href='http://support.qualityunit.com/1
 Here is the basic guide:
 1. Unzip `liveagent.zip` to the directory `/wp-content/plugins/liveagent`
 2. Activate LiveAgent plugin
-3. Create Free trial account or install LiveAgent on your own server
+3. Create trial account or install LiveAgent on your own server
 4. Set account user credentials in menu "LiveAgent"
 5. Go to menu LiveAgent -> Buttons. Choose button you like to have online on your website and click Save.
 6. Go to LiveAgent admin panel and start answering chats and emails of your visitors. 
@@ -68,9 +62,6 @@ Here is the basic guide:
 = What is LiveAgent? =
 LiveAgent is full featured help desk and live web chat software integrated into one powerful support platform.
 For more info check out [this page](http://www.qualityunit.com/liveagent/)
-
-= Is it free? =
-Yes it is if you create account with our plugin. You'll get free account which support multiple channels (mail, chat, facebook, twitter, etc.). Only limitation is 50 chats/mails per month.
 
 = Is plugin avaliable also in my language? =
 From version 3.0.0 plugin supports translations to any language that WordPress supports. So if you have time and will you can help us to improve it. [Make your own translation](http://support.qualityunit.com/634703-Making-custom-translation) and send it to us. We add it to next plugin release. 
@@ -89,6 +80,10 @@ From version 3.0.0 plugin supports translations to any language that WordPress s
 
 
 == Changelog ==
+
+= 4.0.0 =
+* do not allow automatic domain suggestion if automatic detection fails
+* every new account on ladesk.com domain is now 14 days trial
 
 = 3.0.9 =
 * add compatibility for WP 3.8.1
@@ -207,19 +202,17 @@ From version 3.0.0 plugin supports translations to any language that WordPress s
 = 1.0.1 =
 * Bugfixes on plugin startup
 
+= 1.0.0 =
+* first release
+
 == Arbitrary section ==
 
 Now, for html form generation purposes php libraby htmlForm from http://stefangabos.blogspot.com/ is used.
 
 If you have any thoughts how to make this plugin better, do not hasitate to leave your ideas in plugin forum, or write an email to support@qualityunit.com.
 
-== Upgrade from 1.2.X  to 2.0.X ==
-In this upgrade there were many code and user interface changes.
-* Buttons table was removed. User now can input button code from application.
-* First enabled button code will be automatically inserted after upgrade
-* widgets were removed completely (they will be added later)
-* alax calls were fixed
-* plugin now uses WP jQuery instead of its own
+== Upgrade Notice ==
+**Upgrade from 1.2.X  to 2.0.X:** Buttons table was removed. User now can input button code from application. First enabled button code will be automatically inserted after upgrade. Widgets were removed completely (they will be added later). Ajax calls were fixed. Plugin now uses WP jQuery instead of its own.
 
 == Localizations == 
 This plugin is currently localized in the following languages:
