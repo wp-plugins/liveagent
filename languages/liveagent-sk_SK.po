@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: liveagent\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-08 11:30+0100\n"
-"PO-Revision-Date: 2014-05-08 11:33+0100\n"
+"POT-Creation-Date: 2014-05-08 12:08+0100\n"
+"PO-Revision-Date: 2014-05-08 12:09+0100\n"
 "Last-Translator: Juraj Simon <jsimon@qualityunit.com>\n"
 "Language-Team: \n"
 "Language: \n"
@@ -134,8 +134,8 @@ msgid "Account installation"
 msgstr "Inštalácia účtu"
 
 #: Form/SignupWait.class.php:32
-msgid "Your account will be online within the next few seconds. In the meantime, you should recieve a confirmation email including your account credentials."
-msgstr "Váš účet bude dostupný za niekoľko sekúnd. Zároveň obdržíte email s Vašimi prihlasovacími údajmi."
+msgid "Your account will be online within the next few minutes. In the meantime, you should recieve a confirmation email including your account credentials."
+msgstr "Váš účet bude dostupný za niekoľko minút. Zároveň obdržíte email s Vašimi prihlasovacími údajmi."
 
 # Note: Sometimes the process account creation may take a bit longer
 #: Form/SignupWait.class.php:33
@@ -255,9 +255,8 @@ msgid "Cancel account"
 msgstr "Zrušiť účet"
 
 #: Form/Settings/Account.class.php:83
-#, fuzzy
 msgid "this will clear all your existing account settings and offer you to create a new trial account"
-msgstr "táto akcia vymaše všetky Vaše nastavenia, a budete si môcť vytvoriť nový účet"
+msgstr "táto akcia vymaže všetky Vaše nastavenia, a budete si môcť vytvoriť nový účet"
 
 #: Form/Validator/Signup.class.php:15
 #: Form/Validator/Account.class.php:15

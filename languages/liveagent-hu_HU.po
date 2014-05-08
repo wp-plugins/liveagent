@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: liveagent\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-08 11:29+0100\n"
-"PO-Revision-Date: 2014-05-08 11:30+0100\n"
+"POT-Creation-Date: 2014-05-08 12:06+0100\n"
+"PO-Revision-Date: 2014-05-08 12:08+0100\n"
 "Last-Translator: Juraj Simon <jsimon@qualityunit.com>\n"
 "Language-Team: \n"
 "Language: \n"
@@ -95,7 +95,7 @@ msgstr "Live Agent - ingyenes csevegő és ügyfélszolgálati bépülő modul W
 #: Form/Signup.class.php:66
 #: Form/SignupWait.class.php:36
 msgid "We want you to enjoy the full functionality of LiveAgent with the trial account."
-msgstr ""
+msgstr "We want you to enjoy the full functionality of LiveAgent with the trial account."
 
 #: Form/Signup.class.php:67
 msgid "Domain selection"
@@ -134,8 +134,8 @@ msgid "Account installation"
 msgstr "Számla telepítése"
 
 #: Form/SignupWait.class.php:32
-msgid "Your account will be online within the next few seconds. In the meantime, you should recieve a confirmation email including your account credentials."
-msgstr "Az Ön számlája pár másodpercen elérhető lesz. Közben kellene kapnia egy értesítő elektronikus üzenetet, mely tartalmazza a bejelentkezési adatokat."
+msgid "Your account will be online within the next few minutes. In the meantime, you should recieve a confirmation email including your account credentials."
+msgstr "Az Ön számlája pár percen elérhető lesz. Közben kellene kapnia egy értesítő elektronikus üzenetet, mely tartalmazza a bejelentkezési adatokat."
 
 #: Form/SignupWait.class.php:33
 msgid "Note: Sometimes the process account creation may take"

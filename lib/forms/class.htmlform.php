@@ -242,7 +242,7 @@ class HTMLForm
             $arguments = $this->getStrArgs(func_get_args(), 1);
             
             // creates the new object with the given arguments
-            eval("\$obj = & new \$className(" . $arguments . ");");
+            eval("\$obj = new \$className(" . $arguments . ");");
 
             // if the newly created object is a CAPTCHA control
             if ($className == 'htmlform_captcha') {

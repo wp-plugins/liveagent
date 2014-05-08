@@ -29,7 +29,7 @@ class liveagent_Form_SignupWait extends liveagent_Form_Base {
 
     protected function initForm() {        
         $this->addTranslation('Installing', __('Account installation', LIVEAGENT_PLUGIN_NAME));
-        $this->addTranslation('YourAccountWillBeOnline', __('Your account will be online within the next few seconds. In the meantime, you should recieve a confirmation email including your account credentials.', LIVEAGENT_PLUGIN_NAME));
+        $this->addTranslation('YourAccountWillBeOnline', __('Your account will be online within the next few minutes. In the meantime, you should recieve a confirmation email including your account credentials.', LIVEAGENT_PLUGIN_NAME));
         $this->addTranslation('NoteSometimesAccount', __('Note: Sometimes the process account creation may take', LIVEAGENT_PLUGIN_NAME) . '&nbsp;<a href="http://support.qualityunit.com/knowledgebase/live-agent/wordpress-plugin/frequently-asked-questions.html" target="_blank">'.__('a bit longer', LIVEAGENT_PLUGIN_NAME).'</a>');
         $this->addTranslation('initializing', __('Initializing...', LIVEAGENT_PLUGIN_NAME));
         $this->addTranslation('LiveAgentFreeHelpdeskAndLiveChat', __('LiveAgent - Live chat and helpdesk plugin for Wordpress', LIVEAGENT_PLUGIN_NAME));
