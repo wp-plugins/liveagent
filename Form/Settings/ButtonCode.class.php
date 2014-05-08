@@ -60,7 +60,7 @@ class liveagent_Form_Settings_ButtonCode extends liveagent_Form_Base {
         parent::initForm();
 
         $this->addTranslation('DoYouNeedHelp', __('Do you need any help with this plugin? Feel free to ', LIVEAGENT_PLUGIN_NAME) . '<a href="http://support.qualityunit.com/submit_ticket" target="_blank">'.__('contact us', LIVEAGENT_PLUGIN_NAME).'</a>.');
-        $this->addTranslation('LiveAgentFreeHelpdeskAndLiveChat', __('LiveAgent - Free live chat and helpdesk plugin for Wordpress', LIVEAGENT_PLUGIN_NAME));
+        $this->addTranslation('LiveAgentFreeHelpdeskAndLiveChat', __('LiveAgent - Live chat and helpdesk plugin for Wordpress', LIVEAGENT_PLUGIN_NAME));
         $this->addTranslation('YourAccount',__('Your account', LIVEAGENT_PLUGIN_NAME));
         $this->addTranslation('url',__('Account url', LIVEAGENT_PLUGIN_NAME));
 

@@ -32,9 +32,8 @@ class liveagent_Form_SignupWait extends liveagent_Form_Base {
         $this->addTranslation('YourAccountWillBeOnline', __('Your account will be online within the next few seconds. In the meantime, you should recieve a confirmation email including your account credentials.', LIVEAGENT_PLUGIN_NAME));
         $this->addTranslation('NoteSometimesAccount', __('Note: Sometimes the process account creation may take', LIVEAGENT_PLUGIN_NAME) . '&nbsp;<a href="http://support.qualityunit.com/knowledgebase/live-agent/wordpress-plugin/frequently-asked-questions.html" target="_blank">'.__('a bit longer', LIVEAGENT_PLUGIN_NAME).'</a>');
         $this->addTranslation('initializing', __('Initializing...', LIVEAGENT_PLUGIN_NAME));
-        $this->addTranslation('LiveAgentFreeHelpdeskAndLiveChat', __('LiveAgent - Free live chat and helpdesk plugin for Wordpress', LIVEAGENT_PLUGIN_NAME));
-        $this->addTranslation('LiveAgentFreeHelpdeskAndLiveChatDescription', __('We want you to enjoy the full functionality of LiveAgent with the free account. It does not limit the number of agents and you have the option to activate the most of available features. The only limitation is max. 50 conversations per month', LIVEAGENT_PLUGIN_NAME) .
-                '&nbsp;-&nbsp;<a href="http://www.google.com" target="_blank">' . __('read more', LIVEAGENT_PLUGIN_NAME) . '</a>.');
+        $this->addTranslation('LiveAgentFreeHelpdeskAndLiveChat', __('LiveAgent - Live chat and helpdesk plugin for Wordpress', LIVEAGENT_PLUGIN_NAME));
+        $this->addTranslation('LiveAgentFreeHelpdeskAndLiveChatDescription', __('We want you to enjoy the full functionality of LiveAgent with the trial account.'));
     }
     
     public function render($toVar = false) {

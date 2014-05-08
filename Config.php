@@ -16,4 +16,7 @@
 if (!defined('LIVEAGENT_DEBUG_MODE')) {
     define('LIVEAGENT_DEBUG_MODE', false);
 }
+if (!defined('LIVEAGENT_TEST_MODE')) {
+	define('LIVEAGENT_TEST_MODE', false);
+}
 ?>
