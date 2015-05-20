@@ -10,36 +10,11 @@
 </table>
 <div class="wrap">
     <h2>{controls.CreateYourFreeAccount}</h2>
-    {controls.errorMessages}    
-    <form method="post" action="options.php">
-        {controls.form-settings}    
-        <table class="form-table">
-            <tr>
-                <th><label for="la-full-name">{controls.fullName}</label></th>
-                <td>
-                    {controls.la-full-name}
-                    <span class="description">{controls.yourFirstNameAndLastName}</span>
-                </td>            
-            </tr>
-            <tr>
-                <th><label for="la-owner-email">{controls.Email}</label></th>
-                <td>
-                    {controls.la-owner-email}                
-                </td>            
-            </tr>
-            <tr>
-                <th><label for="la-url">{controls.domainSelection}</label></th>
-                <td>
-                    {controls.la-url}
-                    <span class="description">{controls.ladeskCom}</span>                
-                </td>            
-            </tr>
-        </table>
-    </form>
-    <br/>
-    <p>{controls.iAgreeWith} <a href="http://www.qualityunit.com/liveagent/pricing/hosted/terms-and-conditions" target="_blank">{controls.TermsAndConditions}</a></p>
-    <p class="submit"> 
-        <input type="submit" value="{controls.submit}" class="button-primary" id="submit" name="submit">
+    <p class="submit">
+        <a href="https://www.ladesk.com/" target="_blank"> 
+            <input type="button" value="{controls.submit}" class="button-primary" id="submit" name="button" />
+        </a>
     </p>
-    <a href="{controls.skipCreateUrl}">{controls.SkipThisStepIHaveAccount}</a>    
+    <a href="{controls.skipCreateUrl}">{controls.SkipThisStepIHaveAccount}</a>
+</div>
 <!-- END: main -->

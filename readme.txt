@@ -2,8 +2,8 @@
 Contributors: jurajsim
 Tags: Chat, Facebook, forum, help desk, help desk software, knowledgebase, live agent software, live chat, live chat software, liveagent, mail handler, mails, online support, phone, qualityunit, social, support, twilio, twitter, liveagent, online chat, qualityunit, zopim 
 Requires at least: 3.0.1
-Tested up to: 3.8.1
-Stable tag: 4.0.1
+Tested up to: 4.2.2
+Stable tag: 4.0.2
 License: GPL3 - http://gplv3.fsf.org/
 
 LiveAgent is the most affordable WordPress live chat, help desk, voice chat & social desk for your website.
@@ -80,6 +80,10 @@ From version 3.0.0 plugin supports translations to any language that WordPress s
 
 
 == Changelog ==
+
+= 4.0.2 =
+* tested on WP 4.2.2
+* signup now points to default LiveAgent signup location
 
 = 4.0.1 =
 * remove deprecated code

@@ -59,7 +59,7 @@ class liveagent_Form_Settings_ButtonCode extends liveagent_Form_Base {
     protected function initForm() {
         parent::initForm();
 
-        $this->addTranslation('DoYouNeedHelp', __('Do you need any help with this plugin? Feel free to ', LIVEAGENT_PLUGIN_NAME) . '<a href="http://support.qualityunit.com/submit_ticket" target="_blank">'.__('contact us', LIVEAGENT_PLUGIN_NAME).'</a>.');
+        $this->addTranslation('DoYouNeedHelp', __('Do you need any help with this plugin? Feel free to ', LIVEAGENT_PLUGIN_NAME) . '<a href="http://support.ladesk.com/submit_ticket" target="_blank">'.__('contact us', LIVEAGENT_PLUGIN_NAME).'</a>.');
         $this->addTranslation('LiveAgentFreeHelpdeskAndLiveChat', __('LiveAgent - Live chat and helpdesk plugin for Wordpress', LIVEAGENT_PLUGIN_NAME));
         $this->addTranslation('YourAccount',__('Your account', LIVEAGENT_PLUGIN_NAME));
         $this->addTranslation('url',__('Account url', LIVEAGENT_PLUGIN_NAME));
@@ -67,7 +67,7 @@ class liveagent_Form_Settings_ButtonCode extends liveagent_Form_Base {
         $this->addHtml(liveagent_Settings::LA_URL_SETTING_NAME, $this->settings->getLiveAgentUrl());
         $this->addLink('loginLink', __('login', LIVEAGENT_PLUGIN_NAME), $this->getLoginLink());
         $this->addHtml('changeLink', __('change', LIVEAGENT_PLUGIN_NAME));
-        $this->addHtml('changeLinkUrl', admin_url('admin.php?page=' . liveagent_Form_Handler::TOP_LEVEL_OPTIONS_HANDLE . '&ac=' . liveagent_Settings::ACTION_CHANGE_ACCOUNT));        
+        $this->addHtml('changeLinkUrl', admin_url('admin.php?page=' . liveagent_Form_Handler::TOP_LEVEL_OPTIONS_HANDLE . '&ac=' . liveagent_Settings::ACTION_CHANGE_ACCOUNT));
         $this->addTextArea(liveagent_Settings::BUTTON_CODE, 50, 10, 'large-text code');
         $this->form->add('html', 'submit', __('Save', LIVEAGENT_PLUGIN_NAME));
         $this->addTranslation('buttonCode', __('Button code', LIVEAGENT_PLUGIN_NAME));
